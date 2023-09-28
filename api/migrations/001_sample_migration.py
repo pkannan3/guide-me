@@ -1,8 +1,9 @@
 steps = [
     [
         # "Up" SQL statement
+        # id, first_name, last_name, username, password, confirm_password, email
         """
-        CREATE TABLE dummy (
+        CREATE TABLE authentication (
             id SERIAL PRIMARY KEY NOT NULL,
             required_limited_text VARCHAR(1000) NOT NULL,
             required_unlimited_text TEXT NOT NULL,
@@ -19,8 +20,9 @@ steps = [
     ],
     [
         # "Up" SQL statement
+        # start_date, end_date, time, expense, expense_date, category
         """
-        CREATE TABLE big_dummy (
+        CREATE TABLE trips (
             id SERIAL PRIMARY KEY NOT NULL,
             required_limited_text VARCHAR(1000) NOT NULL,
             required_unlimited_text TEXT NOT NULL,
