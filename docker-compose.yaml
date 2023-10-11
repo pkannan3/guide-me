@@ -6,7 +6,11 @@ volumes:
 services:
   fastapi:
     environment:
+      SIGNING_KEY: "GuideMeSecureSigninKey"
       CORS_HOST: http://localhost:3000
+      ALGORITHM: HS256
+      WAIT_BEFORE: 5
+      WAIT_TIMEOUT: 60
       DATABASE_URL: postgresql://guideme:secret@postgres/guideme_db
     build:
       context: api

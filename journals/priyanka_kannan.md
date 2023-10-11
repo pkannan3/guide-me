@@ -14,3 +14,18 @@ Ah-ha!:
 * Found a good fit API.
 
  -->
+
+<!--
+October 9, 2023
+
+As a team we completed:
+* Created PostgreSQL 'authentication' database
+* Created route for user 'registeration'
+* Created BaseModels
+* Created repository for registered accounts
+
+Ah-ha!:
+* Curtis's FastAPI videos finally clicked.
+* Figured out how to re-migrate after making changes to database.
+
+ -->
