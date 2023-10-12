@@ -25,12 +25,10 @@ steps = [
         # start_date, end_date, time, expense, expense_date, category
         """
         CREATE TABLE trips (
-            id SERIAL PRIMARY KEY NOT NULL,
+            trip_id SERIAL PRIMARY KEY NOT NULL,
             trip_name VARCHAR(100) NOT NULL,
-            start_location VARCHAR(100) NOT NULL,
-            end_location VARCHAR(100) NOT NULL,
-            start_date_time TIMESTAMP NOT NULL,
-            end_date_time TIMESTAMP NOT NULL
+            start_date DATE NOT NULL,
+            end_date DATE NOT NULL
         );
         """,
         # "Down" SQL statement
