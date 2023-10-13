@@ -35,5 +35,22 @@ steps = [
         """
         DROP TABLE trips;
         """
+    ],
+    [
+        # "Up" SQL statement
+        #
+        """
+        CREATE TABLE itinerary (
+            location_id SERIAL PRIMARY KEY NOT NULL,
+            location_name VARCHAR(100) NOT NULL,
+            visit_date DATE NOT NULL,
+            start_time TIME NOT NULL
+        );
+        """,
+        # "Down" SQL statement
+        """
+        DROP TABLE itinerary;
+        """
     ]
+
 ]
