@@ -18,7 +18,7 @@ steps = [
         """
         """
         GRANT ALL ON DATABASE mydb TO admin;
-        """
+        """,
     ],
     [
         # "Up" SQL statement
@@ -30,13 +30,12 @@ steps = [
             start_date DATE NOT NULL,
             end_date DATE NOT NULL,
             auth_id INTEGER REFERENCES authentication ON DELETE CASCADE
-
         );
         """,
         # "Down" SQL statement
         """
         DROP TABLE trips;
-        """
+        """,
     ],
     [
         # "Up" SQL statement
@@ -46,13 +45,14 @@ steps = [
             location_id SERIAL PRIMARY KEY NOT NULL,
             location_name VARCHAR(100) NOT NULL,
             visit_date DATE NOT NULL,
-            start_time TIME NOT NULL
+            start_time TIME NOT NULL,
+            trip_id INTEGER REFERENCES trips ON DELETE CASCADE
         );
         """,
         # "Down" SQL statement
         """
         DROP TABLE itinerary;
-        """
+        """,
     ],
     [
         # "Up" SQL statement
@@ -63,24 +63,13 @@ steps = [
             expense_name VARCHAR(100) NOT NULL,
             cost FLOAT NOT NULL,
             category VARCHAR(100) NOT NULL,
-            total FLOAT DEFAULT 0.00
+            total FLOAT DEFAULT 0.00,
+            trip_id INTEGER REFERENCES trips ON DELETE CASCADE
         );
         """,
         # "Down" SQL statement
         """
         DROP TABLE budget;
-        """
-    ],
-    [
-        """
-        CREATE TABLE IF NOT EXISTS category (
-            category_id SERIAL PRIMARY KEY NOT NULL,
-            category_name VARCHAR(100) NOT NULL
-        );
         """,
-        # "Down" SQL statement
-        """
-        DROP TABLE category;
-        """
-    ]
+    ],
 ]
