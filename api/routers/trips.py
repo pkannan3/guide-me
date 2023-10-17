@@ -1,6 +1,5 @@
-from fastapi import APIRouter, Depends, Response, HTTPException
+from fastapi import APIRouter, Depends, Response
 from typing import Optional, List, Union
-from pydantic import BaseModel
 from queries.trips import (
     Error,
     TripsIn,
