@@ -4,7 +4,7 @@ steps = [
         # Signup and Login
         # id, first_name, username, password, confirm_password, unique_email
         """
-        CREATE TABLE authentication (
+        CREATE TABLE IF NOT EXISTS authentication (
             id SERIAL PRIMARY KEY,
             first_name VARCHAR(30),
             username VARCHAR(150) UNIQUE,
@@ -24,11 +24,13 @@ steps = [
         # "Up" SQL statement
         # start_date, end_date, time, expense, expense_date, category
         """
-        CREATE TABLE trips (
+        CREATE TABLE IF NOT EXISTS trips (
             trip_id SERIAL PRIMARY KEY NOT NULL,
             trip_name VARCHAR(100) NOT NULL,
             start_date DATE NOT NULL,
-            end_date DATE NOT NULL
+            end_date DATE NOT NULL,
+            auth_id INTEGER REFERENCES authentication ON DELETE CASCADE
+
         );
         """,
         # "Down" SQL statement
@@ -40,7 +42,7 @@ steps = [
         # "Up" SQL statement
         #
         """
-        CREATE TABLE itinerary (
+        CREATE TABLE IF NOT EXISTS itinerary (
             location_id SERIAL PRIMARY KEY NOT NULL,
             location_name VARCHAR(100) NOT NULL,
             visit_date DATE NOT NULL,
@@ -51,6 +53,34 @@ steps = [
         """
         DROP TABLE itinerary;
         """
+    ],
+    [
+        # "Up" SQL statement
+        #
+        """
+        CREATE TABLE IF NOT EXISTS budget (
+            expense_id SERIAL PRIMARY KEY NOT NULL,
+            expense_name VARCHAR(100) NOT NULL,
+            cost FLOAT NOT NULL,
+            category VARCHAR(100) NOT NULL,
+            total FLOAT DEFAULT 0.00
+        );
+        """,
+        # "Down" SQL statement
+        """
+        DROP TABLE budget;
+        """
+    ],
+    [
+        """
+        CREATE TABLE IF NOT EXISTS category (
+            category_id SERIAL PRIMARY KEY NOT NULL,
+            category_name VARCHAR(100) NOT NULL
+        );
+        """,
+        # "Down" SQL statement
+        """
+        DROP TABLE category;
+        """
     ]
-
 ]
