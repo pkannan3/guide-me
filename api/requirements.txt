@@ -60,3 +60,4 @@ uvicorn==0.23.2
 virtualenv==20.23.0
 virtualenv-clone==0.5.7
 wcwidth==0.2.6
+httpx==0.25.0
