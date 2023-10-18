@@ -1,21 +1,13 @@
 from fastapi import APIRouter, Depends, Response
 from typing import Optional, List, Union
-from queries.trips import (
-    Error,
-    TripsIn,
-    TripsOut,
-    TripsQueries
-)
+from queries.trips import Error, TripsIn, TripsOut, TripsQueries
 
 
 router = APIRouter()
 
 
 @router.post("/trips/create", response_model=Union[TripsOut, Error])
-def create_one_trip(
-    trips: TripsIn,
-    repo: TripsQueries = Depends()
-):
+def create_one_trip(trips: TripsIn, repo: TripsQueries = Depends()):
     return repo.create_one_trip(trips)
 
 
