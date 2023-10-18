@@ -26,7 +26,9 @@ class AccountOutWithPassword(AccountOut):
 
 
 class AccountQueries:
-    def get_one_account(self, username: str) -> Optional[AccountOutWithPassword]:
+    def get_one_account(
+        self, username: str
+    ) -> Optional[AccountOutWithPassword]:
         print("here in get): " + username)
         with pool.connection() as conn:
             with conn.cursor() as db:
@@ -42,29 +44,36 @@ class AccountQueries:
                     record = db.fetchone()
                     if record is None:
                         return None
-                    return AccountOutWithPassword(id=record[0], first_name=record[1], username=record[2],
-                                        hashed_password=record[3], email=record[4])
+                    return AccountOutWithPassword(
+                        id=record[0],
+                        first_name=record[1],
+                        username=record[2],
+                        hashed_password=record[3],
+                        email=record[4],
+                    )
                 except Exception:
                     print("exception")
                     return {
                         "message": "Could not get account record for this account username"
                     }
 
-    def create_account(self, register, hashed_password: str) -> AccountOutWithPassword:
+    def create_account(
+        self, register, hashed_password: str
+    ) -> AccountOutWithPassword:
         with pool.connection() as conn:
             with conn.cursor() as db:
                 params = [
                     register.first_name,
                     register.username,
                     register.email,
-                    hashed_password
+                    hashed_password,
                 ]
                 db.execute(
                     """
                     INSERT INTO authentication
                     (
-                        username,
                         first_name,
+                        username,
                         email,
                         hashed_password
                     )
