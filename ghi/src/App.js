@@ -1,43 +1,26 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Construct from "./Construct.js";
-import ErrorNotification from "./ErrorNotification";
+// import Construct from "./Construct.js";
+// import ErrorNotification from "./ErrorNotification";
 import "./App.css";
 import SignupForm from "./Accounts/signup.js";
 import LoginForm from './Accounts/login.js';
+import Header from "./Header.js";
+import LandingPage from './Home/LandingPage.js';
+import ItineraryList from './Itinerary/itinerary.js';
+// import ItineraryPage from './Itinerary/ItineraryPage.js';
+// import LocationForm from './Itinerary/LocationForm.js';
 
 
 function App() {
-  // const [launchInfo, setLaunchInfo] = useState([]);
-  // const [error, setError] = useState(null);
-
-  // useEffect(() => {
-  //   async function getData() {
-  //     let url = `${process.env.REACT_APP_API_HOST}/api/launch-details`;
-  //     console.log("fastapi url: ", url);
-  //     let response = await fetch(url);
-  //     console.log("------- hello? -------");
-  //     let data = await response.json();
-
-  //     if (response.ok) {
-  //       console.log("got launch data!");
-  //       setLaunchInfo(data.launch_details);
-  //     } else {
-  //       console.log("drat! something happened");
-  //       setError(data.message);
-  //     }
-  //   }
-  //   getData();
-  // }, []);
 
   return (
-    // <div>
-    //   <ErrorNotification error={error} />
-    //   <Construct info={launchInfo} />
-    // </div>
      <BrowserRouter>
       {/* <Nav /> */}
+      <Header />
       <div className="container">
         <Routes>
+          <Route path="/itinerary/" element={<ItineraryList />} />
+          <Route path="/home/" element={<LandingPage />} />
           <Route path="/register/" element={<SignupForm />} />
           <Route path="/login/" element={<LoginForm />} />
         </Routes>

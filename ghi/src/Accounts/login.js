@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 
+
 function LoginForm(){
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -29,6 +30,8 @@ function LoginForm(){
             if (response.ok) {
                 const data = await response.json();
                 console.log("Login successful", data)
+
+                localStorage.setItem("access_token", data.access_token);
             } else {
                 const errorData = await response.json();
                 console.log("Login failed", errorData);
