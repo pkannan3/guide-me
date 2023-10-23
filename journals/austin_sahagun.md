@@ -1,6 +1,11 @@
 <!-- 1st day of week and last day of week -->
 
 <!--
+
+October, 19 2023
+
+We split into group and Matt and I have been working on the trip crud features, I also added a map api in my free time that I am pretty proud of. My AH HA moment is that we figured out how to use navigate.
+
 October, 16 2023
 
 We forgot to write our journal for last week. Today we worked on our tables and more well defining relationships between our tables. We also created budget queries and routers.
