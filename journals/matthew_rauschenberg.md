@@ -1,6 +1,13 @@
 <!-- 1st day of week and last day of week -->
 
 <!--
+Oct 19, 2023
+Today Austin and me worked on creating our front end for updating trips and linking the update button back to the trips display page.
+
+My aha moment was when we finally figured out how to use navigate to link back to the trips page after updating our trip.
+-->
+
+<!--
 Oct 16, 2023
 Today we worked on creating our migrations creating models routes snd setup the database for budget. We started making the foreign keys for our tables.
 
