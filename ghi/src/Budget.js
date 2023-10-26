@@ -18,13 +18,6 @@ function BudgetForm({ tripId }) {
   const [isEditingBudget, setIsEditingBudget] = useState(false);
   const [newBudgetedAmount, setNewBudgetedAmount] = useState(budgetedAmount); // Initialize with the current budgetedAmount
 
-  const [showExpenseForm, setShowExpenseForm] = useState(false);
-  const [budgetedAmount, setBudgetedAmount] = useState(0);
-  const [spentAmount, setSpentAmount] = useState(0);
-  const [remainingAmount, setRemainingAmount] = useState(0);
-  const [isEditingBudget, setIsEditingBudget] = useState(false);
-  const [newBudgetedAmount, setNewBudgetedAmount] = useState(budgetedAmount); // Initialize with the current budgetedAmount
-
   const fetchData = async () => {
     const url = `http://localhost:8000/trips/${tripId}/expense/`;
     const response = await fetch(url);

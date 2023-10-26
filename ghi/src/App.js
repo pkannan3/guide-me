@@ -12,6 +12,7 @@ import TripsForm from "./TripsForm";
 import UpdateTripForm from "./TripsUpdate";
 import BudgetForm from "./Budget";
 import NotFound from "./404/PageDoesNotExist";
+import SecondLayout from "./SecondLayout.js";
 import { UserContext } from "./context.js";
 
 function App() {

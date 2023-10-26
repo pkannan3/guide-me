@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useContext } from "react";
+import React, { useRef, useEffect, useState, useContext, useNavigate } from "react";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import { UserContext } from "./context";
 
