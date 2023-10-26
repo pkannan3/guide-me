@@ -1,10 +1,11 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useContext } from "react";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
+import { UserContext } from "./context";
 
 mapboxgl.accessToken =
   "pk.eyJ1Ijoibml4c3VhIiwiYSI6ImNsbndqcDY5djA0Zmgya3FoMngzcWdyMTUifQ.Rjyym2-cpc7eoDkt2MXUqg";
 
-function TripForm() {
+function TripForm(props) {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [lng, setLng] = useState(-70.9);
@@ -17,9 +18,16 @@ function TripForm() {
     end_date: "",
   });
 
+  const { user } = useContext(UserContext);
+
   const fetchData = async () => {
-    const url = `http://localhost:8000/trips/`;
-    const response = await fetch(url);
+    const url = `http://localhost:8000/trips`;
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + user,
+      },
+    });
     if (response.ok) {
       const data = await response.json();
       setTrips(data.trips);
@@ -37,6 +45,7 @@ function TripForm() {
       method: "post",
       body: JSON.stringify(formData),
       headers: {
+        Authorization: "Bearer " + user,
         "Content-Type": "application/json",
       },
     };

@@ -1,3 +1,9 @@
+## OCT 23th, 2023
+
+Today I worked on:
+Trying to figure out how to link itinerary to a trip id. We were unsuccessful.
+My "ah-ah" moment was non-existent today
+
 ## OCT 20th, 2023
 
 Today I worked on:

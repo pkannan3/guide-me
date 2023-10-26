@@ -32,21 +32,31 @@ class TotalOut(BaseModel):
     total: float
 
 
+class TripBudgetOut(BaseModel):
+    expense_id: int
+    cost: float
+    expense_name: str
+    category: str
+    total: int
+    trip_id: int
+
+
 class ExpenseQueries:
-    def create_one_expense(self, budget: ExpenseIn) -> Union[ExpenseOut, Error]:
+    def create_one_expense(self, budget: ExpenseIn, trip_id) -> Union[TripBudgetOut, Error]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     db.execute(
                         """
-                        INSERT INTO budget (expense_name, cost, category)
-                        VALUES (%s, %s, %s)
-                        RETURNING expense_id, expense_name, cost, category, total;
+                        INSERT INTO budget (expense_name, cost, category, trip_id)
+                        VALUES (%s, %s, %s, %s)
+                        RETURNING expense_id, expense_name, cost, category, total, trip_id;
                         """,
                         [
                             budget.expense_name,
                             budget.cost,
-                            budget.category
+                            budget.category,
+                            trip_id
                         ]
                     )
                     record = None
@@ -56,7 +66,7 @@ class ExpenseQueries:
                         for i, column in enumerate(db.description):
                             record[column.name] = row[i]
                     print("record 2", record)
-                    return ExpenseOut(**record)
+                    return TripBudgetOut(**record)
         except Exception as e:
             return {"message": str(e)}
 
@@ -109,23 +119,19 @@ class ExpenseQueries:
             print(e)
             return {"message": "Could not get that location"}
 
-    def get_all(self) -> Union[Error, List[ExpenseOut]]:
+    def get_all(self) -> Union[Error, List[TripBudgetOut]]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     db.execute(
                         """
-                        SELECT
-                            expense_id,
-                            expense_name,
-                            cost,
-                            category
+                        SELECT *
                         FROM budget
                         ORDER BY expense_id;
                         """
                     )
                     return [
-                        self.record_to_budget_out(record)
+                        self.record_to_budget_trip_out(record)
                         for record in db
                     ]
         except Exception as e:
@@ -178,3 +184,40 @@ class ExpenseQueries:
         except Exception as e:
             print(e)
             return {"message": "Could not update the total"}
+
+    def get_budget_trip(self, trip_id) -> Union[Error, List[ExpenseOut]]:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        SELECT
+                            expense_id,
+                            expense_name,
+                            cost,
+                            category,
+                            total,
+                            trip_id
+                        FROM
+                            budget as b WHERE b.trip_id = %s
+                        """,
+                        [trip_id]
+
+                    )
+                    return [
+                        self.record_to_budget_trip_out(record)
+                        for record in db
+                    ]
+        except Exception as e:
+            print(e)
+            return {"message": "Could not get trip_id to expenses"}
+
+    def record_to_budget_trip_out(self, record):
+        return TripBudgetOut(
+            expense_id=record[0],
+            expense_name=record[1],
+            cost=float(record[2]),
+            category=record[3],
+            total=record[4],
+            trip_id=record[5]
+        )

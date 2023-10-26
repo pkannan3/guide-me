@@ -29,7 +29,7 @@ steps = [
             trip_name VARCHAR(100) NOT NULL,
             start_date DATE NOT NULL,
             end_date DATE NOT NULL,
-            auth_id INTEGER REFERENCES authentication ON DELETE CASCADE
+            auth_id INTEGER REFERENCES authentication(id) ON DELETE CASCADE
         );
         """,
         # "Down" SQL statement
@@ -46,7 +46,7 @@ steps = [
             location_name VARCHAR(100) NOT NULL,
             visit_date DATE NOT NULL,
             start_time TIME NOT NULL,
-            trip_id INTEGER REFERENCES trips ON DELETE CASCADE
+            trip_id INTEGER REFERENCES trips(trip_id) ON DELETE CASCADE
         );
         """,
         # "Down" SQL statement
@@ -64,7 +64,7 @@ steps = [
             cost FLOAT NOT NULL,
             category VARCHAR(100) NOT NULL,
             total FLOAT DEFAULT 0.00,
-            trip_id INTEGER REFERENCES trips ON DELETE CASCADE
+            trip_id INTEGER REFERENCES trips(trip_id) ON DELETE CASCADE
         );
         """,
         # "Down" SQL statement

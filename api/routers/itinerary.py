@@ -4,22 +4,27 @@ from queries.itinerary import (
     Error,
     ItineraryIn,
     ItineraryOut,
-    ItineraryQueries
+    ItineraryQueries,
+    TripItineraryOut,
 )
 
 
 router = APIRouter()
 
 
-@router.post("/itinerary/create", response_model=Union[ItineraryOut, Error])
+@router.post(
+    "/trips/{trip_id}/itinerary/create",
+    response_model=Union[TripItineraryOut, Error],
+)
 def create_one_location(
-    itinerary: ItineraryIn,
-    repo: ItineraryQueries = Depends()
+    trip_id: int, itinerary: ItineraryIn, repo: ItineraryQueries = Depends()
 ):
-    return repo.create_one_location(itinerary)
+    return repo.create_one_location(itinerary, trip_id)
 
 
-@router.put("/itinerary/{location_id}", response_model=Union[ItineraryOut, Error])
+@router.put(
+    "/itinerary/{location_id}", response_model=Union[ItineraryOut, Error]
+)
 def update_location(
     location_id: int,
     itinerary: ItineraryIn,
@@ -40,7 +45,7 @@ def get_one_location(
     return itinerary
 
 
-@router.get("/itinerary", response_model=Union[List[ItineraryOut], Error])
+@router.get("/itinerary", response_model=Union[List[TripItineraryOut], Error])
 def get_all_location(
     repo: ItineraryQueries = Depends(),
 ):
@@ -53,3 +58,11 @@ def delete_location(
     repo: ItineraryQueries = Depends(),
 ) -> bool:
     return repo.delete(location_id)
+
+
+@router.get(
+    "/trips/{trip_id}/itinerary/",
+    response_model=Union[List[TripItineraryOut], Error],
+)
+def get_Trip_Itinerary(trip_id: int, repo: ItineraryQueries = Depends()):
+    return repo.get_itinerary_trip(trip_id)

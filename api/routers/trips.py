@@ -1,14 +1,18 @@
 from fastapi import APIRouter, Depends, Response
 from typing import Optional, List, Union
-from queries.trips import Error, TripsIn, TripsOut, TripsQueries
+from queries.trips import Error, TripsIn, TripsOut, TripsQueries, TripsOut2
+from authenticator import authenticator
 
 
 router = APIRouter()
 
 
-@router.post("/trips/create", response_model=Union[TripsOut, Error])
-def create_one_trip(trips: TripsIn, repo: TripsQueries = Depends()):
-    return repo.create_one_trip(trips)
+@router.post("/trips/create", response_model=Union[TripsOut2, Error])
+def create_one_trip(
+    trips: TripsIn,
+    account_data: Optional[dict] = Depends(authenticator.try_get_current_account_data),
+    repo: TripsQueries = Depends()):
+    return repo.create_one_trip(trips, account_data["id"])
 
 
 @router.put("/trips/{trip_id}", response_model=Union[TripsOut, Error])
@@ -34,9 +38,10 @@ def get_one_trip(
 
 @router.get("/trips", response_model=Union[List[TripsOut], Error])
 def get_all_trips(
+    account_data: Optional[dict] = Depends(authenticator.try_get_current_account_data),
     repo: TripsQueries = Depends(),
 ):
-    return repo.get_all()
+    return repo.get_all(account_data["id"])
 
 
 @router.delete("/trips/{trip_id}", response_model=bool)

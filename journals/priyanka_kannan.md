@@ -1,6 +1,18 @@
 <!-- 1st and last day of week -->
 
 <!--
+October 23, 2023
+
+As a team we completed:
+* Merged all branches together.
+* Worked as a team to wrap of functionalities.
+
+Ah-ha!:
+* How to . . .
+
+ -->
+
+<!--
 October 16, 2023
 
 As a team we completed:
