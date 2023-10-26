@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./Account.css";
+import { UserContext } from "../context";
 
 function SignupForm({ onRegister }) {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ function SignupForm({ onRegister }) {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+   const { user, setUser } = useContext(UserContext);
 
   const handleChangeFirstName = (event) => {
     setFirstName(event.target.value);
@@ -52,9 +54,12 @@ function SignupForm({ onRegister }) {
       });
 
       if (response.ok) {
+        const result = await response.json()
         console.log("Registration successful");
         setError("");
         onRegister();
+        localStorage.setItem("access_token", result.access_token);
+        setUser(result.access_token);
         navigate("/trips");
       } else {
         const errorData = await response.json();

@@ -26,6 +26,8 @@ function ItineraryForm({ tripId, onAddItinerary }) {
       setVisitDate("");
       setStartTime("");
       onAddItinerary(newItinerary);
+
+      // window.location.reload();
     }
   };
 
@@ -163,6 +165,7 @@ function ItineraryList({ tripId }) {
       updatedItineraries[rowIndex] = updatedData;
       setItineraries(updatedItineraries);
       setEditMode(null);
+      // window.location.reload();
     } else {
       console.error("Failed to update itinerary:", response);
     }
@@ -178,33 +181,19 @@ function ItineraryList({ tripId }) {
     });
 
     if (response.ok) {
-      const updatedItineraries = itineraries.filter(
-      (itinerary) => itinerary.location_id !== location_id
-    );
-    setItineraries(updatedItineraries);
-
-    loadItineraries();
+      window.location.reload();
     } else {
       return { message: "Could not delete location." };
     }
   };
 
-  const sortedItineraries = itineraries
-    .sort((a, b) => {
-      const dateComparison = a.visit_date.localeCompare(b.visit_date);
-      if (dateComparison !== 0) {
-        return dateComparison;
-      }
-      return a.start_time.localeCompare(b.start_time);
-    });
-
   function customTimeCovert(time) {
-    const [hours, minutes, seconds] = time.split(":");
+    const [hours, minutes] = time.split(":");
 
     const date = new Date();
     date.setHours(parseInt(hours));
     date.setMinutes(parseInt(minutes));
-    date.setSeconds(parseInt(seconds));
+    // date.setSeconds(parseInt(seconds));
 
     const timeFormatted = date.toLocaleTimeString([], {
       hour: "2-digit",
@@ -214,6 +203,15 @@ function ItineraryList({ tripId }) {
 
     return timeFormatted;
   }
+
+  const sortedItineraries = itineraries
+    .sort((a, b) => {
+      const dateComparison = a.visit_date.localeCompare(b.visit_date);
+      if (dateComparison !== 0) {
+        return dateComparison;
+      }
+      return a.start_time.localeCompare(b.start_time);
+  });
 
   useEffect(() => {
     loadItineraries();
@@ -297,6 +295,7 @@ function ItineraryList({ tripId }) {
                             />
                           ) : (
                             customTimeCovert(itinerary.start_time)
+                            // itinerary.start_time
                           )}
                         </li>
                       </ul>
@@ -343,10 +342,7 @@ function ItineraryList({ tripId }) {
           </tbody>
         </table>
         {showForm ? (
-          <ItineraryForm tripId={tripId}
-          onAddItinerary={handleAddItinerary}
-
-          />
+          <ItineraryForm tripId={tripId} onAddItinerary={handleAddItinerary}/>
         ) : (
           <button
             onClick={() => setShowForm(true)}
