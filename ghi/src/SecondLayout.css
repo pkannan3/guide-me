@@ -1,0 +1,14 @@
+.second-layout-container {
+  display: flex;
+}
+
+.second-layout-nav-container {
+  flex: 0 0 20%;
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+.second-layout-content-container {
+  flex: 1;
+  padding: 10px;
+}

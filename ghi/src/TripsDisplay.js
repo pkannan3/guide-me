@@ -208,6 +208,8 @@ function TripsList(props) {
       {tripId && display === "itinerary" && <ItineraryList tripId={tripId} />}
     </>
   );
+
+
 }
 
 export default TripsList;
