@@ -25,22 +25,33 @@ class ItineraryOut(BaseModel):
     start_time: time
 
 
+class TripItineraryOut(BaseModel):
+    location_id: int
+    location_name: str
+    visit_date: date
+    start_time: time
+    trip_id: int
+
+
 class ItineraryQueries:
-    def create_one_location(self, itinerary: ItineraryIn) -> Union[ItineraryOut, Error]:
+    def create_one_location(
+        self, itinerary: ItineraryIn, trip_id
+    ) -> Union[TripItineraryOut, Error]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     db.execute(
                         """
-                        INSERT INTO itinerary (location_name, visit_date, start_time)
-                        VALUES (%s, %s, %s)
-                        RETURNING location_id, location_name, visit_date, start_time;
+                        INSERT INTO itinerary (location_name, visit_date, start_time, trip_id)
+                        VALUES (%s, %s, %s, %s)
+                        RETURNING location_id, location_name, visit_date, start_time, trip_id;
                         """,
                         [
                             itinerary.location_name,
                             itinerary.visit_date,
-                            itinerary.start_time
-                        ]
+                            itinerary.start_time,
+                            trip_id,
+                        ],
                     )
                     record = None
                     row = db.fetchone()
@@ -48,11 +59,13 @@ class ItineraryQueries:
                         record = {}
                         for i, column in enumerate(db.description):
                             record[column.name] = row[i]
-                    return ItineraryOut(**record)
+                    return TripItineraryOut(**record)
         except Exception as e:
             return {"message": str(e)}
 
-    def update(self, location_id: int, itinerary: ItineraryIn) -> Union[ItineraryOut, Error]:
+    def update(
+        self, location_id: int, itinerary: ItineraryIn
+    ) -> Union[ItineraryOut, Error]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -69,8 +82,8 @@ class ItineraryQueries:
                             itinerary.location_name,
                             itinerary.visit_date,
                             itinerary.start_time,
-                            location_id
-                        ]
+                            location_id,
+                        ],
                     )
                     return self.itinerary_in_to_out(location_id, itinerary)
         except Exception as e:
@@ -91,7 +104,7 @@ class ItineraryQueries:
                         FROM itinerary
                         WHERE location_id = %s
                         """,
-                        [location_id]
+                        [location_id],
                     )
                     record = db.fetchone()
                     if record is None:
@@ -101,23 +114,19 @@ class ItineraryQueries:
             print(e)
             return {"message": "Could not get that location"}
 
-    def get_all(self) -> Union[Error, List[ItineraryOut]]:
+    def get_all(self) -> Union[Error, List[TripItineraryOut]]:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     db.execute(
                         """
-                        SELECT
-                            location_id,
-                            location_name,
-                            visit_date,
-                            start_time
+                        SELECT *
                         FROM itinerary
                         ORDER BY visit_date, start_time;
                         """
                     )
                     return [
-                        self.record_to_itinerary_out(record)
+                        self.record_to_itinerary_trip_out(record)
                         for record in db
                     ]
         except Exception as e:
@@ -133,12 +142,37 @@ class ItineraryQueries:
                         DELETE FROM itinerary
                         WHERE location_id = %s
                         """,
-                        [location_id]
+                        [location_id],
                     )
                     return True
         except Exception as e:
             print(e)
             return False
+
+    def get_itinerary_trip(self, trip_id) -> Union[Error, List[ItineraryOut]]:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        SELECT
+                            location_id,
+                            location_name,
+                            visit_date,
+                            start_time,
+                            trip_id
+                        FROM
+                            itinerary as i WHERE i.trip_id = %s
+                        """,
+                        [trip_id],
+                    )
+                    return [
+                        self.record_to_itinerary_trip_out(record)
+                        for record in db.fetchall()
+                    ]
+        except Exception as e:
+            print(e)
+            return {"message": "Could not get trip_id to location"}
 
     def itinerary_in_to_out(self, id: int, itinerary: ItineraryIn):
         old_data = itinerary.dict()
@@ -149,5 +183,14 @@ class ItineraryQueries:
             location_id=record[0],
             location_name=record[1],
             visit_date=record[2],
-            start_time=record[3]
+            start_time=record[3],
+        )
+
+    def record_to_itinerary_trip_out(self, record):
+        return TripItineraryOut(
+            location_id=record[0],
+            location_name=record[1],
+            visit_date=record[2],
+            start_time=record[3],
+            trip_id=record[4],
         )

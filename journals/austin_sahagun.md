@@ -1,7 +1,10 @@
 <!-- 1st day of week and last day of week -->
 
 <!--
+We came back together today and merged our two branches together. I was able to complete with Matt over the weekend the budget CRUD features and also add a Pie chart that dynamically changes with inputed values. Ah-ha moment was when we were able to get the form logic right away since we had done it on the trip page recently and it was fun to see stuff start to sink in.
+October, 23 2023
 
+We split into group and Matt and I have been working on the trip crud features, I also added a map api in my free time that I am pretty proud of. My AH HA moment is that we figured out how to use navigate.
 October, 19 2023
 
 We split into group and Matt and I have been working on the trip crud features, I also added a map api in my free time that I am pretty proud of. My AH HA moment is that we figured out how to use navigate.

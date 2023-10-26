@@ -1,0 +1,49 @@
+/* Header.css */
+
+/* Style the Navbar */
+.HeaderNavbar {
+  background-color: #f6f6f6;
+  padding: 0px;
+  display: flex;
+  justify-content: space-between; /* Spread items apart horizontally */
+  align-items: center;
+  padding: 12px;
+}
+
+.font {
+  font-family: Helvetica Neue, Tahoma, Verdana, sans-serif;
+  letter-spacing: 1.5px;
+}
+
+.home {
+  background-color: #b9e6a2;
+  /* background-image: linear-gradient(to bottom, #fa93eb, #dfa5ff); */
+  border: 0;
+  padding: 8px 0px 8px;
+  /* margin-left: 18px; */
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.button {
+  background-color: #b9e6a2;
+  /* background-image: linear-gradient(to bottom, #fa93eb, #dfa5ff); */
+  border: 0;
+  padding: 8px 0px 8px;
+  /* margin-right: 18px; */
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background-color: #b9e6a2;
+  font-weight: 400;
+}

@@ -1,48 +1,47 @@
 import React from "react";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom"; // Import useHistory from react-router-dom
-import Button from 'react-bootstrap/Button';
+import { Navbar, Nav } from "react-bootstrap";
+import { Link, useLocation } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import "./Header.css"; // Import the CSS file
 
+function Header({ onLogout, isUserLoggedIn }) {
+  const location = useLocation();
 
-function Header() {
-  const navigate = useNavigate(); // Initialize the history object
-
-  // Check if the user is logged in (you may need to adjust this logic based on your authentication method)
-  const isLoggedIn = !!localStorage.getItem("access_token");
-
-  // Function to handle logout and redirect
-  const handleLogout = () => {
-    // Perform the logout action (e.g., clearing user info from localStorage).
-    localStorage.removeItem("access_token");
-
-    // Redirect to the login page after logout
-    navigate("/login");
+  const handleHomeLinkClick = () => {
+    if (location.pathname === "/home") {
+      window.location.reload();
+    }
   };
 
   return (
     <>
-      <Navbar>
-        <Nav className="mr-auto">
-          <Button as={Link} to="/home/">
+      <Navbar className="HeaderNavbar font">
+        <Nav className="mr-home">
+          <Button
+            as={Link}
+            to="/home"
+            onClick={handleHomeLinkClick}
+            className="home"
+          >
             Home
           </Button>
-          {/* Add more navigation links as needed */}
         </Nav>
-        {isLoggedIn ? (
-          <Nav>
-              {/* Add user-related dropdown items as needed */}
-              <Button onClick={handleLogout} type="button" className="btn btn-danger rounded-0">Logout</Button>
-          </Nav>
-        ) : (
-          <Nav>
-            <Link to="/login">
-              <Button variant="primary" size="lg">
-                Login
-              </Button>
+        <div className="header-buttons">
+          {isUserLoggedIn && location.pathname === "/home" && (
+            <Button as={Link} to="/trips" className="button">
+              My Trips
+            </Button>
+          )}
+          {isUserLoggedIn ? (
+            <Link onClick={onLogout} type="link" className="button">
+              Logout
             </Link>
-          </Nav>
-
-        )}
+          ) : (
+            <Button as={Link} to="/login" className="button">
+              Login
+            </Button>
+          )}
+        </div>
       </Navbar>
     </>
   );

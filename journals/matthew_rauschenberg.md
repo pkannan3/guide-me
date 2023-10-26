@@ -1,6 +1,14 @@
 <!-- 1st day of week and last day of week -->
 
 <!--
+Oct 23, 2023
+Today we all came back together and created our merge requests. We sorted out all of our merge conflicts and are now all working together once
+again to finish up the remainder of the front end and get the CSS added for styling.
+
+My aha moment was when we figured out how to resolve merge conflicts locally in VScode.
+-->
+
+<!--
 Oct 19, 2023
 Today Austin and me worked on creating our front end for updating trips and linking the update button back to the trips display page.
 
