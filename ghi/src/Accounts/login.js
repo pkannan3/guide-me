@@ -48,11 +48,11 @@ function LoginForm() {
 
   return (
     <div className="background font">
-      <div className="grid-container">
-        <div className="left-container image">
+      <div className="container">
+        {/* <div className="left-container image">
           <img src="Girl2.jpg" alt="Traveling Girl" className="cropped-image" />
-        </div>
-        <div className="right-container">
+        </div> */}
+        <div className="grid-container">
           <h1>Login</h1>
           <form id="Signup-form" className="form">
             <div className="form-floating mb-3">
@@ -79,7 +79,7 @@ function LoginForm() {
             <button
               type="button"
               onClick={handleLogin}
-              className="account-button font"
+              className="accounts-button font"
             >
               Login
             </button>
@@ -91,10 +91,12 @@ function LoginForm() {
       </div>
       <div>
         <table align="right" style={{ paddingRight: "10px" }}>
+          <tbody>
           <tr>
             <td style={{ paddingRight: "15px" }}>Privacy Policy</td>
-            <td>©2023</td>
+            <td>©2023 Andrew</td>
           </tr>
+          </tbody>
         </table>
       </div>
     </div>

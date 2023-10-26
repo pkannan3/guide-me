@@ -11,6 +11,12 @@ function BudgetForm({ tripId }) {
     category: "",
     trip_id: tripId,
   });
+  const [showExpenseForm, setShowExpenseForm] = useState(false);
+  const [budgetedAmount, setBudgetedAmount] = useState(0);
+  const [spentAmount, setSpentAmount] = useState(0);
+  const [remainingAmount, setRemainingAmount] = useState(0);
+  const [isEditingBudget, setIsEditingBudget] = useState(false);
+  const [newBudgetedAmount, setNewBudgetedAmount] = useState(budgetedAmount); // Initialize with the current budgetedAmount
 
   const [showExpenseForm, setShowExpenseForm] = useState(false);
   const [budgetedAmount, setBudgetedAmount] = useState(0);

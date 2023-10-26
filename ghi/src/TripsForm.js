@@ -38,6 +38,8 @@ function TripForm(props) {
     fetchData();
   }, []);
 
+  const navigate = useNavigate()
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const url = `http://localhost:8000/trips/create`;
@@ -59,6 +61,7 @@ function TripForm(props) {
         end_date: "",
       });
       event.target.reset();
+      navigate("/trips")
     }
   };
 
@@ -82,12 +85,13 @@ function TripForm(props) {
   });
 
   return (
-    <div className="row">
+    <div className="row font create-trips-container">
       <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
           <div ref={mapContainer} className="map-container" />
-          <h1>Create a Trip</h1>
+          <h1 className="create-trips-title">Create a Trip</h1>
           <form onSubmit={handleSubmit} id="createTrip">
+          <label htmlFor="trip" className="create-trips-labels">Trip</label>
             <div className="form-floating mb-3">
               <input
                 onChange={handleFormChange}
@@ -96,11 +100,12 @@ function TripForm(props) {
                 type="text"
                 id="trip_name"
                 name="trip_name"
-                className="form-control"
+                className="form-control font input"
               />
-              <label htmlFor="trip">Trip</label>
             </div>
+            <label htmlFor="start_date" className="create-trips-labels">Start Date</label>
             <div className="form-floating mb-3">
+
               <input
                 onChange={handleFormChange}
                 placeholder="Start Date"
@@ -108,10 +113,10 @@ function TripForm(props) {
                 type="date"
                 id="start_date"
                 name="start_date"
-                className="form-control"
+                className="form-control font input"
               />
-              <label htmlFor="start_date">Start Date</label>
             </div>
+            <label htmlFor="end_date" className="create-trips-labels">End Date</label>
             <div className="form-floating mb-3">
               <input
                 onChange={handleFormChange}
@@ -120,11 +125,12 @@ function TripForm(props) {
                 type="date"
                 id="end_date"
                 name="end_date"
-                className="form-control"
+                className="form-control font input"
               />
-              <label htmlFor="end_date">End Date</label>
             </div>
-            <button className="btn btn-primary">Start Your Adventure</button>
+            <div>
+            <button className="btn btn-primary create-trip-button font">Start Your Adventure</button>
+            </div>
           </form>
         </div>
       </div>

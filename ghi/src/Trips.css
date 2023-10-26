@@ -1,0 +1,138 @@
+.font {
+  font-family: Helvetica Neue, Tahoma, Verdana, sans-serif;
+  letter-spacing: 1.5px;
+}
+
+.subtitle-font {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.add-trip-text {
+  align-content: center;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #ccc;
+  padding: 10px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 30px 20px 30px 30px;
+}
+
+.custom-card {
+  flex-wrap: wrap;
+  /* flex: 0 0 calc(15% - 10px); */
+  height: 15rem;
+  width: 17rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 8px;
+}
+
+.add-trip-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* gap: 10px; */
+  height: 15rem;
+  width: 17rem;
+  border: 1px solid #ccc;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  border-radius: 4px;
+}
+
+
+.custom-card:hover {
+  background-color: #b9e6a2;
+  transform: scale(1.05); /* increase size on hover */
+  transition: transform 0.3s;
+}
+
+.custom-card-title {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  border: 0px solid white;
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.save-button {
+  background-color: #72e195;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.edit-button {
+  background-color: #d59ef3;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.delete-button {
+  background-color: #d59ef3;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.card-link {
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* .card-link:hover {
+  background-color: #f0f0f0;
+} */
+
+/* Create Trips */
+.create-trips-container {
+  border: 1px solid #ccc;
+  margin: 20px;
+  padding: 20px;
+}
+
+.create-trips-title {
+  margin-bottom: 50px;
+}
+
+.create-trips-labels {
+  margin-left: 20px;
+}
+
+.input {
+  width: 400px;
+  margin: 10px 0 20px 20px;
+}
+
+.create-trip-button {
+  background-color: #d59ef3;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 20px;
+}
