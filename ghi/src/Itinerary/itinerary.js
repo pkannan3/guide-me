@@ -26,8 +26,6 @@ function ItineraryForm({ tripId, onAddItinerary }) {
       setVisitDate("");
       setStartTime("");
       onAddItinerary(newItinerary);
-
-      // window.location.reload();
     }
   };
 
@@ -181,7 +179,6 @@ function ItineraryList({ tripId }) {
     });
 
     if (response.ok) {
-      window.location.reload();
     } else {
       return { message: "Could not delete location." };
     }
@@ -204,13 +201,12 @@ function ItineraryList({ tripId }) {
     return timeFormatted;
   }
 
-  const sortedItineraries = itineraries
-    .sort((a, b) => {
-      const dateComparison = a.visit_date.localeCompare(b.visit_date);
-      if (dateComparison !== 0) {
-        return dateComparison;
-      }
-      return a.start_time.localeCompare(b.start_time);
+  const sortedItineraries = itineraries.sort((a, b) => {
+    const dateComparison = a.visit_date.localeCompare(b.visit_date);
+    if (dateComparison !== 0) {
+      return dateComparison;
+    }
+    return a.start_time.localeCompare(b.start_time);
   });
 
   useEffect(() => {
@@ -342,7 +338,7 @@ function ItineraryList({ tripId }) {
           </tbody>
         </table>
         {showForm ? (
-          <ItineraryForm tripId={tripId} onAddItinerary={handleAddItinerary}/>
+          <ItineraryForm tripId={tripId} onAddItinerary={handleAddItinerary} />
         ) : (
           <button
             onClick={() => setShowForm(true)}

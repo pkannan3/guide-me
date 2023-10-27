@@ -41,8 +41,6 @@ function TripForm(props) {
     fetchData();
   }, []);
 
-  const navigate = useNavigate()
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     const url = `http://localhost:8000/trips/create`;
@@ -112,7 +110,6 @@ function TripForm(props) {
               Start Date
             </label>
             <div className="form-floating mb-3">
-
               <input
                 onChange={handleFormChange}
                 placeholder="Start Date"
