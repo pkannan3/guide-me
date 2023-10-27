@@ -73,11 +73,11 @@ function SignupForm({ onRegister }) {
 
   return (
     <div className="background font">
-      <div className="container">
-        {/* <div className="left-container">
+      <div className="grid-container">
+        <div className="left-container">
           <img src="Girl2.jpg" alt="Traveling Girl" className="cropped-image" />
-        </div> */}
-        <div className="grid-container">
+        </div>
+        <div className="right-container">
           <h1>Sign Up</h1>
           <form onSubmit={handleSubmit} id="Signup-form" className="form">
             <div className="form-floating mb-3">
@@ -122,7 +122,7 @@ function SignupForm({ onRegister }) {
               />
             </div>
             <div className="mb-3 text-danger">{error}</div>
-            <button type="submit" className="accounts-button font">
+            <button type="submit" className="account-button font">
               Create
             </button>
             <div>
@@ -136,10 +136,10 @@ function SignupForm({ onRegister }) {
       <div>
         <table align="right" style={{ paddingRight: "10px" }}>
           <tbody>
-          <tr>
-            <td style={{ paddingRight: "15px" }}>Privacy Policy</td>
-            <td>© 2023</td>
-          </tr>
+            <tr>
+              <td style={{ paddingRight: "15px" }}>Privacy Policy</td>
+              <td>© 2023</td>
+            </tr>
           </tbody>
         </table>
       </div>
