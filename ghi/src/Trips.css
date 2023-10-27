@@ -118,6 +118,11 @@
   letter-spacing: 1.5px;
 }
 
+.vertical-text:hover {
+  background-color: #d59ef3;
+  color: white;
+}
+
 .adp-grid-container {
   display: grid;
   grid-template-columns: min-content 1fr;

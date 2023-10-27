@@ -1,6 +1,9 @@
 <!-- 1st day of week and last day of week -->
 
 <!--
+Finished today, we update pryanka update the css anastasia did css aswell. Matt did excellent job fixing the test for our project. I just updated our 3rd part API display which was annoying. Anastasia and I wrote out the readme and Matt put down the details of the tests.
+October, 27 2023
+
 We came back together today and merged our two branches together. I was able to complete with Matt over the weekend the budget CRUD features and also add a Pie chart that dynamically changes with inputed values. Ah-ha moment was when we were able to get the form logic right away since we had done it on the trip page recently and it was fun to see stuff start to sink in.
 October, 23 2023
 

@@ -55,7 +55,6 @@ function Header({ onLogout, isUserLoggedIn }) {
       )}
     </>
   );
-
 }
 
 export default Header;

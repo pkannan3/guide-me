@@ -1,6 +1,13 @@
 <!-- 1st day of week and last day of week -->
 
 <!--
+Oct 27, 2023
+Today we had to fix the tests for our trips this actually took up most of our day. we also presented our project This marks the last Journal entry. Other members of the team finished up the CSS.
+
+My aha moment was when we figured out how to create a fake auth function to make the get all trips function to work.
+-->
+
+<!--
 Oct 23, 2023
 Today we all came back together and created our merge requests. We sorted out all of our merge conflicts and are now all working together once
 again to finish up the remainder of the front end and get the CSS added for styling.

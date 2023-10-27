@@ -4,11 +4,25 @@
 October 23, 2023
 
 As a team we completed:
+* Redid Tests
+* Reapplied Map API
+* Merged all branches (functionalities and CSS) together.
+* Completed 50% of CSS.
+
+Ah-ha!:
+* No Ah-ha today
+
+ -->
+
+<!--
+October 23, 2023
+
+As a team we completed:
 * Merged all branches together.
 * Worked as a team to wrap of functionalities.
 
 Ah-ha!:
-* How to . . .
+* No Ah-ha moment
 
  -->
 
