@@ -1,3 +1,9 @@
+## OCT 27th, 2023
+
+Today I worked on:
+We work on readme and css. Also fix the reload that happens when we add a you delete an itinerary item.
+My "ah-ah" moment was realizing that my group is awesome. I lucked out with them.
+
 ## OCT 23th, 2023
 
 Today I worked on:

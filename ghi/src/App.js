@@ -11,7 +11,7 @@ import TripsForm from "./TripsForm";
 import UpdateTripForm from "./TripsUpdate";
 import BudgetForm from "./Budget";
 import NotFound from "./404/PageDoesNotExist";
-import SecondLayout from "./SecondLayout/SecondLayout.js";
+// import SecondLayout from "./SecondLayout/SecondLayout.js";
 
 function App() {
   const [isUserLoggedIn, setUserLoggedIn] = useState(
@@ -42,20 +42,17 @@ function App() {
               element={<SignupForm onRegister={handleLogin} />}
             />
             <Route path="/login" element={<LoginForm />} />
-            <Route
+            {/* <Route
               element={
                 isUserLoggedIn ? <SecondLayout /> : <Navigate to="/login" />
               }
-            >
-              <Route path="/trips" element={<TripsDisplay />} />
-              <Route path="/trips/create" element={<TripsForm />} />
-              <Route
-                path={`/trips/:trip_id/edit`}
-                element={<UpdateTripForm />}
-              />
-              <Route path="/itinerary" element={<ItineraryList />} />
-              <Route path="/expense" element={<BudgetForm />} />
-            </Route>
+            > */}
+            <Route path="/trips" element={<TripsDisplay />} />
+            <Route path="/trips/create" element={<TripsForm />} />
+            <Route path={`/trips/:trip_id/edit`} element={<UpdateTripForm />} />
+            <Route path="/itinerary" element={<ItineraryList />} />
+            <Route path="/expense" element={<BudgetForm />} />
+            {/* </Route> */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
