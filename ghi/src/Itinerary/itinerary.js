@@ -179,6 +179,12 @@ function ItineraryList({ tripId }) {
     });
 
     if (response.ok) {
+      const updatedItineraries = itineraries.filter(
+      (itinerary) => itinerary.location_id !== location_id
+    );
+    setItineraries(updatedItineraries);
+
+    loadItineraries();
     } else {
       return { message: "Could not delete location." };
     }
