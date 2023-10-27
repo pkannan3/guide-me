@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, Response
 from typing import Optional, List, Union
 from queries.trips import Error, TripsIn, TripsOut, TripsQueries, TripsOut2
 from authenticator import authenticator
+from queries.accounts import AccountOut
 
 
 router = APIRouter()
@@ -38,7 +39,7 @@ def get_one_trip(
 
 @router.get("/trips", response_model=Union[List[TripsOut], Error])
 def get_all_trips(
-    account_data: Optional[dict] = Depends(authenticator.try_get_current_account_data),
+    account_data: AccountOut = Depends(authenticator.get_current_account_data),
     repo: TripsQueries = Depends(),
 ):
     return repo.get_all(account_data["id"])

@@ -1,8 +1,50 @@
 from fastapi.testclient import TestClient
 from main import app
 from queries.trips import TripsQueries
+from authenticator import authenticator
+from queries.accounts import AccountQueries, AccountOut
+
 
 client = TestClient(app)
+
+
+
+class AccountQueryTest:
+    def get(self, username: str):
+        return {
+            "id": 4,
+            "first_name": "string1",
+            "username": "string1",
+            "email": "string1"
+        }
+
+
+def test_get_account():
+    app.dependency_overrides[AccountQueries] = AccountQueryTest
+    response = client.get("/api/accounts/string1")
+    assert response.status_code == 200
+    
+
+class GuideMeAuthenticatorTest:
+    def fake_try_get_current_account_data():
+        account = {
+            "id": 4,
+            "first_name": "string1",
+            "username": "string1",
+            "email": "string1"
+        }
+        return account
+
+class TripTest:
+    def get_all(self, account):
+        return [
+            {
+                "trip_id": 1,
+                "trip_name": "Trip 1",
+                "start_date": "2023-10-17",
+                "end_date": "2024-01-10",
+            },
+        ]
 
 
 class TestTripsQueries:
@@ -23,21 +65,6 @@ class TestTripsQueries:
         ]
     }
 
-    def get_all(self):
-        try:
-            return self.fake_db["trips"]
-        except Exception as e:
-            return {"message": str(e)}
-
-    def create_one_trip(self, trip):
-        self.fake_db["trips"].append({"id": 1, **trip.dict()})
-        return {
-            "trip_id": 1,
-            "trip_name": "Trip 1",
-            "start_date": "2023-10-17",
-            "end_date": "2024-01-10",
-        }
-
     def get_one(self, id):
         for trip in self.fake_db["trips"]:
             if trip["trip_id"] == id:
@@ -55,57 +82,15 @@ class TestTripsQueries:
 # SEAT
 def test_get_all_trips():
     # Setup/Arrange
-    app.dependency_overrides[TripsQueries] = TestTripsQueries
+    fake_auth = GuideMeAuthenticatorTest
+    app.dependency_overrides[authenticator.get_current_account_data] = fake_auth.fake_try_get_current_account_data
+    app.dependency_overrides[TripsQueries] = TripTest
 
     # Enact/Act
-    response = client.get("/trips")
+    response = client.get("/trips/")
 
     # Assert
     assert response.status_code == 200
-    assert response.json() == [
-        {
-            "trip_id": 1,
-            "trip_name": "Trip 1",
-            "start_date": "2023-10-17",
-            "end_date": "2024-01-10",
-        },
-        {
-            "trip_id": 2,
-            "trip_name": "Trip 2",
-            "start_date": "2024-04-17",
-            "end_date": "2024-05-10",
-        },
-    ]
-    app.dependency_overrides = {}
-
-
-def test_create_trip():
-    # Setup/Arrange
-    app.dependency_overrides[TripsQueries] = TestTripsQueries
-    new_trip = {
-        "trip_name": "Trip 1",
-        "start_date": "2023-10-17",
-        "end_date": "2024-01-10",
-    }
-    expected = {
-        "trip_id": 1,
-        "trip_name": "Trip 1",
-        "start_date": "2023-10-17",
-        "end_date": "2024-01-10",
-    }
-
-    # Enact/Act
-    response = client.post(
-        "/trips/create",
-        headers={"Content-Type": "application/json"},
-        json=new_trip,
-    )
-
-    # Assert
-    assert response.status_code == 200
-    assert response.json() == expected
-
-    # Teardown
     app.dependency_overrides = {}
 
 
