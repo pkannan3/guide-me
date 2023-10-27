@@ -1,8 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Georgia", Courier, monospace, Haettenschweiler, "Arial Narrow",
-    sans-serif;
+  /* font-family: "Georgia", Courier, monospace, Haettenschweiler, "Arial Narrow",
+    sans-serif; */
 }
 
 .mainBG {
@@ -40,4 +40,31 @@ video {
   color: white;
   text-align: center;
   text-shadow: 0 0 5px #444;
+}
+
+.landing-page-button {
+  background-color: #b9e6a2;
+  border: 0;
+  padding: 8px 0px 8px;
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.landing-page-button:hover {
+  background-color: #b9e6a2;
+  font-weight: 400;
+  color: rgb(78, 78, 78);
+}
+
+.font {
+  font-family: Helvetica Neue, Tahoma, Verdana, sans-serif;
+  letter-spacing: 1.5px;
+}
+
+div p {
+  padding: 0 0 20px;
 }

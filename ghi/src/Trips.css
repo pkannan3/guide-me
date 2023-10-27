@@ -1,3 +1,4 @@
+/* Display Trips */
 .font {
   font-family: Helvetica Neue, Tahoma, Verdana, sans-serif;
   letter-spacing: 1.5px;
@@ -8,6 +9,7 @@
   text-align: center;
 }
 
+/* Trips Cards */
 .add-trip-text {
   align-content: center;
 }
@@ -24,7 +26,7 @@
 
 .custom-card {
   flex-wrap: wrap;
-  /* flex: 0 0 calc(15% - 10px); */
+
   height: 15rem;
   width: 17rem;
   border: 1px solid #ccc;
@@ -35,20 +37,19 @@
 .add-trip-card-container {
   display: flex;
   flex-wrap: wrap;
-  /* gap: 10px; */
+
   height: 15rem;
   width: 17rem;
   border: 1px solid #ccc;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
 }
-
 
 .custom-card:hover {
   background-color: #b9e6a2;
-  transform: scale(1.05); /* increase size on hover */
+  transform: scale(1.05);
   transition: transform 0.3s;
+  cursor: pointer;
 }
 
 .custom-card-title {
@@ -103,11 +104,36 @@
   transition: background-color 0.3s;
 }
 
-/* .card-link:hover {
-  background-color: #f0f0f0;
-} */
+/* ADP Containers + New Navbar */
+.vertical-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  text-align: center;
+  padding: 50px 0 100px 0;
+  color: rgb(102, 102, 102);
+  font-size: 40px;
+  border-radius: 10px;
+  font-family: Helvetica Neue, Tahoma, Verdana, sans-serif;
+  letter-spacing: 1.5px;
+}
 
-/* Create Trips */
+.adp-grid-container {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-gap: 10px;
+  align-items: start;
+  height: 100vh;
+}
+
+.vertical-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+}
+
+/* Create Trip */
 .create-trips-container {
   border: 1px solid #ccc;
   margin: 20px;
@@ -135,4 +161,9 @@
   border-radius: 4px;
   cursor: pointer;
   margin-left: 20px;
+}
+
+/* Maps */
+.map-container {
+  height: 400px;
 }

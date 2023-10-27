@@ -94,7 +94,7 @@ function BudgetUpdate(props) {
               className="form-control"
             />
           ) : (
-            budget.cost
+            `$${budget.cost}`
           )}
         </td>
         <td>
@@ -113,17 +113,29 @@ function BudgetUpdate(props) {
             budget.category
           )}
         </td>
-        <td>
+        <td className="button-cell">
           {editMode ? (
-            <button type="button" onClick={() => handleSave(budget.expense_id)}>
+            <button
+              type="button"
+              onClick={() => handleSave(budget.expense_id)}
+              className="save-button font"
+            >
               Save
             </button>
           ) : (
-            <button type="button" onClick={handleEdit}>
+            <button
+              type="button"
+              onClick={handleEdit}
+              className="edit-button font"
+            >
               Edit
             </button>
           )}
-          <button type="button" onClick={() => handleDelete(budget.expense_id)}>
+          <button
+            type="button"
+            onClick={() => handleDelete(budget.expense_id)}
+            className="delete-button font"
+          >
             Delete
           </button>
         </td>
