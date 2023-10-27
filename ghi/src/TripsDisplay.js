@@ -1,16 +1,21 @@
 import React, { useContext, useEffect, useState } from "react";
+import { UserContext } from "./context";
+import { Link } from "react-router-dom";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 import BudgetForm from "./Budget";
 import ItineraryList from "./Itinerary/itinerary";
-import { UserContext } from "./context";
+import "./Trips.css";
+import "./TripsForm";
 
 function TripsList(props) {
   const [trips, setTrips] = useState([]);
   const [tripId, setTripId] = useState(null);
-  const [formData, setFormData] = useState({
-    trip_name: "",
-    start_date: "",
-    end_date: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   trip_name: "",
+  //   start_date: "",
+  //   end_date: "",
+  // });
   const [editMode, setEditMode] = useState(null);
   const [editedValues, setEditedValues] = useState({});
   const [display, SetDisplay] = useState("trips");
@@ -84,128 +89,178 @@ function TripsList(props) {
       .catch((error) => console.error("Error deleting trip:", error));
   };
 
+  const handleInputChange = (rowIndex, field, value) => {
+    setEditedValues({
+      ...editedValues,
+      [rowIndex]: {
+        ...editedValues[rowIndex],
+        [field]: value,
+      },
+    });
+  };
+
+  // Add a function to set the selected tripId
+  const handleSelectTrip = (tripId) => {
+    setTripId(tripId);
+  };
+
+  // Add a function to clear the selected tripId
+  const handleClearSelection = () => {
+    setTripId(null);
+  };
+
   return (
     <>
-      <div>
-        <button
-          onClick={() => {
-            setTripId(null);
-            SetDisplay("trips");
-          }}
-        >
-          Trips
-        </button>
-        <button
-          onClick={() => SetDisplay("budget")}
-          disabled={tripId ? false : true}
-          className={display == "budget" && "active-display"}
-        >
-          Budget
-        </button>
-        <button
-          onClick={() => SetDisplay("itinerary")}
-          disabled={tripId ? false : true}
-          className={display == "itinerary" && "active-display"}
-        >
-          Itinerary
-        </button>
+      <div className="adp-grid-container">
+        <div className="vertical-buttons">
+          <button
+            onClick={() => {
+              setTripId(null);
+              SetDisplay("trips");
+            }}
+          >
+            <span className="vertical-text"> Trips </span>
+          </button>
+          <button
+            onClick={() => SetDisplay("budget")}
+            disabled={tripId ? false : true}
+            className={display === "budget" && "active-display"}
+          >
+            <span className="vertical-text">Budget </span>
+          </button>
+          <button
+            onClick={() => SetDisplay("itinerary")}
+            disabled={tripId ? false : true}
+            className={display === "itinerary" && "active-display"}
+          >
+            <span className="vertical-text"> Itinerary </span>
+          </button>
+        </div>
+
+        {/* New Code Div Tag Added */}
+        {display === "trips" && (
+          <div
+            className="font card-container"
+            style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}
+          >
+            {trips.map((trip, rowIndex) => (
+              <div
+                key={trip.trip_id}
+                className="card-wrapper"
+                onClick={() => {
+                  setTripId(trip.trip_id);
+                  SetDisplay("trips");
+                }}
+              >
+                <Card className="custom-card">
+                  <Card.Body>
+                    <Card.Title className="custom-card-title">
+                      <div>
+                        <input
+                          className="font"
+                          type="text"
+                          value={
+                            editMode === rowIndex
+                              ? editedValues[rowIndex].trip_name
+                              : trip.trip_name
+                          }
+                          onChange={(e) =>
+                            handleInputChange(
+                              rowIndex,
+                              "trip_name",
+                              e.target.value
+                            )
+                          }
+                        />
+                        {editMode !== rowIndex ? (
+                          <>
+                            <input
+                              className="font"
+                              type="date"
+                              value={trip.start_date}
+                              readOnly // Prevent editing in read-only mode
+                            />
+                            <input
+                              className="font"
+                              type="date"
+                              value={trip.end_date}
+                              readOnly // Prevent editing in read-only mode
+                            />
+                          </>
+                        ) : (
+                          <>
+                            <input
+                              className="font"
+                              type="date"
+                              value={editedValues[rowIndex].start_date}
+                              onChange={(e) =>
+                                handleInputChange(
+                                  rowIndex,
+                                  "start_date",
+                                  e.target.value
+                                )
+                              }
+                            />
+                            <input
+                              className="font"
+                              type="date"
+                              value={editedValues[rowIndex].end_date}
+                              onChange={(e) =>
+                                handleInputChange(
+                                  rowIndex,
+                                  "end_date",
+                                  e.target.value
+                                )
+                              }
+                            />
+                          </>
+                        )}
+                        <div className="button-container">
+                          {editMode !== rowIndex ? (
+                            <>
+                              <button
+                                className="edit-button font"
+                                onClick={() => handleEditCell(rowIndex)}
+                              >
+                                Edit
+                              </button>
+                              <button
+                                className="delete-button font"
+                                onClick={() => handleDelete(trip.trip_id)}
+                              >
+                                Delete
+                              </button>
+                            </>
+                          ) : (
+                            <>
+                              <button
+                                className="save-button font"
+                                onClick={() => handleSaveCell(rowIndex)}
+                              >
+                                Save
+                              </button>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                    </Card.Title>
+                  </Card.Body>
+                </Card>
+              </div>
+            ))}
+            <Link to="/trips/create">
+              <Card className="custom-card add-trip-card-container">
+                <Card.Body>
+                  <Card.Title className="custom-card-title">+</Card.Title>
+                </Card.Body>
+              </Card>
+            </Link>
+          </div>
+        )}
+
+        {tripId && display === "budget" && <BudgetForm tripId={tripId} />}
+        {tripId && display === "itinerary" && <ItineraryList tripId={tripId} />}
       </div>
-      {display === "trips" && (
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Start Date</th>
-              <th>End Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {trips?.map((trip, rowIndex) => {
-              return (
-                <tr key={trip.trip_id}>
-                  <td>
-                    {editMode === rowIndex ? (
-                      <input
-                        type="text"
-                        value={editedValues[rowIndex].trip_name}
-                        onChange={(e) =>
-                          setEditedValues({
-                            ...editedValues,
-                            [rowIndex]: {
-                              ...editedValues[rowIndex],
-                              trip_name: e.target.value,
-                            },
-                          })
-                        }
-                      />
-                    ) : (
-                      <button onClick={() => setTripId(trip.trip_id)}>
-                        {editMode === rowIndex
-                          ? editedValues[rowIndex].trip_name
-                          : trip.trip_name}
-                      </button>
-                    )}
-                  </td>
-                  <td>
-                    {editMode === rowIndex ? (
-                      <input
-                        type="date"
-                        value={editedValues[rowIndex].start_date}
-                        onChange={(e) =>
-                          setEditedValues({
-                            ...editedValues,
-                            [rowIndex]: {
-                              ...editedValues[rowIndex],
-                              start_date: e.target.value,
-                            },
-                          })
-                        }
-                      />
-                    ) : (
-                      trip.start_date
-                    )}
-                  </td>
-                  <td>
-                    {editMode === rowIndex ? (
-                      <input
-                        type="date"
-                        value={editedValues[rowIndex].end_date}
-                        onChange={(e) =>
-                          setEditedValues({
-                            ...editedValues,
-                            [rowIndex]: {
-                              ...editedValues[rowIndex],
-                              end_date: e.target.value,
-                            },
-                          })
-                        }
-                      />
-                    ) : (
-                      trip.end_date
-                    )}
-                  </td>
-                  <td>
-                    {editMode === rowIndex ? (
-                      <button onClick={() => handleSaveCell(rowIndex)}>
-                        Save
-                      </button>
-                    ) : (
-                      <button onClick={() => handleEditCell(rowIndex)}>
-                        Edit
-                      </button>
-                    )}
-                    <button onClick={() => handleDelete(trip.trip_id)}>
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      )}
-      {tripId && display === "budget" && <BudgetForm tripId={tripId} />}
-      {tripId && display === "itinerary" && <ItineraryList tripId={tripId} />}
     </>
   );
 

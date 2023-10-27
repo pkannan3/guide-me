@@ -48,12 +48,9 @@ function LoginForm() {
 
   return (
     <div className="background font">
-      <div className="grid-container">
-        <div className="left-container image">
-          <img src="Girl2.jpg" alt="Traveling Girl" className="cropped-image" />
-        </div>
-        <div className="right-container">
-          <h1>Login</h1>
+      <div className="container">
+        <div className="grid-container">
+          <h1 className="font">Login</h1>
           <form id="Signup-form" className="form">
             <div className="form-floating mb-3">
               <input
@@ -63,6 +60,7 @@ function LoginForm() {
                 placeholder="Username"
                 value={username}
                 onChange={handleUsernameChange}
+                className="font"
               />
             </div>
             <div className="form-right mb-3">
@@ -73,18 +71,21 @@ function LoginForm() {
                 placeholder="Password"
                 value={password}
                 onChange={handlePasswordChange}
-                className="form-control"
+                className="form-control font"
               />
             </div>
             <button
               type="button"
               onClick={handleLogin}
-              className="account-button font"
+              className="accounts-button font"
             >
               Login
             </button>
-            <p>
-              Don't have an account? <Link to="/register">Register</Link>
+            <p className="font">
+              Don't have an account?{" "}
+              <Link to="/register" className="font">
+                Register
+              </Link>
             </p>
           </form>
         </div>

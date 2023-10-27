@@ -1,0 +1,111 @@
+/* Basics */
+.font {
+  font-family: Helvetica Neue, Tahoma, Verdana, sans-serif;
+  letter-spacing: 1.5px;
+}
+
+.budget-h1 {
+  margin-top: 20px;
+}
+
+/* BudgetUpdate Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 40px;
+}
+
+.budget-th {
+  text-align: left;
+  padding: 0 0 10px 2px;
+}
+
+/* Style table cells */
+td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+/* Style the button cell */
+.button-cell {
+  text-align: right; /* Align buttons to the right end of the cell */
+}
+
+/* Style the buttons */
+
+.save-button {
+  background-color: #72e195;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.edit-button {
+  background-color: #d59ef3;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.delete-button {
+  background-color: #d59ef3;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Add Expense Card */
+.add-expense-card {
+  height: 2.7rem;
+  width: 100%;
+  margin: 10px 0 50px 0;
+  background-color: #b9e6a2;
+  border: none;
+  border-radius: 4px;
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-expense-card:hover {
+  background-color: #b9e6a2;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.add-expense-card-title {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex; /* Add this line */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  border: 0px solid white;
+  width: 100%;
+}
+
+/* Expense Form */
+.expense-h1 {
+  margin: 45px 0 20px 0;
+  text-align: left;
+  padding: 0;
+}
+
+.expense-labels {
+  margin-left: 20px;
+}
+
+.expense-input {
+  width: 400px;
+  margin: 10px 0 20px 0;
+}

@@ -11,7 +11,7 @@ function SignupForm({ onRegister }) {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-   const { user, setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   const handleChangeFirstName = (event) => {
     setFirstName(event.target.value);
@@ -54,7 +54,7 @@ function SignupForm({ onRegister }) {
       });
 
       if (response.ok) {
-        const result = await response.json()
+        const result = await response.json();
         console.log("Registration successful");
         setError("");
         onRegister();
@@ -73,12 +73,9 @@ function SignupForm({ onRegister }) {
 
   return (
     <div className="background font">
-      <div className="grid-container">
-        <div className="left-container">
-          <img src="Girl2.jpg" alt="Traveling Girl" className="cropped-image" />
-        </div>
-        <div className="right-container">
-          <h1>Sign Up</h1>
+      <div className="container">
+        <div className="grid-container">
+          <h1 className="font">Sign Up</h1>
           <form onSubmit={handleSubmit} id="Signup-form" className="form">
             <div className="form-floating mb-3">
               <input
@@ -88,6 +85,7 @@ function SignupForm({ onRegister }) {
                 placeholder="First Name"
                 value={firstName}
                 onChange={handleChangeFirstName}
+                className="font"
               />
             </div>
             <div className="form-floating mb-3">
@@ -98,6 +96,7 @@ function SignupForm({ onRegister }) {
                 placeholder="Username"
                 value={username}
                 onChange={handleChangeUsername}
+                className="font"
               />
             </div>
             <div className="form-floating mb-3">
@@ -108,7 +107,7 @@ function SignupForm({ onRegister }) {
                 placeholder="Password"
                 value={password}
                 onChange={handleChangePassword}
-                className="form-control"
+                className="form-control font"
               />
             </div>
             <div className="form-floating mb-3">
@@ -119,15 +118,19 @@ function SignupForm({ onRegister }) {
                 placeholder="Email"
                 value={email}
                 onChange={handleChangeEmail}
+                className="font"
               />
             </div>
             <div className="mb-3 text-danger">{error}</div>
-            <button type="submit" className="account-button font">
+            <button type="submit" className="accounts-button font">
               Create
             </button>
             <div>
-              <p>
-                Already have an account? <Link to="/login">Login</Link>
+              <p className="font">
+                Already have an account?{" "}
+                <Link to="/login" className="font">
+                  Login
+                </Link>
               </p>
             </div>
           </form>

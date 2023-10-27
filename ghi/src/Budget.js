@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import BudgetUpdate from "./BudgetUpdate";
 import BudgetChart from "./BudgetChart";
-import BudgetSummaryChart from "./BudgetSummaryChart";
+import Card from "react-bootstrap/Card";
+// import BudgetSummaryChart from "./BudgetSummaryChart";
+import "./Budget.css";
 
 function BudgetForm({ tripId }) {
   const [budget, setBudget] = useState([]);
@@ -11,6 +13,13 @@ function BudgetForm({ tripId }) {
     category: "",
     trip_id: tripId,
   });
+  const [showExpenseForm, setShowExpenseForm] = useState(false);
+  const [budgetedAmount, setBudgetedAmount] = useState(0);
+  const [spentAmount, setSpentAmount] = useState(0);
+  const [remainingAmount, setRemainingAmount] = useState(0);
+  const [isEditingBudget, setIsEditingBudget] = useState(false);
+  const [newBudgetedAmount, setNewBudgetedAmount] = useState(budgetedAmount); // Initialize with the current budgetedAmount
+
   const [showExpenseForm, setShowExpenseForm] = useState(false);
   const [budgetedAmount, setBudgetedAmount] = useState(0);
   const [spentAmount, setSpentAmount] = useState(0);
@@ -124,7 +133,7 @@ function BudgetForm({ tripId }) {
     <div className="row">
       <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
-          <BudgetSummaryChart spent={spentAmount} remaining={remainingAmount} />
+          {/* <BudgetSummaryChart spent={spentAmount} remaining={remainingAmount} />
           <div>
             {isEditingBudget ? (
               <div>
@@ -154,16 +163,14 @@ function BudgetForm({ tripId }) {
           </div>
           <div>
             <h3>Remaining: ${remainingAmount}</h3>
-          </div>
-
+          </div> */}
           <BudgetChart budget={budget} />
-
-          <table className="table table-striped">
+          <table className="table table-striped font">
             <thead>
               <tr>
-                <th>Expense</th>
-                <th>Cost</th>
-                <th>Category</th>
+                <th className="budget-th">Expense</th>
+                <th className="budget-th">Cost</th>
+                <th className="budget-th">Category</th>
               </tr>
             </thead>
             <tbody>
@@ -176,65 +183,75 @@ function BudgetForm({ tripId }) {
               ))}
             </tbody>
           </table>
-
           {!showExpenseForm && (
             <button
-              className="btn btn-primary"
               onClick={() => setShowExpenseForm(true)}
+              className="add-expense-card"
             >
-              Add Expense
+              <Card>
+                <Card.Body>
+                  <Card.Title className="add-expense-card-title">+</Card.Title>
+                </Card.Body>
+              </Card>
             </button>
           )}
-
           {showExpenseForm && (
             <form id="createBudget">
-              <div className="form-floating mb-3">
-                <h1>Create an expense</h1>
-                <input
-                  value={formData.expense_name}
-                  onChange={handleFormChange}
-                  placeholder="Expense Name"
-                  required
-                  type="text"
-                  id="expense_name"
-                  name="expense_name"
-                  className="form-control"
-                />
-                <label htmlFor="expense_name">Expense Name</label>
+              <div className="form-group">
+                <h1 className="expense-h1 font">Create an expense</h1>
+                <label htmlFor="expense_name" className="font">
+                  Expense Name
+                </label>
+                <div className="form-floating mb-3">
+                  <input
+                    value={formData.expense_name}
+                    onChange={handleFormChange}
+                    placeholder="Expense Name"
+                    required
+                    type="text"
+                    id="expense_name"
+                    name="expense_name"
+                    className="form-control font expense-input"
+                  />
+                </div>
+                <label htmlFor="cost" className="font">
+                  Cost
+                </label>
+                <div className="form-floating mb-3">
+                  <input
+                    value={formData.cost}
+                    onChange={handleFormChange}
+                    placeholder="Cost"
+                    required
+                    type="number"
+                    id="cost"
+                    name="cost"
+                    className="form-control font expense-input"
+                  />
+                </div>
+                <label htmlFor="category" className="font">
+                  Category
+                </label>
+                <div className="form-floating mb-3">
+                  <input
+                    value={formData.category}
+                    onChange={handleFormChange}
+                    placeholder="Category"
+                    required
+                    type="text"
+                    id="category"
+                    name="category"
+                    className="form-control font expense-input"
+                  />
+                </div>
+                <button
+                  type="button"
+                  className="btn btn-primary save-button"
+                  onClick={handleSubmit}
+                >
+                  Add Expense
+                </button>
               </div>
-              <div className="form-floating mb-3">
-                <input
-                  value={formData.cost}
-                  onChange={handleFormChange}
-                  placeholder="Cost"
-                  required
-                  type="number"
-                  id="cost"
-                  name="cost"
-                  className="form-control"
-                />
-                <label htmlFor="cost">Cost</label>
-              </div>
-              <div className="form-floating mb-3">
-                <input
-                  value={formData.category}
-                  onChange={handleFormChange}
-                  placeholder="Category"
-                  required
-                  type="text"
-                  id="category"
-                  name="category"
-                  className="form-control"
-                />
-                <label htmlFor="category">Category</label>
-              </div>
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={handleSubmit}
-              >
-                Add Expense
-              </button>
             </form>
           )}
         </div>
