@@ -1,141 +1,191 @@
-# Module3 Project Gamma
+# GuideMe - Comprehensive Trip Planning Web Application
+- Anastasia Dwarica-Pham
+- Austin aka Andrew Sahagun
+- Matthew Rauschenberg
+- Priyanka Kannan
 
-## Getting started
 
-You have a project repository, now what? The next section
-lists all of the deliverables that are due at the end of the
-week. Below is some guidance for getting started on the
-tasks for this week.
+## Functionality
 
-## Install Extensions
 
-- Prettier: <https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode>
-- Black Formatter: <https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter>
+GuideMe is a comprehensive trip-planning web application designed to help users organize and plan their journeys effectively. It provides tools for itinerary
 
-## Deliverables
 
-- [ ] Wire-frame diagrams
-- [ ] API documentation
-- [ ] Project is deployed to Caprover (BE, DB) & GitLab-pages (FE)
-- [ ] GitLab issue board is setup and in use (or project management tool of choice)
-- [ ] Journals
+creation, budget management, and exploration through interactive maps. Users can create an account to access enhanced features and personalized trip planning.
 
-## Project layout
 
-The layout of the project is just like all of the projects
-you did with `docker-compose` in module #2. You will create
-a directory in the root of the repository for each service
-that you add to your project just like those previous
-projects were setup.
+### Account Management API
+GuideMe's backend API, built with FastAPI, provides the following functionality for user account management:
 
-### Directories
 
-Several directories have been added to your project. The
-directories `docs` and `journals` are places for you and
-your team-mates to, respectively, put any documentation
-about your project that you create and to put your
-project-journal entries. See the _README.md_ file in each
-directory for more info.
+- Create Account: Users can register a new account by providing their first name, username, email, and password. The password is securely hashed before being stored in the database.
 
-The other directories, `ghi` and `api`, are services, that
-you can start building off of.
 
-Inside of `ghi` is a minimal React app that has an "under
-construction" page. It is setup similarly to all of the
-other React projects that you have worked on.
+- Get Account: Users can retrieve their account information by providing their username. This information includes the user's unique ID, first name, username, email, and hashed password.
 
-Inside of `api` is a minimal FastAPI application.
-"Where are all the files?" you might ask? Well, the
-`main.py` file is the whole thing, and go take look inside
-of it... There's not even much in there..., hmm? That is
-FastAPI, we'll learn more about it in the coming days. Can
-you figure out what this little web-application does even
-though you haven't learned about FastAPI yet?
 
-Also in `api` is a directory for your migrations.
-If you choose to use PostgreSQL, then you'll want to use
-migrations to control your database. Unlike Django, where
-migrations were automatically created for you, you'll write
-yours by hand using DDL. Don't worry about not knowing what
-DDL means; we have you covered. There's a sample migration
-in there that creates two tables so you can see what they
-look like.
+- Get Token: This endpoint allows users to obtain an access token, which is required for authenticated access to certain features. It returns an access token in a Bearer token format and the user's account information.
 
-The Dockerfile and Dockerfile.dev run your migrations
-for you automatically.
 
-### Other files
+- Protected Endpoint: Users with a valid access token can access protected endpoints, which can be used for secure and authenticated operations.
 
-The following project files have been created as a minimal
-starting point. Please follow the guidance for each one for
-a most successful project.
 
-- `docker-compose.yaml`: there isn't much in here, just a
-  **really** simple UI and FastAPI service. Add services
-  (like a database) to this file as you did with previous
-  projects in module #2.
-- `.gitlab-ci.yml`: This is your "ci/cd" file where you will
-  configure automated unit tests, code quality checks, and
-  the building and deployment of your production system.
-  Currently, all it does is deploy an "under construction"
-  page to your production UI on GitLab and a sample backend
-  to CapRover. We will learn much more about this file.
-- `.gitignore`: This is a file that prevents unwanted files
-  from getting added to your repository, files like
-  `pyc` files, `__pycache__`, etc. We've set it up so that
-  it has a good default configuration for Python projects.
-- `.env.sample`: This file is a template to copy when
-  creating environment variables for your team. Create a
-  copy called `.env` and put your own passwords in here
-  without fear of it being committed to git (see `.env`
-  listed in `.gitignore`). You can also put team related
-  environment variables in here, things like api and signing
-  keys that shouldn't be committed; these should be
-  duplicated in your deployed environments.
+### Trip Management API
+GuideMe offers trip management features through the following API endpoints:
 
-## How to complete the initial deploy
 
-There will be further guidance on completing the initial
-deployment, but it just consists of these steps:
+- Create Trip: Users can create a new trip itinerary, specifying a trip name, start date, and end date.
 
-### Setup GitLab repo/project
 
-- make sure this project is in a group. If it isn't, stop
-  now and move it to a GitLab group
-- remove the fork relationship: In GitLab go to:
+- Update Trip: Users can update an existing trip by modifying its name, start date, and end date.
 
-  Settings -> General -> Advanced -> Remove fork relationship
 
-- add these GitLab CI/CD variables:
-  - PUBLIC_URL : this is your gitlab pages URL
-  - REACT_APP_API_HOST: enter "blank" for now
+- Get Trip: Users can retrieve information about a specific trip using its unique trip ID.
 
-#### Your GitLab pages URL
 
-You can't find this in GitLab until after you've done a deploy
-but you can figure it out yourself from your GitLab project URL.
+- Get All Trips: Users can retrieve a list of all their trips, sorted by start date.
 
-If this is your project URL
 
-https://gitlab.com/GROUP_NAME/PROJECT_NAME
+- Delete Trip: Users can delete a trip, removing it from their trip list.
 
-then your GitLab pages URL will be
 
-https://GROUP_NAME.gitlab.io/PROJECT_NAME
+- Get Trip Budget: Retrieve a list of expenses associated with a specific trip. Users can view all expenses related to a particular trip, including their IDs, names, costs, categories, and the total budget for that trip.
 
-### Initialize CapRover
 
-1. Attain IP address and domain from an instructor
-1. Follow the steps in the CD Cookbook in Learn.
+### Budget Management API
+GuideMe's budget management API, built using FastAPI, offers several features for managing trip expenses and budgets:
 
-### Update GitLab CI/CD variables
 
-Copy the service URL for your CapRover service and then paste
-that into the value for the REACT_APP_API_HOST CI/CD variable
-in GitLab.
+- Create Expense: Users can add expenses associated with a specific trip. The API endpoint allows users to create an expense by specifying the expense name, cost, and category. The cost is stored as a decimal for accurate financial tracking.
 
-### Deploy it
 
-Merge a change into main to kick off the initial deploy. Once the build pipeline
-finishes you should be able to see an "under construction" page on your GitLab
-pages site.
+- Update Expense: This endpoint enables users to modify the details of an existing expense by providing the expense ID. Users can update the expense name, cost, and category.
+
+
+- Get Expense: Users can retrieve details of a specific expense by providing its unique ID. The response includes the expense ID, name, cost, and category.
+
+
+- Get All Expenses: This endpoint retrieves a list of all expenses, including their IDs, names, costs, and categories.
+
+
+- Delete Expense: Users can remove an expense by specifying its unique ID. This feature is essential for expense management and maintaining accurate trip budgets.
+
+
+- Update Total Budget: Users can update the total budget for a specific trip. This API endpoint allows users to modify the total budget amount.
+
+
+### Itinerary Management API
+GuideMe's Itinerary management API, built with FastAPI, offers features for managing trip locations and schedules:
+
+
+- Create Location: Users can add locations to their trip's itinerary. The API allows users to specify the location name, visit date, and start time. The location information is associated with a specific trip.
+
+- Update Location: This endpoint enables users to modify the details of an existing location within the itinerary. Users can update the location name, visit date, and start time.
+
+
+- Get Location: Users can retrieve details of a specific location in the itinerary by providing its unique location ID. The response includes the location ID, name, visit date, and start time.
+
+
+- Get All Locations: This endpoint retrieves a list of all locations in the itinerary, sorted by visit date and start time. The response includes location IDs, names, visit dates, and start times.
+
+
+- Delete Location: Users can remove a location from the itinerary by specifying its unique location ID. This feature is essential for managing and updating the trip's schedule.
+
+
+- Get Trip Itinerary: Retrieve a list of locations associated with a specific trip. Users can view all locations in a particular trip's itinerary, including their IDs, names, visit dates, start times, and the trip ID to which they belong.
+
+
+## User Stories/Scenarios
+
+
+Scenario: User Account Management
+Given a user wants to use GuideMe
+When they register a new account by providing their first name, username, email, and password
+Then their account is created, and the password is securely hashed
+
+
+Given a registered user
+When they provide their username
+Then they can retrieve their account information, including their ID, first name, username, email, and hashed password
+
+
+Given a registered user
+When they request an access token
+Then they receive an access token in Bearer token format and their account information
+Given a user with a valid access token
+When they access protected endpoints
+Then they can perform secure and authenticated operations
+
+
+Scenario: Trip Management
+Given a user wants to plan a trip
+When they specify a trip name, start date, and end date
+Then they can create a new trip itinerary
+
+
+Given a user has an existing trip
+When they modify the trip's name, start date, and end date
+Then the trip details are updated
+
+
+Given a user has one or more trips
+When they provide a unique trip ID
+Then they can retrieve information about that specific trip
+
+
+Given a user has one or more trips
+When they request a list of all their trips
+Then they receive a list of trips sorted by start date
+
+
+Given a user has an existing trip
+When they choose to delete the trip
+Then the trip is removed from their trip list
+
+
+Given a user has an existing trip
+When they request the trip budget
+Then they receive a list of expenses related to the trip, including IDs, names, costs, categories, and the total budget
+
+
+
+## Stretch Goals
+
+- History - Page of Past Completed Trips
+- User Profile Page - Personal Information Management
+- Currency Converter
+- Live Update - Link to Cost and Budget Management
+- Collaborate with Other Travel Buddies
+- Transportation Booking Integration
+- Local Transportation Options and Booking Services
+- Trip Selection on a Map - Map Box API Integration
+
+## Onboarding
+- We decided ahead of time we would not push changes to the main without someone else approving it.
+- Whenever a team member would start on a new aspect of the project they would branch off to keep the current branch working.
+- We would often do mob coding via the live share feature in VS code
+
+
+
+## Tech Stack
+- Backend: FastAPI
+- Frontend:React
+- DB: PostgresSQL
+- Docker
+
+## Journaling
+- Created a journal folder where we update entries on the first and last school day of the week.
+
+## Documentation for API
+- Notion: https://nenam.notion.site/API-Design-7320f9cbde894c02a6751cfa57a09bf2
+
+
+## Testing
+- test_get_all_trips : This test retrieves a list of all trips. - Priyanka
+- test_get_account: This test retrieves the username of the account - Matthew
+- test_get_one_trip: This test retrieves one trip - Anastasia
+- test_update_trip: This test updates one trip - Austin
+
+
+## Issue Tracking
+- Notion: https://nenam.notion.site/Workload-17ab495124f243378f0052395aa0b61f
