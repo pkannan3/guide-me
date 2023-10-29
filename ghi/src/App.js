@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, Link } from "react-router-dom";
 import { UserContext } from "./context.js";
 import SignupForm from "./Accounts/signup.js";
 import LoginForm from "./Accounts/login.js";
@@ -11,7 +11,6 @@ import TripsForm from "./TripsForm";
 import UpdateTripForm from "./TripsUpdate";
 import BudgetForm from "./Budget";
 import NotFound from "./404/PageDoesNotExist";
-// import SecondLayout from "./SecondLayout/SecondLayout.js";
 
 function App() {
   const [isUserLoggedIn, setUserLoggedIn] = useState(
@@ -23,6 +22,7 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem("access_token");
     setUserLoggedIn(false);
+
   };
 
   const handleLogin = () => {
@@ -32,29 +32,36 @@ function App() {
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
-        <Header onLogout={handleLogout} isUserLoggedIn={isUserLoggedIn} />
+          <Header onLogout={handleLogout} isUserLoggedIn={isUserLoggedIn} />
         <div className="App-layout">
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/home" element={<LandingPage />} />
-            <Route
-              path="/register"
-              element={<SignupForm onRegister={handleLogin} />}
-            />
-            <Route path="/login" element={<LoginForm />} />
-            {/* <Route
-              element={
-                isUserLoggedIn ? <SecondLayout /> : <Navigate to="/login" />
-              }
-            > */}
-            <Route path="/trips" element={<TripsDisplay />} />
-            <Route path="/trips/create" element={<TripsForm />} />
-            <Route path={`/trips/:trip_id/edit`} element={<UpdateTripForm />} />
-            <Route path="/itinerary" element={<ItineraryList />} />
-            <Route path="/expense" element={<BudgetForm />} />
-            {/* </Route> */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          {isUserLoggedIn ? (
+            <Routes>
+              <Route path="/trips" element={<TripsDisplay />} />
+              <Route path="/trips/create" element={<TripsForm />} />
+              <Route path="/itinerary" element={<ItineraryList />} />
+              <Route path="/expense" element={<BudgetForm />} />
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/home" element={<LandingPage />} />
+              <Route path="/login" element={<LoginForm />} />
+              <Route
+                path="/register"
+                element={<SignupForm onRegister={handleLogin} />}
+              />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          ) : (
+            // <Navigate to="/home" /> &&
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/home" element={<LandingPage />} />
+              <Route path="/login" element={<LoginForm />} />
+              <Route
+                path="/register"
+                element={<SignupForm onRegister={handleLogin} />}
+              />
+              <Route path="*" element={<LandingPage />} />
+            </Routes>
+          )}
         </div>
       </BrowserRouter>
     </UserContext.Provider>
