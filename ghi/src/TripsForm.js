@@ -66,6 +66,10 @@ function TripForm(props) {
     }
   };
 
+  const handleCancel = () => {
+    navigate("/trips");
+  }
+
   const handleFormChange = (e) => {
     const value = e.target.value;
     const inputName = e.target.name;
@@ -89,8 +93,8 @@ function TripForm(props) {
     <div className="row font create-trips-container">
       <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
+        <h1 className="create-trips-title font">Create a Trip</h1>
           <div ref={mapContainer} className="map-container" />
-          <h1 className="create-trips-title font">Create a Trip</h1>
           <form onSubmit={handleSubmit} id="createTrip">
             <label htmlFor="trip" className="create-trips-labels">
               Trip
@@ -136,6 +140,9 @@ function TripForm(props) {
             </div>
             <button className="btn btn-primary create-trip-button">
               Start Your Adventure
+            </button>
+            <button className="btn btn-primary cancel-trip-button" onClick={handleCancel}>
+              Cancel
             </button>
           </form>
         </div>

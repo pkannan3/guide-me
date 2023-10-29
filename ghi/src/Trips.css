@@ -104,7 +104,7 @@
   transition: background-color 0.3s;
 }
 
-/* ADP Containers + New Navbar */
+/* New Navbar */
 .vertical-text {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
@@ -146,7 +146,7 @@
 }
 
 .create-trips-title {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .create-trips-labels {
@@ -168,7 +168,18 @@
   margin-left: 20px;
 }
 
+.cancel-trip-button {
+  background-color: #d59ef3;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
 /* Maps */
 .map-container {
   height: 400px;
+  margin-bottom: 30px;
 }
