@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./Account.css";
-import TripList from "../TripsDisplay";
 import { UserContext } from "../context";
 
 function LoginForm() {

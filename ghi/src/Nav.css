@@ -1,6 +1,5 @@
 .TabNavbar {
-  width: auto; /* Adjust the width as needed */
-  /* background-color: #747474; */
+  width: auto;
 }
 
 .TabsNavbar-nav {
@@ -23,13 +22,11 @@
 }
 
 .nav-link:hover {
-  /* background-color: #b9e6a2; */
   color: black;
   border: 2px solid white;
   border-radius: 5px;
   width: 100%;
   height: 100%;
-  /* transform: scale(1.1); */
 }
 
 .nav-link.selected {
@@ -55,7 +52,6 @@
 }
 
 .Nav-container {
-  /* background-color: white; */
   display: flex;
   flex-direction: column;
   align-items: center;

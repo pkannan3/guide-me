@@ -68,7 +68,7 @@ function TripForm(props) {
 
   const handleCancel = () => {
     navigate("/trips");
-  }
+  };
 
   const handleFormChange = (e) => {
     const value = e.target.value;
@@ -80,7 +80,7 @@ function TripForm(props) {
     });
   };
   useEffect(() => {
-    if (map.current) return; // initialize map only once
+    if (map.current) return;
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v12",
@@ -93,7 +93,7 @@ function TripForm(props) {
     <div className="row font create-trips-container">
       <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
-        <h1 className="create-trips-title font">Create a Trip</h1>
+          <h1 className="create-trips-title font">Create a Trip</h1>
           <div ref={mapContainer} className="map-container" />
           <form onSubmit={handleSubmit} id="createTrip">
             <label htmlFor="trip" className="create-trips-labels">
@@ -141,7 +141,10 @@ function TripForm(props) {
             <button className="btn btn-primary create-trip-button">
               Start Your Adventure
             </button>
-            <button className="btn btn-primary cancel-trip-button" onClick={handleCancel}>
+            <button
+              className="btn btn-primary cancel-trip-button"
+              onClick={handleCancel}
+            >
               Cancel
             </button>
           </form>

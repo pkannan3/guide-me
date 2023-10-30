@@ -2,11 +2,9 @@ from fastapi.testclient import TestClient
 from main import app
 from queries.trips import TripsQueries
 from authenticator import authenticator
-from queries.accounts import AccountQueries, AccountOut
-
+from queries.accounts import AccountQueries
 
 client = TestClient(app)
-
 
 
 class AccountQueryTest:
@@ -15,7 +13,7 @@ class AccountQueryTest:
             "id": 4,
             "first_name": "string1",
             "username": "string1",
-            "email": "string1"
+            "email": "string1",
         }
 
 
@@ -23,7 +21,7 @@ def test_get_account():
     app.dependency_overrides[AccountQueries] = AccountQueryTest
     response = client.get("/api/accounts/string1")
     assert response.status_code == 200
-    
+
 
 class GuideMeAuthenticatorTest:
     def fake_try_get_current_account_data():
@@ -31,9 +29,10 @@ class GuideMeAuthenticatorTest:
             "id": 4,
             "first_name": "string1",
             "username": "string1",
-            "email": "string1"
+            "email": "string1",
         }
         return account
+
 
 class TripTest:
     def get_all(self, account):
@@ -79,17 +78,15 @@ class TestTripsQueries:
         return {"message": "update test failed"}
 
 
-# SEAT
 def test_get_all_trips():
-    # Setup/Arrange
     fake_auth = GuideMeAuthenticatorTest
-    app.dependency_overrides[authenticator.get_current_account_data] = fake_auth.fake_try_get_current_account_data
+    app.dependency_overrides[
+        authenticator.get_current_account_data
+    ] = fake_auth.fake_try_get_current_account_data
     app.dependency_overrides[TripsQueries] = TripTest
 
-    # Enact/Act
     response = client.get("/trips/")
 
-    # Assert
     assert response.status_code == 200
     app.dependency_overrides = {}
 

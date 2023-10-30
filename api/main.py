@@ -11,6 +11,7 @@ app = FastAPI()
 def read_root():
     return {"Hello": "World"}
 
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -46,6 +47,6 @@ def launch_details():
             "week": 17,
             "day": 5,
             "hour": 19,
-            "min": "00"
+            "min": "00",
         }
     }

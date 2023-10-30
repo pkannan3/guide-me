@@ -166,7 +166,6 @@ function ItineraryList(props) {
       updatedItineraries[rowIndex] = updatedData;
       setItineraries(updatedItineraries);
       setEditMode(null);
-      // window.location.reload();
     } else {
       console.error("Failed to update itinerary:", response);
     }
@@ -199,7 +198,6 @@ function ItineraryList(props) {
     const date = new Date();
     date.setHours(parseInt(hours));
     date.setMinutes(parseInt(minutes));
-    // date.setSeconds(parseInt(seconds));
 
     const timeFormatted = date.toLocaleTimeString([], {
       hour: "2-digit",
@@ -306,7 +304,6 @@ function ItineraryList(props) {
                             />
                           ) : (
                             customTimeCovert(itinerary.start_time)
-                            // itinerary.start_time
                           )}
                         </li>
                       </ul>

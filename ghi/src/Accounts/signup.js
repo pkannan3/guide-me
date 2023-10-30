@@ -5,7 +5,6 @@ import { UserContext } from "../context";
 
 function SignupForm({ onRegister }) {
   const navigate = useNavigate();
-
   const [firstName, setFirstName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

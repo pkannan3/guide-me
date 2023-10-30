@@ -2,14 +2,13 @@ import React from "react";
 import { Pie } from "react-chartjs-2";
 
 function BudgetSummaryChart({ spent, remaining }) {
-  // Conditionally set the remaining value to zero if it's negative
   const remainingValue = remaining < 0 ? 0 : remaining;
 
   const data = {
     labels: ["Spent", "Remaining"],
     datasets: [
       {
-        data: [spent, remainingValue], // Use the modified remainingValue
+        data: [spent, remainingValue],
         backgroundColor: ["#FF6384", "#36A2EB"],
       },
     ],
