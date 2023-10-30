@@ -125,11 +125,18 @@ function BudgetForm(props) {
     const value = e.target.value;
     const inputName = e.target.name;
 
+    if (inputName === "category") {
+    setFormData({
+      ...formData,
+      [inputName]: value.toLowerCase(),
+    });
+  } else {
     setFormData({
       ...formData,
       [inputName]: value,
     });
-  };
+  }
+};
 
   return (
     <div className="row">
