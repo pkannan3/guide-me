@@ -97,7 +97,8 @@ function ItineraryForm({ tripId, onAddItinerary }) {
   );
 }
 
-function ItineraryList({ tripId }) {
+function ItineraryList(props) {
+  const { tripId, tripName } = props;
   const [showForm, setShowForm] = useState(false);
   const [itineraries, setItineraries] = useState([]);
   const [editMode, setEditMode] = useState(null);
@@ -222,7 +223,7 @@ function ItineraryList({ tripId }) {
   return (
     <>
       <div className="font">
-        <h1>Itinerary</h1>
+        <h1>Itinerary for Trip: { tripName }</h1>
         <div>
           <label htmlFor="itineraryDate"> Select Date: </label>
           <select

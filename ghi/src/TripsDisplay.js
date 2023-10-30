@@ -258,8 +258,12 @@ function TripsList(props) {
           </div>
         )}
 
-        {tripId && display === "budget" && <BudgetForm tripId={tripId} />}
-        {tripId && display === "itinerary" && <ItineraryList tripId={tripId} />}
+        {tripId && display === "budget" && (
+          <BudgetForm tripId={tripId} tripName={trips.find((trip) => trip.trip_id === tripId)?.trip_name} />
+        )}
+        {tripId && display === "itinerary" && (
+          <ItineraryList tripId={tripId} tripName={trips.find((trip) => trip.trip_id === tripId)?.trip_name} />
+        )}
       </div>
     </>
   );

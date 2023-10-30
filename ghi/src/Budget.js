@@ -5,7 +5,8 @@ import Card from "react-bootstrap/Card";
 // import BudgetSummaryChart from "./BudgetSummaryChart";
 import "./Budget.css";
 
-function BudgetForm({ tripId }) {
+function BudgetForm(props) {
+  const { tripId, tripName } = props;
   const [budget, setBudget] = useState([]);
   const [formData, setFormData] = useState({
     expense_name: "",
@@ -134,6 +135,7 @@ function BudgetForm({ tripId }) {
     <div className="row">
       <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
+          <h1> Budget for Trip : {tripName}</h1>
           {/* <BudgetSummaryChart spent={spentAmount} remaining={remainingAmount} />
           <div>
             {isEditingBudget ? (
