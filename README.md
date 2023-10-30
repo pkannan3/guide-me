@@ -178,7 +178,7 @@ Then they receive a list of expenses related to the trip, including IDs, names, 
 
 ## Documentation for API
 - Notion: https://nenam.notion.site/API-Design-7320f9cbde894c02a6751cfa57a09bf2
-- Wireframe: [](https://excalidraw.com/#room=0a97c68042502c4318d8,rU76PcLpfZTKmBqrdLwu6w)
+- Wireframe: https://excalidraw.com/#room=0a97c68042502c4318d8,rU76PcLpfZTKmBqrdLwu6w
 
 
 ## Testing
