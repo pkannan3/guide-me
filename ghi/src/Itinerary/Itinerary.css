@@ -4,11 +4,11 @@
   letter-spacing: 1.5px;
 }
 
-.budget-h1 {
+.location-h1 {
   margin: 30px 0 30px 0;
 }
 
-/* BudgetUpdate Table */
+/* ItineraryUpdate Table */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -29,7 +29,7 @@ td {
 
 /* Style the button cell */
 .button-cell {
-  text-align: right; /* Align buttons to the right end of the cell */
+  text-align: right;
 }
 
 /* Style the buttons */
@@ -41,7 +41,7 @@ td {
   padding: 5px 15px;
   border-radius: 4px;
   cursor: pointer;
-  margin-right: 10px;
+  margin-top: 10px;
 }
 
 .edit-button {
@@ -63,8 +63,8 @@ td {
   cursor: pointer;
 }
 
-/* Add Expense Card */
-.add-expense-card {
+/* Add Location Card */
+.add-location-card {
   height: 2.7rem;
   width: 100%;
   margin: 10px 0 50px 0;
@@ -77,13 +77,13 @@ td {
   align-items: center;
 }
 
-.add-expense-card:hover {
+.add-location-card:hover {
   background-color: #b9e6a2;
   transition: transform 0.3s;
   cursor: pointer;
 }
 
-.add-expense-card-title {
+.add-location-card-title {
   padding: 10px;
   font-size: 20px;
   font-weight: bold;
@@ -94,18 +94,18 @@ td {
   width: 100%;
 }
 
-/* Expense Form */
-.expense-h2 {
-  margin: 45px 0 15px 0;
+/* Itinerary Form */
+.location-h2 {
+  margin: 45px 0 20px 0;
   text-align: left;
   padding: 0;
 }
 
-.expense-labels {
+.location-labels {
   margin-left: 20px;
 }
 
-.expense-input {
+.location-input {
   width: 400px;
   margin: 10px 0 20px 0;
 }

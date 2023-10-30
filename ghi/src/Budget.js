@@ -135,7 +135,7 @@ function BudgetForm(props) {
     <div className="row">
       <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
-          <h1> Budget for Trip : {tripName}</h1>
+          <h1 className="budget-h1"> Budget for Trip : {tripName}</h1>
           {/* <BudgetSummaryChart spent={spentAmount} remaining={remainingAmount} />
           <div>
             {isEditingBudget ? (
@@ -201,7 +201,7 @@ function BudgetForm(props) {
           {showExpenseForm && (
             <form id="createBudget">
               <div className="form-group">
-                <h1 className="expense-h1 font">Create an expense</h1>
+                <h2 className="expense-h2 font">Create an expense</h2>
                 <label htmlFor="expense_name" className="font">
                   Expense Name
                 </label>

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Card from "react-bootstrap/Card";
+import "./Itinerary.css";
 
 function ItineraryForm({ tripId, onAddItinerary }) {
   const [locationName, setLocationName] = useState("");
@@ -48,8 +50,9 @@ function ItineraryForm({ tripId, onAddItinerary }) {
     <div className="row">
       <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
-          <h2>Create Itinerary</h2>
+          <h2 className="location-h2">Create Itinerary</h2>
           <form onSubmit={handleSubmit} id="add-itinerary-form">
+            <label htmlFor="name font location-labels">Location Name</label>
             <div className="form-floating mb-3">
               <input
                 value={locationName}
@@ -59,10 +62,10 @@ function ItineraryForm({ tripId, onAddItinerary }) {
                 type="text"
                 id="locationName"
                 name="locationName"
-                className="form-control"
+                className="form-control font"
               />
-              <label htmlFor="name">Location Name</label>
             </div>
+            <label htmlFor="visitDate location-labels font">Date</label>
             <div className="form-floating mb-3">
               <input
                 value={visitDate}
@@ -72,10 +75,10 @@ function ItineraryForm({ tripId, onAddItinerary }) {
                 type="date"
                 id="visitDate"
                 name="visitDate"
-                className="form-control"
+                className="form-control font"
               />
-              <label htmlFor="visitDate">Date</label>
             </div>
+            <label htmlFor="startTime font location-labels">Start Time</label>
             <div className="form-floating mb-3">
               <input
                 value={startTime}
@@ -85,11 +88,10 @@ function ItineraryForm({ tripId, onAddItinerary }) {
                 type="time"
                 id="startTime"
                 name="startTime"
-                className="form-control"
+                className="form-control font"
               />
-              <label htmlFor="startTime">Start Time</label>
             </div>
-            <button className="btn btn-primary">Add event</button>
+            <button className="btn btn-primary save-button">Add event</button>
           </form>
         </div>
       </div>
@@ -181,11 +183,11 @@ function ItineraryList(props) {
 
     if (response.ok) {
       const updatedItineraries = itineraries.filter(
-      (itinerary) => itinerary.location_id !== location_id
-    );
-    setItineraries(updatedItineraries);
+        (itinerary) => itinerary.location_id !== location_id
+      );
+      setItineraries(updatedItineraries);
 
-    loadItineraries();
+      loadItineraries();
     } else {
       return { message: "Could not delete location." };
     }
@@ -223,7 +225,7 @@ function ItineraryList(props) {
   return (
     <>
       <div className="font">
-        <h1>Itinerary for Trip: { tripName }</h1>
+        <h1 className="location-h1">Itinerary for Trip: {tripName}</h1>
         <div>
           <label htmlFor="itineraryDate"> Select Date: </label>
           <select
@@ -240,6 +242,12 @@ function ItineraryList(props) {
           </select>
         </div>
         <table className="table table-striped">
+          <thead>
+            <tr>
+              <th className="budget-th">Location</th>
+              <th className="budget-th">Time</th>
+            </tr>
+          </thead>
           <tbody>
             {itineraries.length > 0 ? (
               itineraries
@@ -256,16 +264,11 @@ function ItineraryList(props) {
                           alignItems: "center",
                         }}
                       >
-                        <li style={{ marginRight: "5px" }}>✩</li>
-                      </ul>
-                    </td>
-                    <td className="col-4">
-                      <ul style={{ listStyleType: "none" }}>
-                        .
-                        <li>
+                        <li style={{ marginRight: "5px" }}>
                           {editMode === rowIndex ? (
                             <input
                               type="text"
+                              className="font"
                               value={editedValues[rowIndex]["location_name"]}
                               onChange={(e) =>
                                 setEditedValues({
@@ -281,10 +284,15 @@ function ItineraryList(props) {
                             itinerary.location_name
                           )}
                         </li>
+                      </ul>
+                    </td>
+                    <td className="col-4">
+                      <ul style={{ listStyleType: "none" }}>
                         <li>
                           {editMode === rowIndex ? (
                             <input
                               type="time"
+                              className="font"
                               value={editedValues[rowIndex]["start_time"]}
                               onChange={(e) =>
                                 setEditedValues({
@@ -304,36 +312,27 @@ function ItineraryList(props) {
                       </ul>
                     </td>
                     <td className="col-1 text-right">
-                      <ul style={{ listStyleType: "none" }}>
-                        .
-                        <li>
-                          {editMode === rowIndex ? (
-                            <button onClick={() => handleSaveCell(rowIndex)}>
-                              Save
-                            </button>
-                          ) : (
-                            <button
-                              onClick={() => handleEditCell(rowIndex)}
-                              className="font button-align-right"
-                            >
-                              Edit
-                            </button>
-                          )}
-                        </li>
-                      </ul>
-                    </td>
-                    <td className="col-1 text-right">
-                      <ul style={{ listStyleType: "none" }}>
-                        .
-                        <li>
-                          <button
-                            onClick={() => handleDelete(itinerary.location_id)}
-                            className="btn btn-primary font button-align-right"
-                          >
-                            Delete
-                          </button>
-                        </li>
-                      </ul>
+                      {editMode === rowIndex ? (
+                        <button
+                          onClick={() => handleSaveCell(rowIndex)}
+                          className="save-button"
+                        >
+                          Save
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => handleEditCell(rowIndex)}
+                          className="font button-align-right edit-button"
+                        >
+                          Edit
+                        </button>
+                      )}
+                      <button
+                        onClick={() => handleDelete(itinerary.location_id)}
+                        className="font delete-button"
+                      >
+                        Delete
+                      </button>
                     </td>
                   </tr>
                 ))
@@ -349,9 +348,13 @@ function ItineraryList(props) {
         ) : (
           <button
             onClick={() => setShowForm(true)}
-            className="btn btn-primary font"
+            className="add-location-card"
           >
-            Add Itinerary
+            <Card>
+              <Card.Body>
+                <Card.Title className="add-location-card-title">+</Card.Title>
+              </Card.Body>
+            </Card>
           </button>
         )}
       </div>
