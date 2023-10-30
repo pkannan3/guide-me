@@ -6,8 +6,6 @@
 
 
 ## Functionality
-
-
 GuideMe is a comprehensive trip-planning web application designed to help users organize and plan their journeys effectively. It provides tools for itinerary
 
 
@@ -96,8 +94,6 @@ GuideMe's Itinerary management API, built with FastAPI, offers features for mana
 
 
 ## User Stories/Scenarios
-
-
 Scenario: User Account Management
 Given a user wants to use GuideMe
 When they register a new account by providing their first name, username, email, and password
@@ -150,7 +146,6 @@ Then they receive a list of expenses related to the trip, including IDs, names, 
 
 
 ## Stretch Goals
-
 - History - Page of Past Completed Trips
 - User Profile Page - Personal Information Management
 - Currency Converter
@@ -159,6 +154,7 @@ Then they receive a list of expenses related to the trip, including IDs, names, 
 - Transportation Booking Integration
 - Local Transportation Options and Booking Services
 - Trip Selection on a Map - Map Box API Integration
+
 
 ## Onboarding
 - We decided ahead of time we would not push changes to the main without someone else approving it.
@@ -173,11 +169,13 @@ Then they receive a list of expenses related to the trip, including IDs, names, 
 - DB: PostgresSQL
 - Docker
 
+
 ## Journaling
 - Created a journal folder where we update entries on the first and last school day of the week.
 
-## Documentation for API
-- Notion: https://nenam.notion.site/API-Design-7320f9cbde894c02a6751cfa57a09bf2
+
+## Documentations
+- API: https://nenam.notion.site/API-Design-7320f9cbde894c02a6751cfa57a09bf2
 - Wireframe: https://excalidraw.com/#room=0a97c68042502c4318d8,rU76PcLpfZTKmBqrdLwu6w
 
 
