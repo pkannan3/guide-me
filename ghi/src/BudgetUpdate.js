@@ -16,7 +16,9 @@ function BudgetUpdate(props) {
       await fetch(`http://localhost:8000/expense/${expense_id}`, {
         method: "DELETE",
       });
-      window.location.reload();
+      setBudget((prevBudget) =>
+        prevBudget.filter((budgetItem) => budgetItem.expense_id !== expense_id)
+      );
     } catch (error) {
       console.error("Error deleting resource:", error);
     }
