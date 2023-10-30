@@ -116,6 +116,7 @@ function BudgetForm({ tripId }) {
         category: "",
       });
       fetchData();
+      setShowExpenseForm(false);
     }
   };
 
