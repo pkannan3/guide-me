@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import BudgetUpdate from "./BudgetUpdate";
 import BudgetChart from "./BudgetChart";
 import Card from "react-bootstrap/Card";
-// import BudgetSummaryChart from "./BudgetSummaryChart";
+
 import "./Budget.css";
 
 function BudgetForm(props) {
@@ -19,28 +19,7 @@ function BudgetForm(props) {
   const [spentAmount, setSpentAmount] = useState(0);
   const [remainingAmount, setRemainingAmount] = useState(0);
   const [isEditingBudget, setIsEditingBudget] = useState(false);
-  const [newBudgetedAmount, setNewBudgetedAmount] = useState(budgetedAmount); // Initialize with the current budgetedAmount
-
-  // const [showExpenseForm, setShowExpenseForm] = useState(false);
-  // const [budgetedAmount, setBudgetedAmount] = useState(0);
-  // const [spentAmount, setSpentAmount] = useState(0);
-  // const [remainingAmount, setRemainingAmount] = useState(0);
-  // const [isEditingBudget, setIsEditingBudget] = useState(false);
-  // const [newBudgetedAmount, setNewBudgetedAmount] = useState(budgetedAmount); // Initialize with the current budgetedAmount
-
-  // const [showExpenseForm, setShowExpenseForm] = useState(false);
-  // const [budgetedAmount, setBudgetedAmount] = useState(0);
-  // const [spentAmount, setSpentAmount] = useState(0);
-  // const [remainingAmount, setRemainingAmount] = useState(0);
-  // const [isEditingBudget, setIsEditingBudget] = useState(false);
-  // const [newBudgetedAmount, setNewBudgetedAmount] = useState(budgetedAmount); // Initialize with the current budgetedAmount
-
-  // const [showExpenseForm, setShowExpenseForm] = useState(false);
-  // const [budgetedAmount, setBudgetedAmount] = useState(0);
-  // const [spentAmount, setSpentAmount] = useState(0);
-  // const [remainingAmount, setRemainingAmount] = useState(0);
-  // const [isEditingBudget, setIsEditingBudget] = useState(false);
-  // const [newBudgetedAmount, setNewBudgetedAmount] = useState(budgetedAmount); // Initialize with the current budgetedAmount
+  const [newBudgetedAmount, setNewBudgetedAmount] = useState(budgetedAmount);
 
   const fetchData = async () => {
     const url = `http://localhost:8000/trips/${tripId}/expense/`;
@@ -49,7 +28,6 @@ function BudgetForm(props) {
       const data = await response.json();
       setBudget(data);
 
-      // Calculate the total spent amount
       const totalSpent = data.reduce((acc, item) => acc + item.cost, 0);
       setSpentAmount(totalSpent);
     }
@@ -126,54 +104,23 @@ function BudgetForm(props) {
     const inputName = e.target.name;
 
     if (inputName === "category") {
-    setFormData({
-      ...formData,
-      [inputName]: value.toLowerCase(),
-    });
-  } else {
-    setFormData({
-      ...formData,
-      [inputName]: value,
-    });
-  }
-};
+      setFormData({
+        ...formData,
+        [inputName]: value.toLowerCase(),
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [inputName]: value,
+      });
+    }
+  };
 
   return (
     <div className="row">
       <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
           <h1 className="budget-h1"> Budget for Trip : {tripName}</h1>
-          {/* <BudgetSummaryChart spent={spentAmount} remaining={remainingAmount} />
-          <div>
-            {isEditingBudget ? (
-              <div>
-                <label htmlFor="budgetedAmount">Budget:</label>
-                <input
-                  type="number"
-                  className="form-control"
-                  id="budgetedAmount"
-                  value={newBudgetedAmount}
-                  onChange={(e) =>
-                    setNewBudgetedAmount(parseFloat(e.target.value))
-                  }
-                />
-                <button onClick={handleSaveBudget}>Save</button>
-              </div>
-            ) : (
-              <div>
-                <h3>
-                  Budgeted Amount: ${budgetedAmount}
-                  <button onClick={handleEditBudget}>Edit</button>
-                </h3>
-              </div>
-            )}
-          </div>
-          <div>
-            <h3>Total Spent: ${spentAmount}</h3>
-          </div>
-          <div>
-            <h3>Remaining: ${remainingAmount}</h3>
-          </div> */}
           <BudgetChart budget={budget} />
           <table className="table table-striped font">
             <thead>

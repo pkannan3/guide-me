@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route, Navigate, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserContext } from "./context.js";
 import SignupForm from "./Accounts/signup.js";
 import LoginForm from "./Accounts/login.js";
@@ -8,7 +8,6 @@ import LandingPage from "./Home/LandingPage.js";
 import ItineraryList from "./Itinerary/itinerary.js";
 import TripsDisplay from "./TripsDisplay";
 import TripsForm from "./TripsForm";
-import UpdateTripForm from "./TripsUpdate";
 import BudgetForm from "./Budget";
 import NotFound from "./404/PageDoesNotExist";
 
@@ -22,7 +21,6 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem("access_token");
     setUserLoggedIn(false);
-
   };
 
   const handleLogin = () => {
@@ -32,7 +30,7 @@ function App() {
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
-          <Header onLogout={handleLogout} isUserLoggedIn={isUserLoggedIn} />
+        <Header onLogout={handleLogout} isUserLoggedIn={isUserLoggedIn} />
         <div className="App-layout">
           {isUserLoggedIn ? (
             <Routes>
@@ -50,7 +48,6 @@ function App() {
               <Route path="*" element={<NotFound />} />
             </Routes>
           ) : (
-            // <Navigate to="/home" /> &&
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/home" element={<LandingPage />} />

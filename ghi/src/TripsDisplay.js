@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "./context";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import BudgetForm from "./Budget";
 import ItineraryList from "./Itinerary/itinerary";
 import "./Trips.css";
@@ -11,11 +10,6 @@ import "./TripsForm";
 function TripsList(props) {
   const [trips, setTrips] = useState([]);
   const [tripId, setTripId] = useState(null);
-  // const [formData, setFormData] = useState({
-  //   trip_name: "",
-  //   start_date: "",
-  //   end_date: "",
-  // });
   const [editMode, setEditMode] = useState(null);
   const [editedValues, setEditedValues] = useState({});
   const [display, SetDisplay] = useState("trips");
@@ -99,12 +93,10 @@ function TripsList(props) {
     });
   };
 
-  // Add a function to set the selected tripId
   const handleSelectTrip = (tripId) => {
     setTripId(tripId);
   };
 
-  // Add a function to clear the selected tripId
   const handleClearSelection = () => {
     setTripId(null);
   };
@@ -137,7 +129,6 @@ function TripsList(props) {
           </button>
         </div>
 
-        {/* New Code Div Tag Added */}
         {display === "trips" && (
           <div
             className="font card-container"
@@ -178,13 +169,13 @@ function TripsList(props) {
                               className="font"
                               type="date"
                               value={trip.start_date}
-                              readOnly // Prevent editing in read-only mode
+                              readOnly
                             />
                             <input
                               className="font"
                               type="date"
                               value={trip.end_date}
-                              readOnly // Prevent editing in read-only mode
+                              readOnly
                             />
                           </>
                         ) : (

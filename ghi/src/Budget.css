@@ -1,4 +1,3 @@
-/* Basics */
 .font {
   font-family: Helvetica Neue, Tahoma, Verdana, sans-serif;
   letter-spacing: 1.5px;
@@ -8,7 +7,6 @@
   margin: 30px 0 30px 0;
 }
 
-/* BudgetUpdate Table */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -20,19 +18,15 @@ table {
   padding: 0 0 10px 2px;
 }
 
-/* Style table cells */
 td {
   padding: 8px;
   border: 1px solid #ddd;
   text-align: left;
 }
 
-/* Style the button cell */
 .button-cell {
-  text-align: right; /* Align buttons to the right end of the cell */
+  text-align: right;
 }
-
-/* Style the buttons */
 
 .save-button {
   background-color: #72e195;
@@ -63,7 +57,6 @@ td {
   cursor: pointer;
 }
 
-/* Add Expense Card */
 .add-expense-card {
   height: 2.7rem;
   width: 100%;
@@ -87,14 +80,13 @@ td {
   padding: 10px;
   font-size: 20px;
   font-weight: bold;
-  display: flex; /* Add this line */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 0px solid white;
   width: 100%;
 }
 
-/* Expense Form */
 .expense-h2 {
   margin: 45px 0 15px 0;
   text-align: left;

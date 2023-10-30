@@ -87,7 +87,6 @@ class AccountQueries:
                     """,
                     params,
                 )
-
                 record = None
                 row = db.fetchone()
                 if row is not None:

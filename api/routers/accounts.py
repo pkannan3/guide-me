@@ -21,10 +21,8 @@ from queries.accounts import (
 
 
 class AccountForm(BaseModel):
-    # first_name: str
     username: str
     password: str
-    # email: str
 
 
 class AccountToken(Token):
