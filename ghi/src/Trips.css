@@ -1,3 +1,12 @@
+.adp-grid-container {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-gap: 10px;
+  align-items: start;
+  border: 1px solid red;
+  height: calc(100vh - 90px);
+}
+
 .font {
   font-family: Helvetica Neue, Tahoma, Verdana, sans-serif;
   letter-spacing: 1.5px;
@@ -24,7 +33,6 @@
 
 .custom-card {
   flex-wrap: wrap;
-
   height: 15rem;
   width: 17rem;
   border: 1px solid #ccc;
@@ -111,32 +119,22 @@
   color: rgb(0, 0, 0);
   font-size: 40px;
   border-radius: 10px;
-  border: none;
   font-family: Helvetica Neue, Tahoma, Verdana, sans-serif;
   letter-spacing: 1.5px;
 }
 
 .vertical-text:hover,
 .vertical-text:active {
-  background-color: #b9e6a2;
+  /* background-color: #b9e6a2; */
   color: white;
   border-radius: 4px;
-}
-
-.adp-grid-container {
-  display: grid;
-  grid-template-columns: min-content 1fr;
-  grid-gap: 10px;
-  align-items: start;
-  height: 100vh;
-  border: none;
 }
 
 .vertical-buttons {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border: 1px solid rgb(220, 220, 220);
+  /* border: 3px solid rgb(140, 49, 49); */
   border-radius: 10px;
 }
 
@@ -150,6 +148,7 @@
 .vertical-buttons button:disabled .vertical-text {
   color: rgb(149, 149, 149);
   background-color: white;
+  border: none;
 }
 
 .create-trips-container {
