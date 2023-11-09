@@ -111,21 +111,21 @@ function TripsList(props) {
               SetDisplay("trips");
             }}
           >
-            <span className="vertical-text"> Trips </span>
+            <span className="vertical-text">Trips</span>
           </button>
           <button
             onClick={() => SetDisplay("budget")}
             disabled={tripId ? false : true}
-            className={display === "budget" && "active-display"}
+            className={display === "budget" ? "active-display" : ""}
           >
-            <span className="vertical-text">Budget </span>
+            <span className="vertical-text">Budget</span>
           </button>
           <button
             onClick={() => SetDisplay("itinerary")}
             disabled={tripId ? false : true}
-            className={display === "itinerary" && "active-display"}
+            className={display === "itinerary" ? "active-display" : ""}
           >
-            <span className="vertical-text"> Itinerary </span>
+            <span className="vertical-text">Itinerary</span>
           </button>
         </div>
 
