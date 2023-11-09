@@ -3,6 +3,7 @@ import { Navbar, Nav } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import "./Header.css";
+import "./Trips.css";
 
 function Header({ onLogout, isUserLoggedIn }) {
   const location = useLocation();
@@ -49,7 +50,7 @@ function Header({ onLogout, isUserLoggedIn }) {
         </div>
       </Navbar>
       {isUserLoggedIn && location.pathname === "/home" && refreshNav && (
-        <div className="Nav-container">
+        <div className="nav-container">
           <Nav />
         </div>
       )}

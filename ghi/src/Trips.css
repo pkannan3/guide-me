@@ -1,6 +1,6 @@
 .adp-grid-container {
   display: grid;
-  grid-template-columns: min-content 1fr;
+  grid-template-columns: 1fr 15fr;
   grid-gap: 10px;
   align-items: start;
   border: 1px solid red;
@@ -130,22 +130,24 @@
   border-radius: 4px;
 }
 
-.vertical-buttons {
+.vertical-buttons-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   /* border: 3px solid rgb(140, 49, 49); */
   border-radius: 10px;
+  border: 1px dashed violet;
+  height: 100%;
 }
 
-.vertical-buttons button:disabled {
+.vertical-buttons-container button:disabled {
   background-color: white;
   color: rgb(135, 135, 135);
   cursor: not-allowed;
   border: none;
 }
 
-.vertical-buttons button:disabled .vertical-text {
+.vertical-buttons-container button:disabled .vertical-text {
   color: rgb(149, 149, 149);
   background-color: white;
   border: none;

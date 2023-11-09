@@ -104,7 +104,7 @@ function TripsList(props) {
   return (
     <>
       <div className="adp-grid-container">
-        <div className="vertical-buttons">
+        <div className="vertical-buttons-container">
           <button
             onClick={() => {
               setTripId(null);
