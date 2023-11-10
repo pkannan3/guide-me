@@ -110,20 +110,27 @@ function TripsList(props) {
               setTripId(null);
               SetDisplay("trips");
             }}
+            className={`vertical-button ${
+              display === "trips" ? "active-page" : ""
+            }`}
           >
             <span className="vertical-text">Trips</span>
           </button>
           <button
             onClick={() => SetDisplay("budget")}
             disabled={tripId ? false : true}
-            className={display === "budget" ? "active-display" : ""}
+            className={`vertical-button ${
+              display === "budget" ? "active-page" : ""
+            }`}
           >
             <span className="vertical-text">Budget</span>
           </button>
           <button
             onClick={() => SetDisplay("itinerary")}
             disabled={tripId ? false : true}
-            className={display === "itinerary" ? "active-display" : ""}
+            className={`vertical-button ${
+              display === "itinerary" ? "active-page" : ""
+            }`}
           >
             <span className="vertical-text">Itinerary</span>
           </button>
