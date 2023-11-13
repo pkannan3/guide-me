@@ -1,3 +1,12 @@
+.adp-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 15fr;
+  grid-gap: 10px;
+  align-items: start;
+  border: 1px solid red;
+  height: calc(100vh - 86px);
+}
+
 .font {
   font-family: Helvetica Neue, Tahoma, Verdana, sans-serif;
   letter-spacing: 1.5px;
@@ -24,7 +33,6 @@
 
 .custom-card {
   flex-wrap: wrap;
-
   height: 15rem;
   width: 17rem;
   border: 1px solid #ccc;
@@ -111,45 +119,72 @@
   color: rgb(0, 0, 0);
   font-size: 40px;
   border-radius: 10px;
-  border: none;
   font-family: Helvetica Neue, Tahoma, Verdana, sans-serif;
   letter-spacing: 1.5px;
 }
 
 .vertical-text:hover,
 .vertical-text:active {
-  background-color: #b9e6a2;
   color: white;
   border-radius: 4px;
 }
 
-.adp-grid-container {
-  display: grid;
-  grid-template-columns: min-content 1fr;
-  grid-gap: 10px;
-  align-items: start;
-  height: 100vh;
-  border: none;
-}
-
-.vertical-buttons {
+.vertical-buttons-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border: 1px solid rgb(220, 220, 220);
-  border-radius: 10px;
+  justify-content: space-between;
+  border-radius: 45px;
+  border: 1px dashed violet;
+  height: 100%;
 }
 
-.vertical-buttons button:disabled {
+.active-display {
+  border: 2px solid #ff8800;
+}
+
+.vertical-buttons-container button.active-page {
+  border: 2px solid black;
+}
+
+.vertical-buttons-container button:disabled .vertical-text {
   background-color: white;
-  color: rgb(135, 135, 135);
+  color: rgb(191, 188, 188);
   cursor: not-allowed;
   border: none;
 }
 
-.vertical-buttons button:disabled .vertical-text {
-  color: rgb(149, 149, 149);
+.vertical-buttons-container button:disabled:hover {
   background-color: white;
+  color: rgb(191, 188, 188);
+  cursor: not-allowed;
+  border: none;
+}
+
+.vertical-buttons-container button {
+  background-color: transparent;
+  color: #000;
+  border: none;
+  border-radius: 45px;
+  padding: 10px 20px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.vertical-buttons-container button:hover {
+  background-color: #b9e6a2;
+  border: 1px solid #4caf50;
+  color: #fff;
+}
+
+.vertical-buttons-container button:active {
+  background-color: #4caf50;
+}
+
+.vertical-buttons-container button.active-display {
+  border: 2px solid #ff8800;
+  color: #ff8800;
 }
 
 .create-trips-container {

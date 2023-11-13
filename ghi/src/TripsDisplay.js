@@ -104,28 +104,35 @@ function TripsList(props) {
   return (
     <>
       <div className="adp-grid-container">
-        <div className="vertical-buttons">
+        <div className="vertical-buttons-container">
           <button
             onClick={() => {
               setTripId(null);
               SetDisplay("trips");
             }}
+            className={`vertical-button ${
+              display === "trips" ? "active-page" : ""
+            }`}
           >
-            <span className="vertical-text"> Trips </span>
+            <span className="vertical-text">Trips</span>
           </button>
           <button
             onClick={() => SetDisplay("budget")}
             disabled={tripId ? false : true}
-            className={display === "budget" && "active-display"}
+            className={`vertical-button ${
+              display === "budget" ? "active-page" : ""
+            }`}
           >
-            <span className="vertical-text">Budget </span>
+            <span className="vertical-text">Budget</span>
           </button>
           <button
             onClick={() => SetDisplay("itinerary")}
             disabled={tripId ? false : true}
-            className={display === "itinerary" && "active-display"}
+            className={`vertical-button ${
+              display === "itinerary" ? "active-page" : ""
+            }`}
           >
-            <span className="vertical-text"> Itinerary </span>
+            <span className="vertical-text">Itinerary</span>
           </button>
         </div>
 
