@@ -21,6 +21,7 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem("access_token");
     setUserLoggedIn(false);
+    window.location.reload();
   };
 
   const handleLogin = () => {
@@ -40,11 +41,6 @@ function App() {
               <Route path="/expense" element={<BudgetForm />} />
               <Route path="/" element={<LandingPage />} />
               <Route path="/home" element={<LandingPage />} />
-              <Route path="/login" element={<LoginForm />} />
-              <Route
-                path="/register"
-                element={<SignupForm onRegister={handleLogin} />}
-              />
               <Route path="*" element={<NotFound />} />
             </Routes>
           ) : (

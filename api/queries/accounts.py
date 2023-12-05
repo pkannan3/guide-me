@@ -8,7 +8,7 @@ class DuplicateAccountError(ValueError):
 
 
 class AccountIn(BaseModel):
-    first_name: str
+    name: str
     username: str
     password: str
     email: str
@@ -16,7 +16,7 @@ class AccountIn(BaseModel):
 
 class AccountOut(BaseModel):
     id: int
-    first_name: str
+    name: str
     username: str
     email: str
 
@@ -46,7 +46,7 @@ class AccountQueries:
                         return None
                     return AccountOutWithPassword(
                         id=record[0],
-                        first_name=record[1],
+                        name=record[1],
                         username=record[2],
                         hashed_password=record[3],
                         email=record[4],
@@ -63,7 +63,7 @@ class AccountQueries:
         with pool.connection() as conn:
             with conn.cursor() as db:
                 params = [
-                    register.first_name,
+                    register.name,
                     register.username,
                     register.email,
                     hashed_password,
@@ -72,7 +72,7 @@ class AccountQueries:
                     """
                     INSERT INTO authentication
                     (
-                        first_name,
+                        name,
                         username,
                         email,
                         hashed_password
@@ -81,7 +81,7 @@ class AccountQueries:
                     RETURNING
                         id,
                         username,
-                        first_name,
+                        name,
                         email,
                         hashed_password
                     """,

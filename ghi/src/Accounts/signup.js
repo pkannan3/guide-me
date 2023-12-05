@@ -5,15 +5,15 @@ import { UserContext } from "../context";
 
 function SignupForm({ onRegister }) {
   const navigate = useNavigate();
-  const [firstName, setFirstName] = useState("");
+  const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const { user, setUser } = useContext(UserContext);
 
-  const handleChangeFirstName = (event) => {
-    setFirstName(event.target.value);
+  const handleChangeName = (event) => {
+    setName(event.target.value);
   };
 
   const handleChangeUsername = (event) => {
@@ -31,13 +31,13 @@ function SignupForm({ onRegister }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!firstName || !username || !password || !email) {
+    if (!name || !username || !password || !email) {
       setError("Please fill in all fields");
       return;
     }
 
     const data = {
-      first_name: firstName,
+      name: name,
       username: username,
       password: password,
       email: email,
@@ -79,11 +79,11 @@ function SignupForm({ onRegister }) {
             <div className="form-floating mb-3">
               <input
                 type="text"
-                id="first_name"
-                name="first_name"
-                placeholder="First Name"
-                value={firstName}
-                onChange={handleChangeFirstName}
+                id="name"
+                name="name"
+                placeholder="Name"
+                value={name}
+                onChange={handleChangeName}
                 className="font"
               />
             </div>
@@ -121,7 +121,12 @@ function SignupForm({ onRegister }) {
               />
             </div>
             <div className="mb-3 text-danger">{error}</div>
-            <button type="submit" className="accounts-button font">
+            <button
+              onClick={handleSubmit}
+              onKeyDown={(e) => (e.key === "Enter" ? handleSubmit : "")}
+              type="submit"
+              className="accounts-button font"
+            >
               Create
             </button>
             <div>

@@ -2,11 +2,11 @@ steps = [
     [
         # "Up" SQL statement
         # Signup and Login
-        # id, first_name, username, password, confirm_password, unique_email
+        # id, name, username, password, confirm_password, unique_email
         """
         CREATE TABLE IF NOT EXISTS authentication (
             id SERIAL PRIMARY KEY,
-            first_name VARCHAR(30),
+            name VARCHAR(30),
             username VARCHAR(150) UNIQUE,
             hashed_password VARCHAR(128),
             email VARCHAR(254) UNIQUE NOT NULL
