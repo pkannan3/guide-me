@@ -1,9 +1,34 @@
 import React, { useState } from "react";
+import ReactDOM from "react-dom";
 import { UserContext } from "../context.js";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import videoBG from "./Assets/videoBG.mp4";
 import "./LandingPage.css";
+
+const DeveloperCard = ({ name, linkedin, portfolio, resume }) => {
+  return (
+    <div className="developer-card border mr-4">
+      <img
+        className="developer-image"
+        src="https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg"
+        alt="Developer"
+      />
+      <div className="developer-details">
+        <h3>{name}</h3>
+        <a href={linkedin} target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>
+        <a href={portfolio} target="_blank" rel="noopener noreferrer">
+          Portfolio
+        </a>
+        <a href={resume} target="_blank" rel="noopener noreferrer">
+          Resume
+        </a>
+      </div>
+    </div>
+  );
+};
 
 function LandingPage() {
   const [isUserLoggedIn, setUserLoggedIn] = useState(
@@ -47,6 +72,22 @@ function LandingPage() {
               )}
             </UserContext.Provider>
           </div>
+        </div>
+      </div>
+      <div className="container text-center">
+        <div className="developer-container d-flex justify-content-center">
+          <DeveloperCard
+            name="Developer 1"
+            linkedin="https://www.linkedin.com/"
+            porfolio="https://www.linkedin.com/"
+            resume="/path/to/resume1.pdf"
+          />
+          <DeveloperCard
+            name="Developer 2"
+            linkedin="https://www.linkedin.com/"
+            portfolio="https://www.linkedin.com/"
+            resume="/path/to/resume2.pdf"
+          />
         </div>
       </div>
     </>

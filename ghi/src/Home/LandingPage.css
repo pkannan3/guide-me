@@ -71,3 +71,50 @@ video {
 div p {
   padding: 0 0 20px;
 }
+
+.container {
+  margin-top: 20px;
+}
+
+.developer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.developer-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  width: 220px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+}
+
+.developer-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+  max-height: 220px;
+  margin-bottom: 10px;
+}
+
+.developer-card h3 {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+.developer-card a {
+  text-decoration: none;
+  color: #007bff;
+  display: block;
+  font-size: 1.2em;
+  margin-bottom: 8px;
+}
+
+.developer-card a:hover {
+  text-decoration: underline;
+}
