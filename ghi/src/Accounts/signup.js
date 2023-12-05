@@ -121,7 +121,12 @@ function SignupForm({ onRegister }) {
               />
             </div>
             <div className="mb-3 text-danger">{error}</div>
-            <button type="submit" className="accounts-button font">
+            <button
+              onClick={handleSubmit}
+              onKeyDown={(e) => (e.key === "Enter" ? handleSubmit : "")}
+              type="submit"
+              className="accounts-button font"
+            >
               Create
             </button>
             <div>
