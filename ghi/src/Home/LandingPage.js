@@ -79,7 +79,7 @@ function LandingPage() {
           <DeveloperCard
             name="Developer 1"
             linkedin="https://www.linkedin.com/"
-            porfolio="https://www.linkedin.com/"
+            portfolio="https://www.linkedin.com/"
             resume="/path/to/resume1.pdf"
           />
           <DeveloperCard
