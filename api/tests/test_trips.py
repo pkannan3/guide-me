@@ -11,7 +11,7 @@ class AccountQueryTest:
     def get(self, username: str):
         return {
             "id": 4,
-            "first_name": "string1",
+            "name": "string1",
             "username": "string1",
             "email": "string1",
         }
@@ -27,7 +27,7 @@ class GuideMeAuthenticatorTest:
     def fake_try_get_current_account_data():
         account = {
             "id": 4,
-            "first_name": "string1",
+            "name": "string1",
             "username": "string1",
             "email": "string1",
         }
