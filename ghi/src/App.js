@@ -21,6 +21,7 @@ function App() {
   const handleLogout = () => {
     localStorage.removeItem("access_token");
     setUserLoggedIn(false);
+    window.location.reload();
   };
 
   const handleLogin = () => {
