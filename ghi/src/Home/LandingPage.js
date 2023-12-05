@@ -28,7 +28,7 @@ function LandingPage() {
       </div>
       <div className="text-container px-4 py-5 my-5 text-center">
         <div className="content">
-          <h1 className="display-5 fw-bold font">GuideMe</h1>
+          <h1 className="title">GuideMe</h1>
           <div className="col-lg-7 mx-auto">
             <p className="lead mb-4 font">Plan your next adventure!</p>
             <UserContext.Provider value={{ user, setUser }}>
