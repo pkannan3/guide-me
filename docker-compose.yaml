@@ -42,7 +42,7 @@ services:
 
   ghi:
     image: node:lts-bullseye
-    command: /bin/bash run.sh
+    command: /bin/bash -c "npm install -g npm@latest && npm install && npm start"
     working_dir: /app
     volumes:
       - ./ghi:/app
