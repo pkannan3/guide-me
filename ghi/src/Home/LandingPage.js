@@ -6,25 +6,28 @@ import Button from "react-bootstrap/Button";
 import videoBG from "./Assets/videoBG.mp4";
 import "./LandingPage.css";
 
-const DeveloperCard = ({ name, linkedin, portfolio, resume }) => {
+const DeveloperCard = ({ image, name, blurb, linkedin, portfolio, resume }) => {
   return (
     <div className="developer-card border mr-4">
       <img
         className="developer-image"
-        src="https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg"
-        alt="Developer"
+        src={image} // Use the image prop here
+        alt={`Image of ${name}`}
       />
       <div className="developer-details">
         <h3>{name}</h3>
-        <a href={linkedin} target="_blank" rel="noopener noreferrer">
-          LinkedIn
-        </a>
-        <a href={portfolio} target="_blank" rel="noopener noreferrer">
-          Portfolio
-        </a>
-        <a href={resume} target="_blank" rel="noopener noreferrer">
-          Resume
-        </a>
+        <p>{blurb}</p>
+        <div className="links-container">
+          <a href={linkedin} target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+          <a href={portfolio} target="_blank" rel="noopener noreferrer">
+            Portfolio
+          </a>
+          <a href={resume} target="_blank" rel="noopener noreferrer">
+            Resume
+          </a>
+        </div>
       </div>
     </div>
   );
@@ -74,16 +77,28 @@ function LandingPage() {
           </div>
         </div>
       </div>
-      <div className="container text-center">
-        <div className="developer-container d-flex justify-content-center">
+      {/* <div className="container text-center mt-5"> */}
+      <div>
+        <div className="developer-container">
           <DeveloperCard
+            image="/priyanka.jpeg"
             name="Developer 1"
+            blurb="As a recent bootcamp graduate and certified software engineer, I bring expertise in Python, JavaScript, React, Django, and SQL. Committed to continuous learning, I am currently pursuing additional certification in Java to expand my skill set and contribute effectively to diverse software development projects."
             linkedin="https://www.linkedin.com/"
             portfolio="https://www.linkedin.com/"
             resume="/path/to/resume1.pdf"
           />
           <DeveloperCard
+            image="/adp.jpeg"
             name="Developer 2"
+            blurb="REQUIRED"
+            linkedin="https://www.linkedin.com/"
+            portfolio="https://www.linkedin.com/"
+            resume="/path/to/resume2.pdf"
+          />
+          <DeveloperCard
+            name="Developers 3 & 4"
+            blurb="Assisted in building v1.0"
             linkedin="https://www.linkedin.com/"
             portfolio="https://www.linkedin.com/"
             resume="/path/to/resume2.pdf"

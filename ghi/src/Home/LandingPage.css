@@ -29,11 +29,8 @@ video {
 .text-container {
   position: absolute;
   top: 40vh;
-  left: 0%;
-  right: 0%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  left: 50%; /* Center the container horizontally */
+  transform: translateX(-50%);
   color: white;
   text-align: center;
   text-shadow: 0 0 5px #444;
@@ -49,6 +46,7 @@ video {
   display: inline-block;
   font-size: 16px;
   border-radius: 4px;
+  margin-top: 20px;
 }
 
 .landing-page-button:hover {
@@ -63,7 +61,7 @@ video {
 }
 
 .title {
-  font-size: 6lvh;
+  font-size: 6vh; /* Fix the typo here */
   padding: 0;
   margin: 0;
 }
@@ -72,26 +70,41 @@ div p {
   padding: 0 0 20px;
 }
 
-.container {
+/* .container {
   margin-top: 20px;
-}
+  display: block;
+} */
 
 .developer-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  border: 1px dashed purple;
+  margin: 20px;
+}
+
+@media (min-width: 768px) {
+  /* Apply changes for screens wider than 768px */
+  .developer-container {
+    grid-template-columns: repeat(
+      3,
+      minmax(0, 1fr)
+    ); /* Each card takes half of the horizontal space */
+  }
 }
 
 .developer-card {
   border: 1px solid black;
   padding: 10px;
-  margin: 10px;
+  gap: 2em;
   text-align: center;
-  width: 250px;
-  height: 425px;
-  display: flex;
-  flex-direction: column;
   border-radius: 5px;
+}
+
+.links-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
 }
 
 .developer-card img {
@@ -111,9 +124,7 @@ div p {
 .developer-card a {
   text-decoration: none;
   color: #007bff;
-  display: block;
   font-size: 1.2em;
-  margin-bottom: 8px;
 }
 
 .developer-card a:hover {
