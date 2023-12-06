@@ -33,6 +33,44 @@ const DeveloperCard = ({ image, name, blurb, linkedin, portfolio, resume }) => {
   );
 };
 
+const DeveloperCard3_4 = ({
+  image1,
+  image2,
+  name,
+  blurb,
+  linkedin1,
+  linkedin2,
+  portfolio,
+  resume,
+}) => {
+  return (
+    <div className="developer-card border mr-4">
+      <img
+        className="developer-image"
+        src={image1} // Use the image prop here
+        alt={`Image of ${name}`}
+      />
+      <img
+        className="developer-image"
+        src={image2} // Use the image prop here
+        alt={`Image of ${name}`}
+      />
+      <div className="developer-details">
+        <h3>{name}</h3>
+        <p>{blurb}</p>
+        <div className="links-container">
+          <a href={linkedin1} target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+          <a href={linkedin2} target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 function LandingPage() {
   const [isUserLoggedIn, setUserLoggedIn] = useState(
     !!localStorage.getItem("access_token")
@@ -81,9 +119,9 @@ function LandingPage() {
       <div>
         <div className="developer-container">
           <DeveloperCard
-            image="/priyanka.jpeg"
+            image="/pnk.jpeg"
             name="Developer 1"
-            blurb="As a recent bootcamp graduate and certified software engineer, I bring expertise in Python, JavaScript, React, Django, and SQL. Committed to continuous learning, I am currently pursuing additional certification in Java to expand my skill set and contribute effectively to diverse software development projects."
+            blurb="As a fresh bootcamp grad and certified software engineer, I've got the coding basics down—from Python and JavaScript to React, Django, and SQL. Keen on leveling up, I'm diving into Java certification, eager to add more tools to my dev belt and jump into exciting software projects. 🚀"
             linkedin="https://www.linkedin.com/"
             portfolio="https://www.linkedin.com/"
             resume="/path/to/resume1.pdf"
@@ -96,12 +134,13 @@ function LandingPage() {
             portfolio="https://www.linkedin.com/"
             resume="/path/to/resume2.pdf"
           />
-          <DeveloperCard
+          <DeveloperCard3_4
+            image1="/adp.jpeg"
+            image2="/pnk.jpeg"
             name="Developers 3 & 4"
             blurb="Assisted in building v1.0"
-            linkedin="https://www.linkedin.com/"
-            portfolio="https://www.linkedin.com/"
-            resume="/path/to/resume2.pdf"
+            linkedin1="https://www.linkedin.com/"
+            linkedin2="https://www.linkedin.com/"
           />
         </div>
       </div>
