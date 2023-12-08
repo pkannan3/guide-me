@@ -6,6 +6,7 @@ from fastapi import (
     APIRouter,
     Request,
 )
+from typing import Union
 from jwtdown_fastapi.authentication import Token
 
 from authenticator import authenticator
@@ -17,6 +18,8 @@ from queries.accounts import (
     AccountOut,
     AccountQueries,
     DuplicateAccountError,
+    AccountOutWithPassword,
+    Error,
 )
 
 
@@ -88,4 +91,15 @@ async def get_account(
     username: str,
     accounts: AccountQueries = Depends(),
 ):
-    return accounts.get(username)
+    return accounts.get_one_account(username)
+
+
+@router.put(
+    "/accounts/{id}", response_model=Union[AccountOutWithPassword, Error]
+)
+def update_account(
+    id: int,
+    account: AccountIn,
+    repo: AccountQueries = Depends(),
+) -> Union[Error, AccountOutWithPassword]:
+    return repo.edit_accountp(id, account)
