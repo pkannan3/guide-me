@@ -4,7 +4,7 @@
 }
 
 .layout-Container {
-  background-color: black;
+  background-color: rgb(201, 67, 67);
 }
 
 .mainBG {
@@ -76,7 +76,7 @@ video {
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   margin: 20px 250px 30px 250px;
-  background-color: #f6f6f6;
+  background-color: white;
 }
 
 @media (min-width: 768px) {
