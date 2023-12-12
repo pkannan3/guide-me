@@ -98,9 +98,8 @@ video {
 
 .developer-Image {
   justify-content: center;
-  width: 200px;
-  height: 200px;
-  max-height: 200px;
+  width: 175px;
+  height: 175px;
   border-radius: 50%;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -108,12 +107,11 @@ video {
 }
 
 .developer-Image1-2 {
-  width: 200px;
-  height: 200px;
-  max-height: 200px;
+  width: 175px;
+  height: 175px;
   border-radius: 50%;
   padding: 0;
-  margin: 10px 20px 21px 20px;
+  margin: 10px 15px 21px 15px;
   box-shadow: 3px 0px 5px 5px #d9d6da;
 }
 
@@ -121,6 +119,23 @@ video {
   margin-bottom: 20px;
   font-size: 1.5em;
 }
+.developer-Image-h4 {
+  margin-top: 49px;
+}
+
+/* #content1::after {
+  content: "\a";
+  white-space: pre;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+#content2::before {
+  content: "\a";
+  white-space: pre;
+  padding-top: 0px;
+  margin-top: 0px;
+} */
 
 div > p {
   margin: 0px;

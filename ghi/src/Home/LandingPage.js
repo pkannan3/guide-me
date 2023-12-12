@@ -24,7 +24,7 @@ const DeveloperCard = ({
       />
       <div className="developer-details">
         <h3>{name}</h3>
-        <h4>{blurb}</h4>
+        <h4 className="developer-Image-h4">{blurb}</h4>
         <p>{comment}</p>
         <div className="links-container">
           <a href={linkedin} target="_blank" rel="noopener noreferrer">
@@ -45,7 +45,8 @@ const DeveloperCard = ({
 const DeveloperCard3_4 = ({
   image1,
   image2,
-  name,
+  name1,
+  name2,
   blurb,
   comment,
   linkedin1,
@@ -56,15 +57,20 @@ const DeveloperCard3_4 = ({
       <img
         className="developer-Image1-2"
         src={image1} // Use the image prop here
-        alt={`Image of ${name}`}
+        alt={`Image of ${name1}`}
       />
       <img
         className="developer-Image1-2"
         src={image2} // Use the image prop here
-        alt={`Image of ${name}`}
+        alt={`Image of ${name2}`}
       />
       <div className="developer-details">
-        <h3>{name}</h3>
+        <h3>
+          {/* <span id="content1">{name1}</span>
+          <span id="content2">{name2}</span> */}
+          {name1}
+          {name2}
+        </h3>
         <h4>{blurb}</h4>
         <p>{comment}</p>
         <div className="links-container">
@@ -149,7 +155,9 @@ function LandingPage() {
           <DeveloperCard3_4
             image1="/adp.jpeg"
             image2="/pnk.jpeg"
-            name="Austin Sahagun & Matthew Rauschenberg"
+            name1="Austin Sahagun & "
+            name2="Matthew Rauschenberg"
+            // name="Austin Sahagun & Matthew Rauschenberg"
             blurb="Full-Stack Engineers"
             comment="Developers on v1.0"
             linkedin1="https://www.linkedin.com/"
