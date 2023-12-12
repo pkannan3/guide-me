@@ -149,7 +149,7 @@ function LandingPage() {
           <DeveloperCard3_4
             image1="/adp.jpeg"
             image2="/pnk.jpeg"
-            name="Austin Sahagun and Matthew Rauschenberg"
+            name="Austin Sahagun & Matthew Rauschenberg"
             blurb="Full-Stack Engineers"
             comment="Developers on v1.0"
             linkedin1="https://www.linkedin.com/"
