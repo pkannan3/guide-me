@@ -6,17 +6,26 @@ import Button from "react-bootstrap/Button";
 import videoBG from "./Assets/videoBG.mp4";
 import "./LandingPage.css";
 
-const DeveloperCard = ({ image, name, blurb, linkedin, portfolio, resume }) => {
+const DeveloperCard = ({
+  image,
+  name,
+  blurb,
+  comment,
+  linkedin,
+  portfolio,
+  resume,
+}) => {
   return (
     <div className="developer-card border mr-4">
       <img
-        className="developer-image"
+        className="developer-Image"
         src={image} // Use the image prop here
         alt={`Image of ${name}`}
       />
       <div className="developer-details">
         <h3>{name}</h3>
-        <p>{blurb}</p>
+        <h4>{blurb}</h4>
+        <p>{comment}</p>
         <div className="links-container">
           <a href={linkedin} target="_blank" rel="noopener noreferrer">
             LinkedIn
@@ -38,26 +47,26 @@ const DeveloperCard3_4 = ({
   image2,
   name,
   blurb,
+  comment,
   linkedin1,
   linkedin2,
-  portfolio,
-  resume,
 }) => {
   return (
     <div className="developer-card border mr-4">
       <img
-        className="developer-image"
+        className="developer-Image1-2"
         src={image1} // Use the image prop here
         alt={`Image of ${name}`}
       />
       <img
-        className="developer-image"
+        className="developer-Image1-2"
         src={image2} // Use the image prop here
         alt={`Image of ${name}`}
       />
       <div className="developer-details">
         <h3>{name}</h3>
-        <p>{blurb}</p>
+        <h4>{blurb}</h4>
+        <p>{comment}</p>
         <div className="links-container">
           <a href={linkedin1} target="_blank" rel="noopener noreferrer">
             LinkedIn
@@ -120,16 +129,19 @@ function LandingPage() {
         <div className="developer-container">
           <DeveloperCard
             image="/pnk.jpeg"
-            name="Developer 1"
-            blurb="As a fresh bootcamp grad and certified software engineer, I've got the coding basics down—from Python and JavaScript to React, Django, and SQL. Keen on leveling up, I'm diving into Java certification, eager to add more tools to my dev belt and jump into exciting software projects. 🚀"
+            name="Priyanka Kannan"
+            blurb="Full-Stack Engineer"
+            // blurb="As a fresh bootcamp grad and certified software engineer, I've got the coding basics down—from Python and JavaScript to React, Django, and SQL. Keen on leveling up, I'm diving into Java certification, eager to add more tools to my dev belt and jump into exciting software projects. 🚀"
+            comment="Developer on v1.0 and v2.0"
             linkedin="https://www.linkedin.com/"
             portfolio="https://www.linkedin.com/"
             resume="/path/to/resume1.pdf"
           />
           <DeveloperCard
             image="/adp.jpeg"
-            name="Developer 2"
-            blurb="REQUIRED"
+            name="Anastasia Dwarica-Pham"
+            blurb="Full-Stack Engineer"
+            comment="Developer on v1.0 and v2.0"
             linkedin="https://www.linkedin.com/"
             portfolio="https://www.linkedin.com/"
             resume="/path/to/resume2.pdf"
@@ -137,8 +149,9 @@ function LandingPage() {
           <DeveloperCard3_4
             image1="/adp.jpeg"
             image2="/pnk.jpeg"
-            name="Developers 3 & 4"
-            blurb="Assisted in building v1.0"
+            name="Austin Sahagun and Matthew Rauschenberg"
+            blurb="Full-Stack Engineers"
+            comment="Developers on v1.0"
             linkedin1="https://www.linkedin.com/"
             linkedin2="https://www.linkedin.com/"
           />
