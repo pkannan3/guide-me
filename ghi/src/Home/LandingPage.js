@@ -6,86 +6,6 @@ import Button from "react-bootstrap/Button";
 import videoBG from "./Assets/videoBG.mp4";
 import "./LandingPage.css";
 
-const DeveloperCard = ({
-  image,
-  name,
-  blurb,
-  comment,
-  linkedin,
-  portfolio,
-  resume,
-}) => {
-  return (
-    <div className="developer-card border mr-4">
-      <img
-        className="developer-Image"
-        src={image} // Use the image prop here
-        alt={`Image of ${name}`}
-      />
-      <div className="developer-details">
-        <h3>{name}</h3>
-        <h4 className="developer-Image-h4">{blurb}</h4>
-        <p>{comment}</p>
-        <div className="links-container">
-          <a href={linkedin} target="_blank" rel="noopener noreferrer">
-            LinkedIn
-          </a>
-          <a href={portfolio} target="_blank" rel="noopener noreferrer">
-            Portfolio
-          </a>
-          <a href={resume} target="_blank" rel="noopener noreferrer">
-            Resume
-          </a>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const DeveloperCard3_4 = ({
-  image1,
-  image2,
-  name1,
-  name2,
-  blurb,
-  comment,
-  linkedin1,
-  linkedin2,
-}) => {
-  return (
-    <div className="developer-card border mr-4">
-      <img
-        className="developer-Image1-2"
-        src={image1} // Use the image prop here
-        alt={`Image of ${name1}`}
-      />
-      <img
-        className="developer-Image1-2"
-        src={image2} // Use the image prop here
-        alt={`Image of ${name2}`}
-      />
-      <div className="developer-details">
-        <h3>
-          {/* <span id="content1">{name1}</span>
-          <span id="content2">{name2}</span> */}
-          {name1}
-          {name2}
-        </h3>
-        <h4>{blurb}</h4>
-        <p>{comment}</p>
-        <div className="links-container">
-          <a href={linkedin1} target="_blank" rel="noopener noreferrer">
-            LinkedIn
-          </a>
-          <a href={linkedin2} target="_blank" rel="noopener noreferrer">
-            LinkedIn
-          </a>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 function LandingPage() {
   const [isUserLoggedIn, setUserLoggedIn] = useState(
     !!localStorage.getItem("access_token")
@@ -109,7 +29,7 @@ function LandingPage() {
       </div>
       <div className="text-container px-4 py-5 my-5 text-center">
         <div className="content">
-          <h1 className="title">GuideMe</h1>
+          <h1 className="site-title">GuideMe</h1>
           <div className="col-lg-7 mx-auto">
             <p className="lead mb-4 font">Plan your next adventure!</p>
             <UserContext.Provider value={{ user, setUser }}>
@@ -130,40 +50,117 @@ function LandingPage() {
           </div>
         </div>
       </div>
-      {/* <div className="container text-center mt-5"> */}
-      <div>
-        <div className="developer-container">
-          <DeveloperCard
-            image="/pnk.jpeg"
-            name="Priyanka Kannan"
-            blurb="Full-Stack Engineer"
-            // blurb="As a fresh bootcamp grad and certified software engineer, I've got the coding basics down—from Python and JavaScript to React, Django, and SQL. Keen on leveling up, I'm diving into Java certification, eager to add more tools to my dev belt and jump into exciting software projects. 🚀"
-            comment="Developer on v1.0 and v2.0"
-            linkedin="https://www.linkedin.com/"
-            portfolio="https://www.linkedin.com/"
-            resume="/path/to/resume1.pdf"
-          />
-          <DeveloperCard
-            image="/adp.jpeg"
-            name="Anastasia Dwarica-Pham"
-            blurb="Full-Stack Engineer"
-            comment="Developer on v1.0 and v2.0"
-            linkedin="https://www.linkedin.com/"
-            portfolio="https://www.linkedin.com/"
-            resume="/path/to/resume2.pdf"
-          />
-          <DeveloperCard3_4
-            image1="/adp.jpeg"
-            image2="/pnk.jpeg"
-            name1="Austin Sahagun & "
-            name2="Matthew Rauschenberg"
-            // name="Austin Sahagun & Matthew Rauschenberg"
-            blurb="Full-Stack Engineers"
-            comment="Developers on v1.0"
-            linkedin1="https://www.linkedin.com/"
-            linkedin2="https://www.linkedin.com/"
-          />
-        </div>
+
+      <div className="card-container">
+        <main class="card">
+          <article>
+            <img src="/pnk.jpeg" alt={`Image of Dev1`} />
+            <div class="text">
+              <h2>Dev1</h2>
+              <h4>Full-Stack Developer</h4>
+              <p>Developer on v1.0 and 2.0</p>
+              <button className="developer-card">
+                <a
+                  href="https://www.linkedin.com/.."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
+              </button>
+              <button className="developer-card">
+                <a
+                  href="https://www.linkedin.com/.."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Portfolio
+                </a>
+              </button>
+              <button className="developer-card">
+                <a
+                  href="/pnk_Resume.pdf"
+                  target="_parent"
+                  rel="noopener noreferrer"
+                >
+                  Resume
+                </a>
+              </button>
+            </div>
+          </article>
+
+          <article>
+            <img src="/pnk.jpeg" alt={`Image of Dev2`} />
+            <div class="text">
+              <h2>Dev2</h2>
+              <h4>Full-Stack Developer</h4>
+              <p>Developer on v1.0 and 2.0</p>
+              <button className="developer-card">
+                <a
+                  href="https://www.linkedin.com/.."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
+              </button>
+              <button className="developer-card">
+                <a
+                  href="https://www.linkedin.com/.."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Portfolio
+                </a>
+              </button>
+              <button className="developer-card">
+                <a
+                  href="/pnk_Resume.pdf"
+                  target="_parent"
+                  rel="noopener noreferrer"
+                >
+                  Resume
+                </a>
+              </button>
+            </div>
+          </article>
+
+          <article>
+            <img src="/pnk.jpeg" alt={`Image of Dev3 & Dev4`} />
+            <div class="text">
+              <h2>Dev3 & 4</h2>
+              <h4>Full-Stack Developer</h4>
+              <p>Developer on v1.0 and 2.0</p>
+              <button className="developer-card">
+                <a
+                  href="https://www.linkedin.com/.."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
+              </button>
+              <button className="developer-card">
+                <a
+                  href="https://www.linkedin.com/.."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
+              </button>
+              <button className="developer-card">
+                <a
+                  href="https://www.gitlab.com/.."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Version 1.0
+                </a>
+              </button>
+            </div>
+          </article>
+        </main>
       </div>
     </>
   );
