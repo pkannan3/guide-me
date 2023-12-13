@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { UserContext } from "../context.js";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-// import videoBG from "./Assets/videoBG.mp4";
 import "./LandingPage.css";
 
 function LandingPage() {
@@ -27,7 +26,7 @@ function LandingPage() {
       <div className="video-container">
         <video src="/videoBG.mp4" autoPlay loop muted />
 
-        <div className="text-container px-4 py-5 my-5 text-center">
+        <div className="text-container px-4 py-5 my-5">
           <div className="content">
             <h1 className="site-title">GuideMe</h1>
             <div className="col-lg-7 mx-auto">
