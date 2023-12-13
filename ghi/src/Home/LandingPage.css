@@ -84,11 +84,6 @@ video {
   border: none;
 }
 
-img {
-  width: 100%;
-  height: 100%;
-}
-
 .card {
   margin: 5px;
   padding: 0px;
@@ -116,6 +111,7 @@ img {
 
 .card > article img {
   width: 100%;
+  height: 300px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
