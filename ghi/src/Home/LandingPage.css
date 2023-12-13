@@ -62,6 +62,27 @@ video {
   margin: 0;
 }
 
+.site-subtitle {
+  padding: 0;
+  margin: 10px 0 80px 0;
+}
+
+.arrow {
+  color: white;
+  border: solid rgb(255, 255, 255);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  font-size: 20px;
+  transform: rotate(45deg);
+  transition: transform 0.5s;
+}
+
+.arrow:hover {
+  transform: scale(3) rotate(45deg); /* Ensure no rotation on hover */
+  cursor: pointer;
+}
+
 .card-container {
   display: flex;
   flex-direction: column;
@@ -181,16 +202,4 @@ video {
 .developer-card a:hover {
   text-decoration: none;
   /* color: #d5d5d5; Change Color? */
-}
-
-.arrow {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-}
-
-.down {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
 }

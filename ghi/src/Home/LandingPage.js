@@ -1,3 +1,4 @@
+// LandingPage.css
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { UserContext } from "../context.js";
@@ -21,6 +22,11 @@ function LandingPage() {
     setUserLoggedIn(true);
   };
 
+  const handleScrollToTop = () => {
+    const topElement = document.getElementById("top");
+    topElement.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
       <div className="video-container">
@@ -30,7 +36,7 @@ function LandingPage() {
           <div className="content">
             <h1 className="site-title">GuideMe</h1>
             <div className="col-lg-7 mx-auto">
-              <p className="lead mb-4 font">Plan your next adventure!</p>
+              <p className="font site-subtitle">Plan your next adventure!</p>
               <UserContext.Provider value={{ user, setUser }}>
                 {isUserLoggedIn ? (
                   " "
@@ -48,9 +54,13 @@ function LandingPage() {
               </UserContext.Provider>
             </div>
           </div>
+          <p className="arrow" onClick={handleScrollToTop}>
+            <a href="#top"></a>
+          </p>
         </div>
       </div>
 
+      <div id="top"></div>
       <div className="card-container">
         <main class="card">
           <article>
@@ -87,7 +97,6 @@ function LandingPage() {
                 </a>
               </button>
             </div>
-            <p className="arrow down"> \/ </p>
           </article>
 
           <article>
