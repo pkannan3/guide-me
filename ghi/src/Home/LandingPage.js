@@ -87,6 +87,7 @@ function LandingPage() {
                 </a>
               </button>
             </div>
+            <p className="arrow down"> \/ </p>
           </article>
 
           <article>
@@ -126,11 +127,11 @@ function LandingPage() {
           </article>
 
           <article>
-            <img src="/profile_pic.avif" alt={`Image of Dev3 & Dev4`} />
+            <img src="/stock_profile_pic.jpg" alt={`Image of Dev3 & Dev4`} />
             <div class="text">
-              <h2>Dev3 & 4</h2>
-              <h4>Full-Stack Developer</h4>
-              <p>Developer on v1.0 and 2.0</p>
+              <h2>Austin & Matthew</h2>
+              <h4>Full-Stack Developers</h4>
+              <p>Developers on v1.0</p>
               <button className="developer-card">
                 <a
                   href="https://www.linkedin.com/.."
