@@ -27,7 +27,9 @@ img {
   /* border: 1px dashed rgb(173, 62, 147); */
 }
 
-.mainBG {
+/* */
+
+.video-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   position: relative;
@@ -40,12 +42,12 @@ img {
   border-radius: 5px;
 }
 
-.videoBG {
+/* .videoBG {
   width: 100%;
   height: auto;
   margin: 0px;
   object-fit: cover;
-}
+} */
 
 video {
   position: absolute;
@@ -58,7 +60,7 @@ video {
 
 .text-container {
   position: absolute;
-  top: 40vh;
+  top: 50%;
   left: 50%; /* Center the container horizontally */
   transform: translateX(-50%);
   color: white;

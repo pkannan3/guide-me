@@ -24,7 +24,7 @@ function LandingPage() {
 
   return (
     <>
-      <div className="mainBG">
+      <div className="video-container">
         <video src={videoBG} autoPlay loop muted />
       </div>
       <div className="text-container px-4 py-5 my-5 text-center">
