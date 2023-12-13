@@ -91,7 +91,7 @@ function LandingPage() {
           </article>
 
           <article>
-            <img src="/pnk.jpeg" alt={`Image of Dev2`} />
+            <img src="/adp.jpeg" alt={`Image of Dev2`} />
             <div class="text">
               <h2>Dev2</h2>
               <h4>Full-Stack Developer</h4>
@@ -127,7 +127,7 @@ function LandingPage() {
           </article>
 
           <article>
-            <img src="/pnk.jpeg" alt={`Image of Dev3 & Dev4`} />
+            <img src="/profile_pic.avif" alt={`Image of Dev3 & Dev4`} />
             <div class="text">
               <h2>Dev3 & 4</h2>
               <h4>Full-Stack Developer</h4>
