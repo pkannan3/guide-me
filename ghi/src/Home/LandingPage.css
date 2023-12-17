@@ -10,7 +10,7 @@
   width: 100%;
   height: auto;
   max-height: calc(100vh - 9.18vh);
-  margin: 0px;
+  margin: 0;
   /* border: 1px solid rgb(192, 72, 72); */
   border-radius: 5px;
 }
@@ -24,17 +24,12 @@ video {
 
 .text-container {
   position: absolute;
-  bottom: 40%;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   color: white;
-  /* justify-content: center;
-  justify-items: center;
-  align-content: center;
-  align-items: center; */
   text-align: center;
   text-shadow: 0 0 5px #444;
-  border: 2px solid blue;
 }
 
 .landing-page-button {
@@ -105,7 +100,7 @@ video {
   padding: 0px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1.5em;
+  grid-gap: 2em;
   align-items: center;
   /* border: 1px dashed rgb(173, 62, 147); */
 }
