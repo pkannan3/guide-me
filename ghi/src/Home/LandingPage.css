@@ -28,8 +28,13 @@ video {
   left: 50%;
   transform: translateX(-50%);
   color: white;
+  /* justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center; */
   text-align: center;
   text-shadow: 0 0 5px #444;
+  border: 2px solid blue;
 }
 
 .landing-page-button {
@@ -64,12 +69,14 @@ video {
 
 .site-subtitle {
   padding: 0;
-  margin: 10px 0 80px 0;
+  margin: 10px 0 50px 0;
 }
 
 .arrow {
   border: solid rgb(255, 255, 255);
   border-width: 0 3px 3px 0;
+  height: 3vh;
+  width: 3vh;
   display: inline-block;
   padding: 3px;
 }
@@ -80,7 +87,7 @@ video {
 }
 
 .arrow:hover {
-  transform: scale(3) rotate(45deg);
+  transform: scale(1.5) rotate(45deg);
   cursor: pointer;
 }
 
