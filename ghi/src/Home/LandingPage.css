@@ -9,7 +9,7 @@
   overflow: hidden;
   width: 100%;
   height: auto;
-  max-height: calc(100vh - 9.1vh);
+  max-height: calc(100vh - 9.18vh);
   margin: 0px;
   /* border: 1px solid rgb(192, 72, 72); */
   border-radius: 5px;
@@ -68,14 +68,19 @@ video {
 }
 
 .arrow {
-  color: white;
-  border: solid rgb(207, 30, 30);
-  border-width: 0 7px 7px 0;
-  transition: transform 0.5s;
+  border: solid rgb(255, 255, 255);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }
 
 .arrow:hover {
-  transform: scale(3) rotate(45deg); /* Ensure no rotation on hover */
+  transform: scale(3) rotate(45deg);
   cursor: pointer;
 }
 
@@ -95,7 +100,7 @@ video {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1.5em;
   align-items: center;
-  border: 1px dashed rgb(173, 62, 147);
+  /* border: 1px dashed rgb(173, 62, 147); */
 }
 
 .card > article {
