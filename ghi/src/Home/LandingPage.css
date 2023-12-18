@@ -28,7 +28,6 @@ video {
   height: 60%;
   transform: translate(-50%, -50%);
   color: white;
-  /* background-color: black; */
   text-shadow: 0 0 5px #444;
 }
 
@@ -56,22 +55,24 @@ video {
 
 .landing-page-button {
   background-color: #b9e6a2;
-  color: rgba(47, 47, 47, 0.752);
+  /* color: rgba(47, 47, 47, 0.752); */
+  color: rgb(30, 30, 30);
   border: none;
   padding: 10px 0 10px;
   width: 85%;
-  /* display: inline-block;
-  text-align: center; */
   text-decoration: none;
-  font-size: 16px;
+  font-size: 17px;
+  font-weight: 340;
   border-radius: 4px;
 }
 
 .landing-page-button:hover {
   background-color: #b9e6a2;
-  color: rgba(47, 47, 47, 1);
-  font-weight: 400;
+  color: white;
+  font-weight: 500;
   cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.5s;
 }
 
 .arrow-div {
@@ -206,7 +207,6 @@ video {
 }
 
 .text button:hover {
-  color: #fff;
   font-weight: 500;
   transform: scale(1.1);
   transition: 0.5s;
