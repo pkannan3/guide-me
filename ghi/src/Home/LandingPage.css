@@ -23,30 +23,13 @@ video {
 
 .text-container {
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
+  height: 60%;
   transform: translate(-50%, -50%);
   color: white;
+  /* background-color: black; */
   text-shadow: 0 0 5px #444;
-}
-
-.landing-page-button {
-  background-color: #b9e6a2;
-  border: 0;
-  padding: 8px 0px 8px;
-  width: 100px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 4px;
-  margin-top: 20px;
-}
-
-.landing-page-button:hover {
-  background-color: #b9e6a2;
-  font-weight: 400;
-  color: rgb(78, 78, 78);
 }
 
 .font {
@@ -62,12 +45,38 @@ video {
 
 .site-subtitle {
   padding: 0;
-  margin: 10px 0 50px 0;
+  margin: 10px 20px 40px 20px;
+}
+
+.landing-page-button-div {
+  position: absolute;
+  width: 100%;
+  left: 7%;
+}
+
+.landing-page-button {
+  background-color: #b9e6a2;
+  color: rgba(47, 47, 47, 0.752);
+  border: none;
+  padding: 10px 0 10px;
+  width: 85%;
+  /* display: inline-block;
+  text-align: center; */
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.landing-page-button:hover {
+  background-color: #b9e6a2;
+  color: rgba(47, 47, 47, 1);
+  font-weight: 400;
+  cursor: pointer;
 }
 
 .arrow-div {
   position: absolute;
-  top: 80%;
+  top: 100%;
   left: 50%;
   transform: translateX(-50%) rotate(45deg);
 }
