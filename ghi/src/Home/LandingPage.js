@@ -41,7 +41,7 @@ function LandingPage() {
                 {isUserLoggedIn ? (
                   " "
                 ) : (
-                  <Link to="/register">
+                  <Link to="/register" className="landing-page-button-div font">
                     <Button
                       variant="primary"
                       size="lg"
