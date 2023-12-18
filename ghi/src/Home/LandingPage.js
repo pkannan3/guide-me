@@ -54,9 +54,13 @@ function LandingPage() {
               </UserContext.Provider>
             </div>
           </div>
-          <p className="arrow down" onClick={handleScrollToTop}>
-            <a href="#top"></a>
-          </p>
+          <div className="arrow-div">
+            <div className="arrow-container" onClick={handleScrollToTop}>
+              <div className="arrow down">
+                <a href="#top"></a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
