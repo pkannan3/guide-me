@@ -11,7 +11,6 @@
   height: auto;
   max-height: calc(100vh - 9.18vh);
   margin: 0;
-  /* border: 1px solid rgb(192, 72, 72); */
   border-radius: 5px;
 }
 
@@ -28,7 +27,6 @@ video {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  /* text-align: center; */
   text-shadow: 0 0 5px #444;
 }
 
@@ -69,7 +67,7 @@ video {
 
 .arrow-div {
   position: absolute;
-  top: 150%;
+  top: 80%;
   left: 50%;
   transform: translateX(-50%) rotate(45deg);
 }
@@ -156,7 +154,7 @@ video {
 }
 
 .text h2 {
-  text-transform: uppercase; /* Do we want uppercase? */
+  text-transform: uppercase;
   color: rgb(17, 8, 10);
   font-family: sans-serif;
   font-size: 20px;
@@ -182,7 +180,6 @@ video {
   font-weight: 300;
   padding: 0px;
   margin: 15px 0px 10px 0px;
-  /* text-shadow: 1px 1px 1px rgba(150, 150, 150, 1); */
 }
 
 .text button {
@@ -197,7 +194,6 @@ video {
   padding: 10px;
   margin: 10px 1px;
   font-size: 17px;
-  /* box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.3); */
 }
 
 .text button:hover {
