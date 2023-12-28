@@ -7,7 +7,7 @@
   width: 99.9%;
   height: auto;
   max-height: calc(100vh - 9.18vh);
-  padding-left: 2px;
+  padding-left: 0.1%;
   margin: 0;
   border-radius: 30px;
 }
