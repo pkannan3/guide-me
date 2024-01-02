@@ -8,15 +8,22 @@ from queries.accounts import AccountOut
 router = APIRouter()
 
 
-@router.post("/trips/create", response_model=Union[TripsOut2, Error])
+@router.post(
+    "/trips/create", tags=["trips"], response_model=Union[TripsOut2, Error]
+)
 def create_one_trip(
     trips: TripsIn,
-    account_data: Optional[dict] = Depends(authenticator.try_get_current_account_data),
-    repo: TripsQueries = Depends()):
+    account_data: Optional[dict] = Depends(
+        authenticator.try_get_current_account_data
+    ),
+    repo: TripsQueries = Depends(),
+):
     return repo.create_one_trip(trips, account_data["id"])
 
 
-@router.put("/trips/{trip_id}", response_model=Union[TripsOut, Error])
+@router.put(
+    "/trips/{trip_id}", tags=["trips"], response_model=Union[TripsOut, Error]
+)
 def update_trip(
     trip_id: int,
     trip: TripsIn,
@@ -25,7 +32,9 @@ def update_trip(
     return repo.update(trip_id, trip)
 
 
-@router.get("/trips/{trip_id}", response_model=Optional[TripsOut])
+@router.get(
+    "/trips/{trip_id}", tags=["trips"], response_model=Optional[TripsOut]
+)
 def get_one_trip(
     trip_id: int,
     response: Response,
@@ -37,7 +46,9 @@ def get_one_trip(
     return trip
 
 
-@router.get("/trips", response_model=Union[List[TripsOut], Error])
+@router.get(
+    "/trips", tags=["trips"], response_model=Union[List[TripsOut], Error]
+)
 def get_all_trips(
     account_data: AccountOut = Depends(authenticator.get_current_account_data),
     repo: TripsQueries = Depends(),
@@ -45,7 +56,7 @@ def get_all_trips(
     return repo.get_all(account_data["id"])
 
 
-@router.delete("/trips/{trip_id}", response_model=bool)
+@router.delete("/trips/{trip_id}", tags=["trips"], response_model=bool)
 def delete_trip(
     trip_id: int,
     repo: TripsQueries = Depends(),
