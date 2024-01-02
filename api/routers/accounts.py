@@ -20,6 +20,7 @@ from queries.accounts import (
     DuplicateAccountError,
     AccountOutWithPassword,
     Error,
+    AccountUpdate,
 )
 
 
@@ -39,14 +40,14 @@ class HttpError(BaseModel):
 router = APIRouter()
 
 
-@router.get("/protected", response_model=bool)
+@router.get("/protected", tags=["accounts"], response_model=bool)
 async def get_protected(
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
     return True
 
 
-@router.get("/token", response_model=AccountToken | None)
+@router.get("/token", tags=["accounts"], response_model=AccountToken | None)
 async def get_token(
     request: Request,
     account: AccountOut = Depends(authenticator.try_get_current_account_data),
@@ -59,7 +60,9 @@ async def get_token(
         }
 
 
-@router.post("/register", response_model=AccountToken | HttpError)
+@router.post(
+    "/register", tags=["accounts"], response_model=AccountToken | HttpError
+)
 async def create_account(
     info: AccountIn,
     request: Request,
@@ -95,11 +98,20 @@ async def get_account(
 
 
 @router.put(
-    "/accounts/{id}", response_model=Union[AccountOutWithPassword, Error]
+    "/accounts/{id}",
+    tags=["accounts"],
+    response_model=Union[AccountOutWithPassword, Error],
 )
 def update_account(
     id: int,
-    account: AccountIn,
+    account: AccountUpdate,
     repo: AccountQueries = Depends(),
-) -> Union[Error, AccountOutWithPassword]:
-    return repo.edit_accountp(id, account)
+):
+    if account.password:
+        hashed_password = authenticator.hash_password(account.password)
+        account.hashed_password = hashed_password
+
+    updated_account = repo.edit_account(id, account)
+    if isinstance(updated_account, Error):
+        raise HTTPException(status_code=400, detail=updated_account.message)
+    return updated_account

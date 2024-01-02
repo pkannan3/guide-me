@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, Union
 from queries.pool import pool
 
 
@@ -19,6 +19,14 @@ class AccountOut(BaseModel):
     name: str
     username: str
     email: str
+
+
+class AccountUpdate(BaseModel):
+    name: Optional[str] = None
+    username: Optional[str] = None
+    password: Optional[str] = None
+    email: Optional[str] = None
+    hashed_password: Optional[str] = None
 
 
 class AccountOutWithPassword(AccountOut):
@@ -100,45 +108,54 @@ class AccountQueries:
                 print(record)
                 return AccountOutWithPassword(**record)
 
+    def edit_account(
+        self, id: int, account: AccountUpdate
+    ) -> Union[AccountOutWithPassword, Error]:
+        update_values = {
+            "name": account.name,
+            "username": account.username,
+            "email": account.email,
+            "hashed_password": account.hashed_password,
+        }
 
-def edit_account(
-    self, username: str, updated_account: AccountIn
-) -> Optional[AccountOutWithPassword]:
-    with pool.connection() as conn:
-        with conn.cursor() as db:
-            db.execute(
-                """
-                UPDATE authentication
-                SET
-                    name = %s,
-                    username = %s,
-                    email = %s
-                WHERE id = %s
-                RETURNING
-                    id,
-                    username,
-                    name,
-                    email,
-                    hashed_password
-                """,
-                [
-                    updated_account.name,
-                    updated_account.username,
-                    updated_account.email,
-                    id,
-                ],
-            )
-            try:
-                record = db.fetchone()
-                if record is None:
-                    return None
-                return AccountOutWithPassword(
-                    id=record[0],
-                    name=record[1],
-                    username=record[2],
-                    hashed_password=record[3],
-                    email=record[4],
-                )
-            except Exception as e:
-                print(e)
-                return {"message": "Could not update that account"}
+        update_values = {
+            k: v for k, v in update_values.items() if v is not None
+        }
+
+        if not update_values:
+            return Error(message="No fields provided for update.")
+
+        set_clause_parts = []
+
+        for field_name in update_values.keys():
+            update_part = f"{field_name} = %s"
+
+            set_clause_parts.append(update_part)
+
+        set_clause = ", ".join(set_clause_parts)
+
+        values_list = []
+        for value in update_values.values():
+            values_list.append(value)
+
+        values = values_list
+
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        f"""
+                        UPDATE authentication
+                        SET {set_clause}
+                        WHERE id = %s;
+                        """,
+                        values + [id],
+                    )
+                    return self.account_in_to_out(id, account)
+        except Exception as e:
+            print(e)
+            return {"message": "Could not update that account"}
+
+    def account_in_to_out(self, id: int, account: AccountUpdate):
+        old_data = account.dict()
+        return AccountOutWithPassword(id=id, **old_data)
