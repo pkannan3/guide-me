@@ -9,6 +9,7 @@ import ItineraryList from "./Itinerary/itinerary.js";
 import TripsDisplay from "./TripsDisplay";
 import TripsForm from "./TripsForm";
 import BudgetForm from "./Budget";
+import SettingsForm from "./Accounts/settings.js";
 import NotFound from "./404/PageDoesNotExist";
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
               <Route path="/" element={<LandingPage />} />
               <Route path="/home" element={<LandingPage />} />
               <Route path="*" element={<NotFound />} />
+              <Route path="/settings" element={<SettingsForm />} />
             </Routes>
           ) : (
             <Routes>
