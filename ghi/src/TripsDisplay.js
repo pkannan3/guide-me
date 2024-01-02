@@ -117,6 +117,15 @@ function TripsList(props) {
             <span className="vertical-text">Trips</span>
           </button>
           <button
+            onClick={() => SetDisplay("map")}
+            disabled={tripId ? false : true}
+            className={`vertical-button ${
+              display === "map" ? "active-page" : ""
+            }`}
+          >
+            <span className="vertical-text">Map</span>
+          </button>
+          <button
             onClick={() => SetDisplay("budget")}
             disabled={tripId ? false : true}
             className={`vertical-button ${
