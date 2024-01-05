@@ -215,16 +215,16 @@ video {
 }
 
 @media (max-width: 768px) {
-  .card {
+  .landing-page-cards {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 600px) {
-  .card {
+  .landing-page-cards {
     grid-template-columns: repeat(1, 1fr);
   }
-  .card > article {
+  .landing-page-cards > article {
     text-align: center;
   }
 }

@@ -163,7 +163,7 @@ function TripsList(props) {
                   }}
                 >
                   <div class="trips-card">
-                    <Card className="">
+                    <Card>
                       <Card.Body>
                         <div>
                           <img
