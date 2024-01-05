@@ -160,7 +160,7 @@ ul {
   white-space: nowrap;
   text-align: center;
   padding: 35px 0 35px 0;
-  color: rgb(0, 0, 0);
+  color: #393939;
   font-size: 40px;
   border-radius: 10px;
   font-family: Helvetica Neue, Tahoma, Verdana, sans-serif;
@@ -169,8 +169,12 @@ ul {
 
 .vertical-text:hover,
 .vertical-text:active {
-  color: white;
+  color: #393939;
   border-radius: 4px;
+}
+
+.vertical-buttons-container button:active {
+  background-color: #cfcfcf;
 }
 
 .vertical-buttons-container {
@@ -185,6 +189,27 @@ ul {
   max-height: calc(100vh - 9.18vh);
   margin: 0;
   border-radius: 26px;
+}
+
+.vertical-buttons-container button {
+  background-color: transparent;
+  color: #aaaaaa;
+  border: none;
+  border-radius: 26px;
+  padding: 10px 20px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.vertical-buttons-container button:hover {
+  background-color: #cfcfcf;
+  border: 1px solid #393939;
+  color: #393939;
+}
+
+.vertical-buttons-container button:active {
+  background-color: #393939;
 }
 
 .active-display {
@@ -209,31 +234,10 @@ ul {
   border: none;
 }
 
-.vertical-buttons-container button {
-  background-color: transparent;
-  color: #aaaaaa;
-  border: none;
-  border-radius: 26px;
-  padding: 10px 20px;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-}
-
-.vertical-buttons-container button:hover {
-  background-color: #cfcfcf;
-  border: 1px solid #393939;
-  color: #393939;
-}
-
-.vertical-buttons-container button:active {
-  background-color: #393939;
-}
-
-.vertical-buttons-container button.active-display {
+/* .vertical-buttons-container button.active-display {
   border: 2px solid #ff8800;
   color: #ff8800;
-}
+} */
 
 /* Create A Trip Page */
 .create-trips-container {
