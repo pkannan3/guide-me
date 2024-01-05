@@ -161,75 +161,84 @@ function TripsList(props) {
                     SetDisplay("trips");
                   }}
                 >
-                  <Card className="custom-card">
+                  <Card class="trips-card">
                     <Card.Body>
-                      <div class="card">
+                      <div>
                         <img
                           src="/stock_profile_pic.jpg"
                           alt={`Image of Dev3 & Dev4`}
                         />
                       </div>
-                      <Card.Title className="custom-card-title">
+                      {/* <Card.Title className="trips-card-details"> */}
+                      <Card.Title>
                         <div>
-                          <input
-                            className="custom-card-title"
-                            type="text"
-                            value={
-                              editMode === rowIndex
-                                ? editedValues[rowIndex].trip_name
-                                : trip.trip_name
-                            }
-                            onChange={(e) =>
-                              handleInputChange(
-                                rowIndex,
-                                "trip_name",
-                                e.target.value
-                              )
-                            }
-                          />
-                          {editMode !== rowIndex ? (
-                            <>
+                          <ul>
+                            <li>
                               <input
-                                className="custom-card-title"
-                                type="date"
-                                value={trip.start_date}
-                                readOnly
-                              />
-                              <input
-                                className="custom-card-title"
-                                type="date"
-                                value={trip.end_date}
-                                readOnly
-                              />
-                            </>
-                          ) : (
-                            <>
-                              <input
-                                className="custom-card-title"
-                                type="date"
-                                value={editedValues[rowIndex].start_date}
+                                className="trips-card-details"
+                                type="text"
+                                value={
+                                  editMode === rowIndex
+                                    ? editedValues[rowIndex].trip_name
+                                    : trip.trip_name
+                                }
                                 onChange={(e) =>
                                   handleInputChange(
                                     rowIndex,
-                                    "start_date",
+                                    "trip_name",
                                     e.target.value
                                   )
                                 }
                               />
-                              <input
-                                className="custom-card-title"
-                                type="date"
-                                value={editedValues[rowIndex].end_date}
-                                onChange={(e) =>
-                                  handleInputChange(
-                                    rowIndex,
-                                    "end_date",
-                                    e.target.value
-                                  )
-                                }
-                              />
-                            </>
-                          )}
+                            </li>
+                            {editMode !== rowIndex ? (
+                              <>
+                                <li>
+                                  <input
+                                    className="trips-card-details"
+                                    type="date"
+                                    value={trip.start_date}
+                                    readOnly
+                                  />
+                                </li>
+                                <li>
+                                  <input
+                                    className="trips-card-details"
+                                    type="date"
+                                    value={trip.end_date}
+                                    readOnly
+                                  />
+                                </li>
+                              </>
+                            ) : (
+                              <>
+                                <input
+                                  className="trips-card-details"
+                                  type="date"
+                                  value={editedValues[rowIndex].start_date}
+                                  onChange={(e) =>
+                                    handleInputChange(
+                                      rowIndex,
+                                      "start_date",
+                                      e.target.value
+                                    )
+                                  }
+                                />
+                                <input
+                                  className="trips-card-details"
+                                  type="date"
+                                  value={editedValues[rowIndex].end_date}
+                                  onChange={(e) =>
+                                    handleInputChange(
+                                      rowIndex,
+                                      "end_date",
+                                      e.target.value
+                                    )
+                                  }
+                                />
+                              </>
+                            )}
+                          </ul>
                           <div className="button-container">
                             {editMode !== rowIndex ? (
                               <>
@@ -266,7 +275,7 @@ function TripsList(props) {
               <Link to="/trips/create">
                 <Card className="custom-card add-trip-card-container">
                   <Card.Body>
-                    <Card.Title className="custom-card-title">+</Card.Title>
+                    <Card.Title className="trips-card-details">+</Card.Title>
                   </Card.Body>
                 </Card>
               </Link>
