@@ -41,7 +41,7 @@
 }
 
 .trips-card {
-  margin: 2px;
+  margin: 8px 3px;
   padding: 0;
   display: flex;
   flex-wrap: wrap;

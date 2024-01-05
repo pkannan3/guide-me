@@ -5,6 +5,7 @@ import Card from "react-bootstrap/Card";
 import BudgetForm from "./Budget";
 import ItineraryList from "./Itinerary/itinerary";
 import "./Trips.css";
+import "./Base.css";
 import "./TripsForm";
 
 function TripsList(props) {
@@ -146,7 +147,7 @@ function TripsList(props) {
         </div>
 
         <div>
-          <h1 className="budget-h1"> Your Trips </h1>
+          <h1 className="body-container-h1"> Your Trips </h1>
           {display === "trips" && (
             <div
               className="trips-card-container"
