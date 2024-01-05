@@ -95,32 +95,12 @@ ul {
   margin-top: 10px;
 }
 
-.trips-card-save-button {
+.trips-card-button {
   background-color: #b9e6a2;
   color: white;
   border: none;
   padding: 5px 15px;
-  border-radius: 4px;
-  cursor: pointer;
   margin: 5px 10px 10px 0;
-}
-
-.trips-card-edit-button {
-  background-color: #b9e6a2;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  margin: 5px 10px 10px 0;
-}
-
-.trips-card-delete-button {
-  background-color: #b9e6a2;
-  color: #fff;
-  padding: 5px 10px;
-  margin: 5px 10px 10px 0;
-  border: none;
   border-radius: 4px;
   cursor: pointer;
 }

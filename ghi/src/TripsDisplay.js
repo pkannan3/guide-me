@@ -243,13 +243,13 @@ function TripsList(props) {
                               {editMode !== rowIndex ? (
                                 <>
                                   <button
-                                    className="trips-card-edit-button"
+                                    className="trips-card-button"
                                     onClick={() => handleEditCell(rowIndex)}
                                   >
                                     Edit
                                   </button>
                                   <button
-                                    className="trips-card-delete-button"
+                                    className="trips-card-button"
                                     onClick={() => handleDelete(trip.trip_id)}
                                   >
                                     Delete
@@ -258,7 +258,7 @@ function TripsList(props) {
                               ) : (
                                 <>
                                   <button
-                                    className="trips-card-save-button"
+                                    className="trips-card-button"
                                     onClick={() => handleSaveCell(rowIndex)}
                                   >
                                     Save
