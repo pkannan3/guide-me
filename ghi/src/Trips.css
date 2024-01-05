@@ -27,22 +27,22 @@
   align-content: center;
 }
 
-.card-container {
+.trips-card-container {
   display: flex;
   flex-wrap: wrap;
-  padding: 10px;
+  flex-direction: row;
+  /* justify-items: center;
+  align-items: center;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: flex-start; */
+  padding: 10px;
   margin: 30px 20px 30px 30px;
   gap: 10px;
   height: auto;
   max-height: calc(100vh - 12vh);
-  flex-direction: row;
-  justify-items: center;
-  align-items: center;
+  /* width: auto; */
   background: #fff;
   border: none;
-  /* border: 1px solid #300aec; */
 }
 
 .trips-card {
@@ -52,7 +52,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 2em;
-  border: 3px dashed purple;
+  border: 2px dashed purple;
 }
 
 .trips-card:hover {
@@ -64,7 +64,7 @@
 
 div > img {
   width: 100%;
-  height: 200px;
+  height: 175px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   /* padding: 3px;
@@ -72,25 +72,23 @@ div > img {
   /* border: 3px dashed green; */
 }
 
-/* .custom-card-title {
-  padding: 0;
-  font-family: Helvetica Neue, Tahoma, Verdana, sans-serif;
-  letter-spacing: 1.5px;
-  font-size: 2vh;
-  font-weight: 300;
-  border: 1px solid rgb(202, 37, 37);
-  width: 100%;
-} */
-
 .trips-card-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 3px;
-  margin: 10px;
+  margin: 5px 15px;
   font-family: Helvetica Neue, Tahoma, Verdana, sans-serif;
   letter-spacing: 1.5px;
-  font-size: 2vh;
+  font-size: 1.5vh;
   font-weight: 300;
-  border: 1px solid rgb(202, 37, 37);
-  width: 300px;
+  border: 1px solid rgb(212, 212, 212);
+  border-radius: 4px;
+  width: 200px;
+}
+
+.trips-cards-input {
+  text-align: center;
 }
 
 ul {
@@ -112,7 +110,7 @@ ul {
   padding: 5px 15px;
   border-radius: 4px;
   cursor: pointer;
-  margin-right: 10px;
+  margin: 5px 10px 10px 0;
 }
 
 .edit-button {
@@ -122,14 +120,15 @@ ul {
   padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer;
-  margin-right: 10px;
+  margin: 5px 10px 10px 0;
 }
 
 .delete-button {
   background-color: #d59ef3;
   color: #fff;
-  border: none;
   padding: 5px 10px;
+  margin: 5px 10px 10px 0;
+  border: none;
   border-radius: 4px;
   cursor: pointer;
 }

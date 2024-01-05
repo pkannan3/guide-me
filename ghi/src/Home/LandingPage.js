@@ -65,8 +65,8 @@ function LandingPage() {
       </div>
 
       <div id="top"></div>
-      <div className="card-container">
-        <main class="card">
+      <div className="landing-card-container">
+        <main class="landing-page-cards">
           <article>
             <img src="/pnk.jpeg" alt={`Image of Dev1`} />
             <div class="text">

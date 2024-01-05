@@ -149,7 +149,7 @@ function TripsList(props) {
           <h1 className="budget-h1"> Your Trips </h1>
           {display === "trips" && (
             <div
-              className="card-container"
+              className="trips-card-container"
               // style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}
             >
               {trips.map((trip, rowIndex) => (
@@ -161,115 +161,116 @@ function TripsList(props) {
                     SetDisplay("trips");
                   }}
                 >
-                  <Card class="trips-card">
-                    <Card.Body>
-                      <div>
-                        <img
-                          src="/stock_profile_pic.jpg"
-                          alt={`Image of Dev3 & Dev4`}
-                        />
-                      </div>
-                      {/* <Card.Title className="trips-card-details"> */}
-                      <Card.Title>
+                  <div class="trips-card">
+                    <Card className="">
+                      <Card.Body>
                         <div>
-                          <ul>
-                            <li>
-                              <input
-                                className="trips-card-details"
-                                type="text"
-                                value={
-                                  editMode === rowIndex
-                                    ? editedValues[rowIndex].trip_name
-                                    : trip.trip_name
-                                }
-                                onChange={(e) =>
-                                  handleInputChange(
-                                    rowIndex,
-                                    "trip_name",
-                                    e.target.value
-                                  )
-                                }
-                              />
-                            </li>
-                            {editMode !== rowIndex ? (
-                              <>
-                                <li>
-                                  <input
-                                    className="trips-card-details"
-                                    type="date"
-                                    value={trip.start_date}
-                                    readOnly
-                                  />
-                                </li>
-                                <li>
-                                  <input
-                                    className="trips-card-details"
-                                    type="date"
-                                    value={trip.end_date}
-                                    readOnly
-                                  />
-                                </li>
-                              </>
-                            ) : (
-                              <>
-                                <input
-                                  className="trips-card-details"
-                                  type="date"
-                                  value={editedValues[rowIndex].start_date}
-                                  onChange={(e) =>
-                                    handleInputChange(
-                                      rowIndex,
-                                      "start_date",
-                                      e.target.value
-                                    )
-                                  }
-                                />
-                                <input
-                                  className="trips-card-details"
-                                  type="date"
-                                  value={editedValues[rowIndex].end_date}
-                                  onChange={(e) =>
-                                    handleInputChange(
-                                      rowIndex,
-                                      "end_date",
-                                      e.target.value
-                                    )
-                                  }
-                                />
-                              </>
-                            )}
-                          </ul>
-                          <div className="button-container">
-                            {editMode !== rowIndex ? (
-                              <>
-                                <button
-                                  className="edit-button"
-                                  onClick={() => handleEditCell(rowIndex)}
-                                >
-                                  Edit
-                                </button>
-                                <button
-                                  className="delete-button"
-                                  onClick={() => handleDelete(trip.trip_id)}
-                                >
-                                  Delete
-                                </button>
-                              </>
-                            ) : (
-                              <>
-                                <button
-                                  className="save-button"
-                                  onClick={() => handleSaveCell(rowIndex)}
-                                >
-                                  Save
-                                </button>
-                              </>
-                            )}
-                          </div>
+                          <img
+                            src="/stock_profile_pic.jpg"
+                            alt={`Image of Location`}
+                          />
                         </div>
-                      </Card.Title>
-                    </Card.Body>
-                  </Card>
+                        <Card.Title>
+                          <div>
+                            <ul>
+                              <li>
+                                <input
+                                  className="trips-card-details trips-cards-input"
+                                  type="text"
+                                  value={
+                                    editMode === rowIndex
+                                      ? editedValues[rowIndex].trip_name
+                                      : trip.trip_name
+                                  }
+                                  onChange={(e) =>
+                                    handleInputChange(
+                                      rowIndex,
+                                      "trip_name",
+                                      e.target.value
+                                    )
+                                  }
+                                />
+                              </li>
+                              {editMode !== rowIndex ? (
+                                <>
+                                  <li>
+                                    <input
+                                      className="trips-card-details trips-cards-input"
+                                      type="date"
+                                      value={trip.start_date}
+                                      readOnly
+                                    />
+                                  </li>
+                                  <li>
+                                    <input
+                                      className="trips-card-details trips-cards-input"
+                                      type="date"
+                                      value={trip.end_date}
+                                      readOnly
+                                    />
+                                  </li>
+                                </>
+                              ) : (
+                                <>
+                                  <input
+                                    className="trips-card-details trips-cards-input"
+                                    type="date"
+                                    value={editedValues[rowIndex].start_date}
+                                    onChange={(e) =>
+                                      handleInputChange(
+                                        rowIndex,
+                                        "start_date",
+                                        e.target.value
+                                      )
+                                    }
+                                  />
+                                  <input
+                                    className="trips-card-details trips-cards-input"
+                                    type="date"
+                                    value={editedValues[rowIndex].end_date}
+                                    onChange={(e) =>
+                                      handleInputChange(
+                                        rowIndex,
+                                        "end_date",
+                                        e.target.value
+                                      )
+                                    }
+                                  />
+                                </>
+                              )}
+                            </ul>
+                            <div className="button-container">
+                              {editMode !== rowIndex ? (
+                                <>
+                                  <button
+                                    className="edit-button"
+                                    onClick={() => handleEditCell(rowIndex)}
+                                  >
+                                    Edit
+                                  </button>
+                                  <button
+                                    className="delete-button"
+                                    onClick={() => handleDelete(trip.trip_id)}
+                                  >
+                                    Delete
+                                  </button>
+                                </>
+                              ) : (
+                                <>
+                                  <button
+                                    className="save-button"
+                                    onClick={() => handleSaveCell(rowIndex)}
+                                  >
+                                    Save
+                                  </button>
+                                </>
+                              )}
+                            </div>
+                          </div>
+                        </Card.Title>
+                      </Card.Body>
+                    </Card>
+                  </div>
                 </div>
               ))}
               <Link to="/trips/create">
