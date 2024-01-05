@@ -149,7 +149,7 @@ function TripsList(props) {
           <h1 className="budget-h1"> Your Trips </h1>
           {display === "trips" && (
             <div
-              className="font card-container"
+              className="card-container"
               // style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}
             >
               {trips.map((trip, rowIndex) => (
@@ -163,10 +163,16 @@ function TripsList(props) {
                 >
                   <Card className="custom-card">
                     <Card.Body>
+                      <div class="card">
+                        <img
+                          src="/stock_profile_pic.jpg"
+                          alt={`Image of Dev3 & Dev4`}
+                        />
+                      </div>
                       <Card.Title className="custom-card-title">
                         <div>
                           <input
-                            className="font"
+                            className="custom-card-title"
                             type="text"
                             value={
                               editMode === rowIndex
@@ -184,13 +190,13 @@ function TripsList(props) {
                           {editMode !== rowIndex ? (
                             <>
                               <input
-                                className="font"
+                                className="custom-card-title"
                                 type="date"
                                 value={trip.start_date}
                                 readOnly
                               />
                               <input
-                                className="font"
+                                className="custom-card-title"
                                 type="date"
                                 value={trip.end_date}
                                 readOnly
@@ -199,7 +205,7 @@ function TripsList(props) {
                           ) : (
                             <>
                               <input
-                                className="font"
+                                className="custom-card-title"
                                 type="date"
                                 value={editedValues[rowIndex].start_date}
                                 onChange={(e) =>
@@ -211,7 +217,7 @@ function TripsList(props) {
                                 }
                               />
                               <input
-                                className="font"
+                                className="custom-card-title"
                                 type="date"
                                 value={editedValues[rowIndex].end_date}
                                 onChange={(e) =>
@@ -228,13 +234,13 @@ function TripsList(props) {
                             {editMode !== rowIndex ? (
                               <>
                                 <button
-                                  className="edit-button font"
+                                  className="edit-button"
                                   onClick={() => handleEditCell(rowIndex)}
                                 >
                                   Edit
                                 </button>
                                 <button
-                                  className="delete-button font"
+                                  className="delete-button"
                                   onClick={() => handleDelete(trip.trip_id)}
                                 >
                                   Delete
@@ -243,7 +249,7 @@ function TripsList(props) {
                             ) : (
                               <>
                                 <button
-                                  className="save-button font"
+                                  className="save-button"
                                   onClick={() => handleSaveCell(rowIndex)}
                                 >
                                   Save
