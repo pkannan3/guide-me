@@ -150,7 +150,7 @@ function TripsList(props) {
           {display === "trips" && (
             <div
               className="font card-container"
-              style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}
+              // style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}
             >
               {trips.map((trip, rowIndex) => (
                 <div
