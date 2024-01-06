@@ -107,9 +107,9 @@ ul {
 }
 
 .trips-card-button:hover {
-  background-color: #b9e6a2;
-  color: rgb(161, 161, 161);
-  font-weight: 900;
+  font-weight: 500;
+  transform: scale(1.05);
+  transition: transform 0.3s;
 }
 
 .trips-card-button:focus .trips-card {
@@ -134,6 +134,11 @@ ul {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.trips-card-select-button:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s;
 }
 
 .add-trip-card {
