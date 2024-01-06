@@ -48,9 +48,15 @@
   border: 1px solid #c2c2c2;
 }
 
-/* .trips-card:focus .trips-container {
+.selected-trip {
   border: 1px solid #000000;
-} */
+  border-radius: 4px;
+}
+
+.selected-trip .trips-card:hover {
+  border: 1px solid rgb(224, 224, 224);
+  border-radius: 4px;
+}
 
 .trips-card:focus .trips-card-button {
   border: 1px solid #000000;

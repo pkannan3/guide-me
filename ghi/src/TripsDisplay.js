@@ -14,6 +14,7 @@ function TripsList(props) {
   const [editMode, setEditMode] = useState(null);
   const [editedValues, setEditedValues] = useState({});
   const [display, SetDisplay] = useState("trips");
+  const [selectedTripIndex, setSelectedTripIndex] = useState(null);
   const { user, setUser } = useContext(UserContext);
 
   const fetchData = async () => {
@@ -156,10 +157,13 @@ function TripsList(props) {
               {trips.map((trip, rowIndex) => (
                 <div
                   key={trip.trip_id}
-                  className="card-wrapper"
+                  className={`card-wrapper ${
+                    selectedTripIndex === rowIndex ? "selected-trip" : ""
+                  }`}
                   onClick={() => {
                     setTripId(trip.trip_id);
                     SetDisplay("trips");
+                    setSelectedTripIndex(rowIndex); // Update selected trip index
                   }}
                 >
                   <div class="trips-card">
