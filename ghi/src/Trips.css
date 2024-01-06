@@ -1,27 +1,17 @@
 /* Trips Cards Page */
 .adp-grid-container {
   display: grid;
-  grid-template-columns: 1fr 15fr;
+  grid-template-columns: 1fr 18fr;
   grid-gap: 10px;
   align-items: start;
-  border: 1px solid rgb(217, 217, 217);
+  border: 1px solid rgb(172, 43, 43);
   width: 99.9%;
-  height: auto;
-  max-height: calc(100vh - 9.18vh);
+  /* height: auto;
+  max-height: calc(100vh - 9.18vh); */
   padding-left: 0.1%;
   margin: 0;
   border-radius: 30px;
 }
-
-/* .font {
-  font-family: Helvetica Neue, Tahoma, Verdana, sans-serif;
-  letter-spacing: 1.5px;
-}
-
-.subtitle-font {
-  margin-bottom: 40px;
-  text-align: center;
-} */
 
 .add-trip-text {
   align-content: center;
@@ -35,8 +25,8 @@
   padding: 10px;
   margin: 20px 25px 30px 25px;
   gap: 10px;
-  height: auto;
-  max-height: calc(100vh - 12vh);
+  /* height: auto; */
+  /* max-height: calc(100vh - 12vh); */
   background: #fff;
   border: none;
 }
@@ -44,18 +34,12 @@
 .trips-card {
   margin: 8px;
   padding: 0;
-  /* display: flex;
-  flex-wrap: wrap;
-  align-items: center; */
   height: 95%;
   border: 1px solid rgb(224, 224, 224);
   border-radius: 4px;
 }
 
 .trips-card:hover {
-  /* background-color: #e0e0e0;
-  transform: scale(1.05);
-  transition: transform 0.3s; */
   border: 2px solid #818181;
   cursor: pointer;
 }
@@ -183,6 +167,8 @@ ul {
   border-radius: 10px;
   font-family: Helvetica Neue, Tahoma, Verdana, sans-serif;
   letter-spacing: 1.5px;
+  /* height: auto;
+  max-height: calc(100vh - 9.18vh); */
 }
 
 .vertical-text:hover {
@@ -203,8 +189,7 @@ ul {
   border-radius: 45px;
   border: 1px solid #aaaaaa;
   width: 100%;
-  height: auto;
-  max-height: calc(100vh - 9.18vh);
+  height: calc(100vh - 9.18vh);
   margin: 0;
   border-radius: 26px;
 }
