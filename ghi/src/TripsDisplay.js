@@ -247,13 +247,13 @@ function TripsList(props) {
                                     className="trips-card-button"
                                     onClick={() => handleEditCell(rowIndex)}
                                   >
-                                    Edit
+                                    ✎
                                   </button>
                                   <button
                                     className="trips-card-button"
                                     onClick={() => handleDelete(trip.trip_id)}
                                   >
-                                    Delete
+                                    𝘟
                                   </button>
                                 </>
                               ) : (
@@ -262,7 +262,7 @@ function TripsList(props) {
                                     className="trips-card-button"
                                     onClick={() => handleSaveCell(rowIndex)}
                                   >
-                                    Save
+                                    ✔︎ ✔︎ ✓
                                   </button>
                                 </>
                               )}
