@@ -44,9 +44,9 @@
 .trips-card {
   margin: 8px;
   padding: 0;
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: center; */
   border: 1px solid rgb(224, 224, 224);
   border-radius: 4px;
 }
@@ -132,11 +132,10 @@ ul {
 .add-trip-card {
   margin: 8px;
   padding: 0;
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: center; */
   border: 1px solid rgb(212, 212, 212);
-  height: 100%;
   border-radius: 4px;
 }
 
