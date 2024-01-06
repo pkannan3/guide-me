@@ -39,7 +39,7 @@
   /* border: #e0e0e0;  Do we want this to animate?
   transform: scale(1.05);
   transition: transform 0.3s; */
-  border: 2px solid #818181;
+  border: 1px solid #000000;
   cursor: pointer;
 }
 
@@ -48,9 +48,12 @@
   border: 1px solid #c2c2c2;
 }
 
-.trips-card:focus {
-  background-color: #c2c2c2;
-  border: 1px solid #c2c2c2;
+/* .trips-card:focus .trips-container {
+  border: 1px solid #000000;
+} */
+
+.trips-card:focus .trips-card-button {
+  border: 1px solid #000000;
 }
 
 div > img {
@@ -109,10 +112,28 @@ ul {
   font-weight: 900;
 }
 
+.trips-card-button:focus .trips-card {
+  border: 1px solid #000000;
+}
+
 .card-link {
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s;
+}
+
+.trips-card-select-button {
+  background-color: #e7e7e7;
+  color: rgb(0, 0, 0);
+  font-family: Helvetica Neue, Tahoma, Verdana, sans-serif;
+  letter-spacing: 1.5px;
+  font-size: 1.5vh;
+  font-weight: 300;
+  padding: 5px 15px;
+  margin-right: 52px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .add-trip-card {
@@ -127,7 +148,7 @@ ul {
   /* border: #e0e0e0;
   transform: scale(1.05);
   transition: transform 0.3s; */
-  border: 2px solid #818181;
+  border: 1px solid #000000;
   cursor: pointer;
 }
 
@@ -142,14 +163,15 @@ ul {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 3px;
-  margin: 5px 15px;
+  text-align: center;
   font-family: Helvetica Neue, Tahoma, Verdana, sans-serif;
   letter-spacing: 1.5px;
-  font-size: 1.5vh;
+  font-size: 2.75vh;
   font-weight: 300;
   border: none;
   width: 200px;
+  padding: 3px;
+  margin: 125px 15px;
 }
 
 /* NavBar */

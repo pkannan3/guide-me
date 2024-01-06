@@ -241,6 +241,9 @@ function TripsList(props) {
                               )}
                             </ul>
                             <div className="button-container">
+                              <button className="trips-card-select-button">
+                                View
+                              </button>
                               {editMode !== rowIndex ? (
                                 <>
                                   <button
