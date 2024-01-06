@@ -47,14 +47,16 @@
   /* display: flex;
   flex-wrap: wrap;
   align-items: center; */
+  height: 95%;
   border: 1px solid rgb(224, 224, 224);
   border-radius: 4px;
 }
 
 .trips-card:hover {
-  background-color: #e0e0e0;
+  /* background-color: #e0e0e0;
   transform: scale(1.05);
-  transition: transform 0.3s;
+  transition: transform 0.3s; */
+  border: 2px solid #818181;
   cursor: pointer;
 }
 
@@ -120,7 +122,8 @@ ul {
 
 .trips-card-button:hover {
   background-color: #b9e6a2;
-  color: rgb(0, 0, 0);
+  color: rgb(161, 161, 161);
+  font-weight: 900;
 }
 
 .card-link {
@@ -135,6 +138,7 @@ ul {
   /* display: flex;
   flex-wrap: wrap;
   align-items: center; */
+  height: 95%;
   border: 1px solid rgb(212, 212, 212);
   border-radius: 4px;
 }
@@ -153,6 +157,8 @@ ul {
 
 .add-trip-details {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 3px;
