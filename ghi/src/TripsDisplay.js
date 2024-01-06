@@ -275,9 +275,9 @@ function TripsList(props) {
                 </div>
               ))}
               <Link to="/trips/create">
-                <Card className="custom-card add-trip-card-container">
+                <Card className="add-trip-card">
                   <Card.Body>
-                    <Card.Title className="trips-card-details">+</Card.Title>
+                    <Card.Title className="add-trip-details">+</Card.Title>
                   </Card.Body>
                 </Card>
               </Link>
