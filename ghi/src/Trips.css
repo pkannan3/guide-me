@@ -4,10 +4,8 @@
   grid-template-columns: 1fr 18fr;
   grid-gap: 10px;
   align-items: start;
-  border: 1px solid rgb(172, 43, 43);
   width: 99.9%;
-  /* height: auto;
-  max-height: calc(100vh - 9.18vh); */
+  height: auto;
   padding-left: 0.1%;
   margin: 0;
   border-radius: 30px;
@@ -162,13 +160,12 @@ ul {
   white-space: nowrap;
   text-align: center;
   padding: 35px 0 35px 0;
-  color: #676767;
-  font-size: 40px;
   border-radius: 10px;
+  color: #676767;
   font-family: Helvetica Neue, Tahoma, Verdana, sans-serif;
   letter-spacing: 1.5px;
-  /* height: auto;
-  max-height: calc(100vh - 9.18vh); */
+  font-size: 4vh;
+  font-weight: 300;
 }
 
 .vertical-text:hover {
@@ -189,8 +186,10 @@ ul {
   border-radius: 45px;
   border: 1px solid #aaaaaa;
   width: 100%;
-  height: calc(100vh - 9.18vh);
-  margin: 0;
+  height: auto;
+  min-height: calc(100vh - 8.5vh);
+  max-height: 100vh;
+  margin-left: 2px;
   border-radius: 26px;
 }
 
@@ -205,18 +204,15 @@ ul {
 }
 
 .vertical-buttons-container button:hover {
-  /* color: #393939; */
+  color: #ffffff;
   background-color: #e0e0e0;
   border: 1px solid #aaaaaa;
 }
 
 .vertical-buttons-container button:active {
+  color: #ffffff;
   background-color: #c2c2c2;
 }
-
-/* .vertical-buttons-container button:focus {
-  background-color: #d13333;
-} */
 
 .vertical-buttons-container button.active-page {
   border: 1px solid #aaaaaa;
