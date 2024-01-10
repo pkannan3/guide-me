@@ -95,7 +95,9 @@ async def get_account(
 
 
 @router.put(
-    "/accounts/{id}", response_model=Union[AccountOutWithPassword, Error]
+    "/accounts/{id}",
+    tags=["accounts"],
+    response_model=Union[AccountOutWithPassword, Error],
 )
 def update_account(
     id: int,
