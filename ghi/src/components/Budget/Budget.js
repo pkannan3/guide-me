@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import BudgetUpdate from "./BudgetUpdate";
 import BudgetChart from "./BudgetChart";
 import Card from "react-bootstrap/Card";
-
-import "./Budget.css";
+import "../../CSS/Budget.css";
 
 function BudgetForm(props) {
   const { tripId, tripName } = props;

@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState, useContext } from "react";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
-import { UserContext } from "./context";
+import { UserContext } from "../../context";
 import { useNavigate } from "react-router-dom";
-import "./Trips.css";
+import "../../CSS/Trips.css";
 
 mapboxgl.accessToken =
   "pk.eyJ1Ijoibml4c3VhIiwiYSI6ImNsbndqcDY5djA0Zmgya3FoMngzcWdyMTUifQ.Rjyym2-cpc7eoDkt2MXUqg";
