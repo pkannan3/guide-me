@@ -1,9 +1,12 @@
 .HeaderNavbar {
-  background-color: #f6f6f6;
+  background-color: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 12px;
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
 }
 
 .font {
