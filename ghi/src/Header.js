@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import "./Header.css";
-import "./Trips.css";
+import "./CSS/Header.css";
+import "./CSS/Trips.css";
 
 function Header({ onLogout, isUserLoggedIn }) {
   const location = useLocation();

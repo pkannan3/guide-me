@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
-import "./Itinerary.css";
+import "../../CSS/Itinerary.css";
 
 function ItineraryForm({ tripId, onAddItinerary }) {
   const [locationName, setLocationName] = useState("");

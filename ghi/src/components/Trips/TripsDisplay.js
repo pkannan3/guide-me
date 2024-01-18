@@ -1,12 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { UserContext } from "./context";
+import { UserContext } from "../../context";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
-import BudgetForm from "./Budget";
-import ItineraryList from "./Itinerary/itinerary";
-import "./Trips.css";
-import "./Base.css";
-import "./TripsForm";
+import BudgetForm from "../../components/Budget/Budget.js";
+import ItineraryList from "../../components/Itinerary/itinerary.js";
+import "../../CSS/Trips.css";
+import "../../CSS/Base.css";
 
 function TripsList(props) {
   const [trips, setTrips] = useState([]);
