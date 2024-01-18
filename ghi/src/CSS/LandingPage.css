@@ -9,7 +9,7 @@
   overflow: hidden;
   width: 100%;
   height: auto;
-  max-height: calc(100vh - 9.18vh);
+  max-height: 100vh;
   margin: 0;
   border-radius: 5px;
 }
