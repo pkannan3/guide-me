@@ -132,10 +132,11 @@ video {
 .landing-page-cards {
   margin: 5px;
   padding: 0px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
+  gap: 2em;
 }
 
 .landing-page-cards > article {
