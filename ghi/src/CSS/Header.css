@@ -10,9 +10,9 @@
 }
 
 .HeaderNavbar.trips-page {
-  position: relative; /* Change to relative for Trips page */
-  background-color: #fff; /* Change background color if needed */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow if needed */
+  position: relative;
+  background-color: #f6f6f6;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   z-index: 1000;
 }
 
