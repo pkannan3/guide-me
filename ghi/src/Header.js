@@ -28,7 +28,7 @@ function Header({ onLogout, isUserLoggedIn }) {
       >
         <Nav className="mr-home">
           <Link to="/home" onClick={handleHomeLinkClick} className="logo-link">
-            <img src="/logoImage1.png" alt="Logo" className="logo" />
+            <img src="/useLogo.png" alt="Logo" className="logo" />
           </Link>
         </Nav>
         <div>
