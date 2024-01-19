@@ -21,7 +21,11 @@ function Header({ onLogout, isUserLoggedIn }) {
 
   return (
     <>
-      <Navbar className="HeaderNavbar font">
+      <Navbar
+        className={`HeaderNavbar font ${
+          location.pathname === "/trips" ? "trips-page" : ""
+        }`}
+      >
         <Nav className="mr-home">
           <Link to="/home" onClick={handleHomeLinkClick} className="logo-link">
             <img src="/logoImage1.png" alt="Logo" className="logo" />

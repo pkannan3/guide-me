@@ -9,6 +9,13 @@
   z-index: 1000;
 }
 
+.HeaderNavbar.trips-page {
+  position: relative; /* Change to relative for Trips page */
+  background-color: #fff; /* Change background color if needed */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow if needed */
+  z-index: 1000;
+}
+
 .font {
   font-family: Helvetica Neue, Tahoma, Verdana, sans-serif;
   letter-spacing: 1.5px;
