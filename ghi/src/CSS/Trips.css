@@ -231,14 +231,9 @@ ul {
   border: 1px solid #aaaaaa;
 }
 
-/* .vertical-buttons-container button:active {
-  color: #ffffff;
-  background-color: #c2c2c2;
-}
-
 .vertical-buttons-container button.active-page {
   border: 1px solid #aaaaaa;
-} */
+}
 
 .vertical-buttons-container button:disabled .vertical-text {
   background-color: white;
