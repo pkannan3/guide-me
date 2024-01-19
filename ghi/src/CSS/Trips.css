@@ -48,7 +48,7 @@
   border: 1px solid #c2c2c2;
 }
 
-.selected-trip {
+.selected-trip .trips-card {
   border: 1px solid #000000;
   border-radius: 4px;
 }
