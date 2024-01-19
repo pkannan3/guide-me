@@ -38,12 +38,13 @@
   font-size: 16px;
   border-radius: 4px;
   color: black;
+  font-weight: 300;
 }
 
 .accounts-button {
   background-color: #b9e6a2;
   border: 0;
-  padding: 8px 0px 8px;
+  padding: 8px 0 8px 0;
   margin-right: 18px;
   width: 100px;
   text-align: center;
@@ -52,6 +53,7 @@
   font-size: 16px;
   border-radius: 4px;
   color: black;
+  font-weight: 300;
 }
 
 .accounts-button:hover,
