@@ -11,7 +11,7 @@
 
 .HeaderNavbar.trips-page {
   position: relative;
-  background-color: #f6f6f6;
+  /* background-color: #f6f6f6; */
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   z-index: 1000;
 }
