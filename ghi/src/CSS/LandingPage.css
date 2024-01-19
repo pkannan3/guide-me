@@ -9,7 +9,7 @@
   overflow: hidden;
   width: 100%;
   height: auto;
-  max-height: 97vh;
+  max-height: 99vh;
   margin-top: 0.25vh;
   border-radius: 5px;
 }
@@ -126,7 +126,7 @@ video {
   align-items: center;
   background: #fff;
   border: none;
-  margin-top: 15px;
+  margin: 2vh 0 5vh 0;
 }
 
 .landing-page-cards {
