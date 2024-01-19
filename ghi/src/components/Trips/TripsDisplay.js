@@ -147,7 +147,7 @@ function TripsList(props) {
         </div>
 
         <div>
-          <h1 className="body-container-h1"> Your Trips </h1>
+          {/* <h1 className="body-container-h1"> Your Trips </h1> */}
           {display === "trips" && (
             <div
               className="trips-card-container"
