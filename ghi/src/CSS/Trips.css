@@ -17,12 +17,14 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: center;
+  justify-content: left;
   padding: 10px;
-  margin: 20px 25px 30px 25px;
+  margin: 3vh 25px 30px 25px;
+  /* margin-top: 3vh; */
   gap: 10px;
   background: #fff;
-  border: none;
+  border: 1px solid orange;
+  border-radius: 10px;
 }
 
 .trips-card {
@@ -53,8 +55,8 @@
 }
 
 div > img {
-  width: 300px;
-  height: 275px;
+  width: 250px;
+  height: 225px;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
@@ -209,8 +211,6 @@ ul {
   border: 1px solid #aaaaaa;
   width: 100%;
   top: 8vh;
-  /* height: auto; */
-  /* min-height: calc(100vh - 8.5vh); */
   max-height: 100vh;
   margin-top: 3vh;
   border-radius: 26px;
