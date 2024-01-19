@@ -20,7 +20,7 @@
   justify-content: left;
   padding: 0;
   margin: 1.75vh 25px 30px 25px;
-  /* margin-top: 3vh; */
+  margin-left: 4vh;
   gap: 10px;
   background: #fff;
   /* border: 1px solid orange; */
@@ -28,7 +28,7 @@
 }
 
 .trips-card {
-  margin: 1.5vh;
+  margin: 1.25vh 1.5vh;
   padding: 0;
   height: 95%;
   border: 1px solid rgb(224, 224, 224);
@@ -98,7 +98,7 @@ ul {
   color: rgb(0, 0, 0);
   font-size: 16px;
   padding: 5px 15px;
-  margin: 5px 5px 5px 0;
+  margin: 10px 5px 5px 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -196,7 +196,7 @@ ul {
 }
 
 .vertical-text:active {
-  color: #ffffff;
+  color: #000000;
   border-radius: 4px;
 }
 
@@ -231,14 +231,14 @@ ul {
   border: 1px solid #aaaaaa;
 }
 
-.vertical-buttons-container button:active {
+/* .vertical-buttons-container button:active {
   color: #ffffff;
   background-color: #c2c2c2;
 }
 
 .vertical-buttons-container button.active-page {
   border: 1px solid #aaaaaa;
-}
+} */
 
 .vertical-buttons-container button:disabled .vertical-text {
   background-color: white;
