@@ -172,7 +172,7 @@ video {
   font-size: 20px;
   font-weight: 300;
   padding: 10px;
-  text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
+  /* text-shadow: 1px 1px 1px rgba(150, 150, 150, 1); */
 }
 
 .text h4 {
@@ -182,7 +182,7 @@ video {
   font-weight: 300;
   padding: 0px;
   margin: 0px;
-  text-shadow: 1px 1px 1px rgba(150, 150, 150, 1);
+  /* text-shadow: 1px 1px 1px rgba(150, 150, 150, 1); */
 }
 
 .text p {
