@@ -213,17 +213,16 @@ ul {
 .vertical-buttons-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
   position: sticky;
-  top: 4vh;
-
   border: 1px solid #aaaaaa;
   width: 100%;
-  height: auto;
-  min-height: calc(100vh - 8.5vh);
+  top: 8vh;
+  /* height: auto; */
+  /* min-height: calc(100vh - 8.5vh); */
   max-height: 100vh;
-  margin-left: 2px;
+  margin-top: 3vh;
   border-radius: 26px;
 }
 
