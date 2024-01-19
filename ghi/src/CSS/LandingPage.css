@@ -77,7 +77,7 @@ video {
 
 .arrow-div {
   position: absolute;
-  top: 100%;
+  top: 90%;
   left: 50%;
   transform: translateX(-50%) rotate(45deg);
 }
