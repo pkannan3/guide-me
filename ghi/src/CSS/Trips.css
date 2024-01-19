@@ -18,12 +18,12 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: left;
-  padding: 10px;
-  margin: 3vh 25px 30px 25px;
+  padding: 0;
+  margin: 1.75vh 25px 30px 25px;
   /* margin-top: 3vh; */
   gap: 10px;
   background: #fff;
-  border: 1px solid orange;
+  /* border: 1px solid orange; */
   border-radius: 10px;
 }
 
@@ -32,7 +32,7 @@
   padding: 0;
   height: 95%;
   border: 1px solid rgb(224, 224, 224);
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 .trips-card:hover {
@@ -47,7 +47,7 @@
 
 .selected-trip .trips-card {
   border: 1px solid #000000;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 .trips-card:focus .trips-card-button {
@@ -56,9 +56,9 @@
 
 div > img {
   width: 250px;
-  height: 225px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  height: 218px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .trips-card-details {
@@ -74,7 +74,7 @@ div > img {
   font-weight: 300;
   border: 1px solid rgb(212, 212, 212);
   border-radius: 4px;
-  width: 200px;
+  width: 220px;
 }
 
 .trips-cards-input {
@@ -145,7 +145,7 @@ ul {
   height: 95%;
   width: 250px;
   border: 1px solid rgb(224, 224, 224);
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 .add-trip-card:hover {
