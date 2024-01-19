@@ -20,7 +20,7 @@
   flex-direction: row;
   justify-content: left;
   padding: 0;
-  margin: 3vh 3vh 0 4vh;
+  margin: 2vh 3vh 0 4vh;
   gap: 10px;
   /* border: 1px solid orange; */
   border-radius: 10px;
@@ -206,8 +206,7 @@ ul {
   position: sticky;
   border: 1px solid #aaaaaa;
   width: 100%;
-  top: 8vh;
-  top: 13%;
+  top: 8%;
   max-height: 100vh;
   margin-top: 3vh;
   margin-left: 1vh;
