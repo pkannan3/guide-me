@@ -3,10 +3,11 @@
   display: grid;
   grid-template-columns: 1fr 18fr;
   align-items: start;
-  height: auto;
   padding: 0;
   margin: 0;
   border-radius: 30px;
+  border: 1px solid peachpuff;
+  height: calc(100vh - 9vh);
 }
 
 .add-trip-text {
@@ -19,11 +20,10 @@
   flex-direction: row;
   justify-content: left;
   padding: 0;
-  margin: 1.75vh 25px 30px 25px;
   margin-left: 4vh;
   gap: 10px;
   background: #fff;
-  /* border: 1px solid orange; */
+  border: 1px solid orange;
   border-radius: 10px;
 }
 
@@ -207,9 +207,8 @@ ul {
   position: sticky;
   border: 1px solid #aaaaaa;
   width: 100%;
-  top: 8vh;
+  top: 13%;
   max-height: 100vh;
-  margin-top: 3vh;
   margin-left: 1vh;
   border-radius: 26px;
 }
