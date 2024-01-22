@@ -6,6 +6,9 @@ import BudgetForm from "../../components/Budget/Budget.js";
 import ItineraryList from "../../components/Itinerary/itinerary.js";
 import "../../CSS/Trips.css";
 import "../../CSS/Base.css";
+import edit from "./edit.png";
+import save from "./save.png";
+import del from "./delete.png";
 
 function TripsList(props) {
   const [trips, setTrips] = useState([]);
@@ -147,7 +150,7 @@ function TripsList(props) {
         </div>
 
         <div>
-          <h1 className="body-container-h1"> Your Trips </h1>
+          {/* <h1 className="body-container-h1"> Your Trips </h1> */}
           {display === "trips" && (
             <div
               className="trips-card-container"
@@ -244,22 +247,22 @@ function TripsList(props) {
                               )}
                             </ul>
                             <div className="button-container">
-                              <button className="trips-card-select-button">
+                              {/* <button className="trips-card-select-button">
                                 View
-                              </button>
+                              </button> */}
                               {editMode !== rowIndex ? (
                                 <>
                                   <button
                                     className="trips-card-button"
                                     onClick={() => handleEditCell(rowIndex)}
                                   >
-                                    ✎
+                                    <img src={edit} alt="✎" />
                                   </button>
                                   <button
                                     className="trips-card-button"
                                     onClick={() => handleDelete(trip.trip_id)}
                                   >
-                                    𝘟
+                                    <img src={del} alt="save" />
                                   </button>
                                 </>
                               ) : (
@@ -268,7 +271,7 @@ function TripsList(props) {
                                     className="trips-card-button"
                                     onClick={() => handleSaveCell(rowIndex)}
                                   >
-                                    ✔︎ ✔︎ ✓
+                                    <img src={save} alt="save" />
                                   </button>
                                 </>
                               )}
