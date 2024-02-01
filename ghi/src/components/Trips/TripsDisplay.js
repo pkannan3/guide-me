@@ -293,7 +293,13 @@ function TripsList(props) {
               </Link> */}
 
               <Popup
-                trigger={<button className="button"> Open Modal </button>}
+                trigger={
+                  <Card className="add-trip-card">
+                    <Card.Body>
+                      <Card.Title className="add-trip-details">+</Card.Title>
+                    </Card.Body>
+                  </Card>
+                }
                 modal
                 nested
               >
