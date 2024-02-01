@@ -297,7 +297,7 @@ ul {
   background-color: white;
   border: 1px solid purple;
   border-radius: 5px;
-  width: 30vw;
+  width: 100%;
 }
 .modal > .header {
   width: 100%;
