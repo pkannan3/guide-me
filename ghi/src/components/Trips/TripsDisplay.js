@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context";
-import { Link } from "react-router-dom";
 import Popup from "reactjs-popup";
 import Card from "react-bootstrap/Card";
 import BudgetForm from "../../components/Budget/Budget.js";
