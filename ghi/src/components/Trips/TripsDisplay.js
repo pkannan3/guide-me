@@ -323,7 +323,11 @@ function TripsList(props) {
                     </div>
                     <div className="actions">
                       <Popup
-                        trigger={<button className="button"> Trigger </button>}
+                        trigger={
+                          <button className="trips-card-button">
+                            Add Submit Functionality
+                          </button>
+                        }
                         position="top center"
                         nested
                       >
@@ -336,13 +340,13 @@ function TripsList(props) {
                         </span>
                       </Popup>
                       <button
-                        className="button"
+                        className="trips-card-button"
                         onClick={() => {
                           console.log("modal closed ");
                           close();
                         }}
                       >
-                        close modal
+                        Cancel
                       </button>
                     </div>
                   </div>

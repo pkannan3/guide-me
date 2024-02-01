@@ -292,8 +292,10 @@ ul {
   margin-bottom: 30px;
 }
 
+/* PopUp Modal */
 .modal {
-  font-size: 12px;
+  border: 1px solid purple;
+  width: 30vw;
 }
 .modal > .header {
   width: 100%;
