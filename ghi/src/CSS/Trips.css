@@ -294,6 +294,7 @@ ul {
 
 /* PopUp Modal */
 .modal {
+  background-color: white;
   border: 1px solid purple;
   border-radius: 5px;
   width: 30vw;
