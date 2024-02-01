@@ -308,7 +308,7 @@ function TripsList(props) {
                     <button className="close" onClick={close}>
                       &times;
                     </button>
-                    <div className="header"> Modal Title </div>
+                    <div className="header"> Create Trip </div>
                     <div className="content">
                       {" "}
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.

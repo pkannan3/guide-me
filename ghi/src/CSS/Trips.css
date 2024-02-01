@@ -295,6 +295,7 @@ ul {
 /* PopUp Modal */
 .modal {
   border: 1px solid purple;
+  border-radius: 5px;
   width: 30vw;
 }
 .modal > .header {
@@ -306,7 +307,7 @@ ul {
 }
 .modal > .content {
   width: 100%;
-  padding: 10px 5px;
+  padding: 20px;
 }
 .modal > .actions {
   width: 100%;
