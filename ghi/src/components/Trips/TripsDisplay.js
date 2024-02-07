@@ -18,6 +18,7 @@ function TripsList(props) {
   const [display, SetDisplay] = useState("trips");
   const [selectedTripIndex, setSelectedTripIndex] = useState(null);
   const { user, setUser } = useContext(UserContext);
+  const [showPopup, setShowPopup] = useState(false);
 
   const fetchData = async () => {
     const url = "http://localhost:8000/trips";
@@ -108,6 +109,7 @@ function TripsList(props) {
   return (
     <>
       <div className="adp-grid-container">
+        {showPopup && <div className="overlay"></div>}
         <div className="vertical-buttons-container">
           <button
             onClick={() => {

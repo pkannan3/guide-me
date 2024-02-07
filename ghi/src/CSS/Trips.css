@@ -10,8 +10,9 @@
   border: 1px solid peachpuff;
 }
 
-.add-trip-text {
-  align-content: center;
+.add-trip-card:active .adp-grid-container {
+  border: 1px solid #aaaaaa;
+  background-color: #000000;
 }
 
 .trips-card-container {
@@ -39,18 +40,14 @@
   cursor: pointer;
 }
 
-/* .trips-card:active {
-  border: 1.75px solid #000000;
-} */
-
 .selected-trip .trips-card {
   border: 1px solid #000000;
   border-radius: 10px;
 }
 
-.trips-card:focus .trips-card-button {
+/* .trips-card:focus .trips-card-button {
   border: 1px solid #000000;
-}
+} */
 
 div > img {
   width: 250px;
@@ -90,6 +87,8 @@ ul {
   align-items: center;
   margin: 5px 10px;
 }
+
+/* here */
 
 .trips-card button > img {
   width: 18px;
@@ -328,4 +327,13 @@ ul {
   background: #ffffff;
   border-radius: 18px;
   border: 1px solid #cfcece;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black with 50% transparency */
+  z-index: 999; /* Ensure it's above other elements */
 }
