@@ -7,7 +7,7 @@ function LoginForm() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser,setUserinfo } = useContext(UserContext);
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -33,9 +33,12 @@ function LoginForm() {
         const data = await response.json();
         console.log("Login successful", data);
         localStorage.setItem("access_token", data.access_token);
+        localStorage.setItem("username", username);
         setUser(data.access_token);
+        console.log("username", username);
+        setUserinfo(username);
         navigate("/trips");
-        window.location.reload();
+        // window.location.reload();
       } else {
         const errorData = await response.json();
         console.log("Login failed", errorData);

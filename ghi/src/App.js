@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserContext } from "./context.js";
 import SignupForm from "./Accounts/signup.js";
@@ -11,28 +11,30 @@ import TripsForm from "./TripsForm";
 import BudgetForm from "./Budget";
 import SettingsForm from "./Accounts/settings.js";
 import NotFound from "./404/PageDoesNotExist";
+import { UserProvider } from "./context.js";
 
 function App() {
-  const [isUserLoggedIn, setUserLoggedIn] = useState(
-    !!localStorage.getItem("access_token")
-  );
+  const {isUserLoggedIn} = useContext(UserContext)
+  // const [isUserLoggedIn, setUserLoggedIn] = useState(
+  //   !!localStorage.getItem("access_token")
+  // );
 
-  const [user, setUser] = useState(localStorage.getItem("access_token"));
+  // const [user, setUser] = useState(localStorage.getItem("access_token"));
 
-  const handleLogout = () => {
-    localStorage.removeItem("access_token");
-    setUserLoggedIn(false);
-    window.location.reload();
-  };
+  // const handleLogout = () => {
+  //   localStorage.removeItem("access_token");
+  //   setUserLoggedIn(false);
+  //   window.location.reload();
+  // };
 
-  const handleLogin = () => {
-    setUserLoggedIn(true);
-  };
+  // const handleLogin = () => {
+  //   setUserLoggedIn(true);
+  // };
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    // <UserProvider>
       <BrowserRouter>
-        <Header onLogout={handleLogout} isUserLoggedIn={isUserLoggedIn} />
+        <Header />
         <div className="App-layout">
           {isUserLoggedIn ? (
             <Routes>
@@ -52,14 +54,14 @@ function App() {
               <Route path="/login" element={<LoginForm />} />
               <Route
                 path="/register"
-                element={<SignupForm onRegister={handleLogin} />}
+                element={<SignupForm/>}
               />
               <Route path="*" element={<LandingPage />} />
             </Routes>
           )}
         </div>
       </BrowserRouter>
-    </UserContext.Provider>
+    // </UserProvider>
   );
 }
 

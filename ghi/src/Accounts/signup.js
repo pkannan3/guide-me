@@ -3,14 +3,17 @@ import { useNavigate, Link } from "react-router-dom";
 import "./Account.css";
 import { UserContext } from "../context";
 
-function SignupForm({ onRegister }) {
+
+
+function SignupForm() {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser, handleLogin, setUserinfo } = useContext(UserContext);
+
 
   const handleChangeName = (event) => {
     setName(event.target.value);
@@ -56,7 +59,7 @@ function SignupForm({ onRegister }) {
         const result = await response.json();
         console.log("Registration successful");
         setError("");
-        onRegister();
+        handleLogin();
         localStorage.setItem("access_token", result.access_token);
         setUser(result.access_token);
         navigate("/trips");

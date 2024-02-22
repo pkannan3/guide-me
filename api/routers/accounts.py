@@ -19,6 +19,7 @@ from queries.accounts import (
     AccountQueries,
     DuplicateAccountError,
     AccountOutWithPassword,
+    AccountUpdate,
     Error,
 )
 
@@ -101,7 +102,14 @@ async def get_account(
 )
 def update_account(
     id: int,
-    account: AccountIn,
+    account: AccountUpdate,
     repo: AccountQueries = Depends(),
-) -> Union[Error, AccountOutWithPassword]:
-    return repo.edit_accountp(id, account)
+):
+    if account.password:
+        hashed_password = authenticator.hash_password(account.password)
+        account.hashed_password = hashed_password
+
+    updated_account = repo.edit_account(id, account)
+    if isinstance(updated_account, Error):
+        raise HTTPException(status_code=400, detail=updated_account.message)
+    return updated_account
