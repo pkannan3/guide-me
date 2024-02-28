@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context";
-import { Link } from "react-router-dom";
+import Popup from "reactjs-popup";
 import Card from "react-bootstrap/Card";
 import BudgetForm from "../../components/Budget/Budget.js";
 import ItineraryList from "../../components/Itinerary/itinerary.js";
@@ -18,6 +18,7 @@ function TripsList(props) {
   const [display, SetDisplay] = useState("trips");
   const [selectedTripIndex, setSelectedTripIndex] = useState(null);
   const { user, setUser } = useContext(UserContext);
+  const [showPopup, setShowPopup] = useState(false);
 
   const fetchData = async () => {
     const url = "http://localhost:8000/trips";
@@ -108,6 +109,7 @@ function TripsList(props) {
   return (
     <>
       <div className="adp-grid-container">
+        {showPopup && <div className="overlay"></div>}
         <div className="vertical-buttons-container">
           <button
             onClick={() => {
@@ -283,13 +285,66 @@ function TripsList(props) {
                   </div>
                 </div>
               ))}
-              <Link to="/trips/create">
+              {/* <Link to="/trips/create">
                 <Card className="add-trip-card">
                   <Card.Body>
                     <Card.Title className="add-trip-details">+</Card.Title>
                   </Card.Body>
                 </Card>
-              </Link>
+              </Link> */}
+
+              <Popup
+                trigger={
+                  <Card className="add-trip-card">
+                    <Card.Body>
+                      <Card.Title className="add-trip-details">+</Card.Title>
+                    </Card.Body>
+                  </Card>
+                }
+                modal
+                nested
+              >
+                {(close) => (
+                  <div className="modal">
+                    <button className="close" onClick={close}>
+                      &times;
+                    </button>
+                    <div className="header"> Create Trip </div>
+                    <div className="content">
+                      Trip Name:
+                      <br />
+                      Start Date:
+                      <br />
+                      End Date:
+                    </div>
+                    <div className="actions">
+                      <Popup
+                        trigger={
+                          <button className="trips-card-button">
+                            Add Submit Functionality
+                          </button>
+                        }
+                        position="top center"
+                        nested
+                      >
+                        <span>
+                          When successfully submitted replace form modal with
+                          success message text modal.
+                        </span>
+                      </Popup>
+                      <button
+                        className="trips-card-button"
+                        onClick={() => {
+                          console.log("modal closed ");
+                          close();
+                        }}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </Popup>
             </div>
           )}
         </div>
