@@ -19,6 +19,7 @@ from queries.accounts import (
     AccountQueries,
     DuplicateAccountError,
     AccountOutWithPassword,
+    AccountUpdate,
     Error,
     AccountUpdate,
 )

@@ -33,6 +33,14 @@ class AccountOutWithPassword(AccountOut):
     hashed_password: str
 
 
+class AccountUpdate(BaseModel):
+    name: Optional[str] = None
+    email: Optional[str] = None
+    username: Optional[str] = None
+    password: Optional[str] = None
+    hashed_password: Optional[str] = None
+
+
 class Error(BaseModel):
     message: str
 
@@ -117,7 +125,6 @@ class AccountQueries:
             "email": account.email,
             "hashed_password": account.hashed_password,
         }
-
         update_values = {
             k: v for k, v in update_values.items() if v is not None
         }
@@ -145,10 +152,10 @@ class AccountQueries:
                 with conn.cursor() as db:
                     db.execute(
                         f"""
-                        UPDATE authentication
-                        SET {set_clause}
-                        WHERE id = %s;
-                        """,
+                            UPDATE authentication
+                            SET {set_clause}
+                            WHERE id = %s;
+                            """,
                         values + [id],
                     )
                     return self.account_in_to_out(id, account)
