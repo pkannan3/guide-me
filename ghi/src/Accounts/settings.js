@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./Account.css";
-import { UserContext } from "../context";
+https://cto.ai/blog/setup-cicd-on-digitalocean/import { UserContext } from "../context";
 
 
 
