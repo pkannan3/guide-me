@@ -1,37 +1,40 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserContext } from "./context.js";
 import SignupForm from "./components/Accounts/signup.js";
 import LoginForm from "./components/Accounts/login.js";
 import Header from "./Header.js";
-import LandingPage from "./components/Home/LandingPage.js";
-import ItineraryList from "./components/Itinerary/itinerary.js";
-import TripsDisplay from "./components/Trips/TripsDisplay.js";
-import TripsForm from "./components/Trips/TripsForm.js";
-import BudgetForm from "./components/Budget/Budget.js";
-import NotFound from "./components/Notification/PageDoesNotExist.js";
+import LandingPage from "./Home/LandingPage.js";
+import ItineraryList from "./Itinerary/itinerary.js";
+import TripsDisplay from "./TripsDisplay";
+import TripsForm from "./TripsForm";
+import BudgetForm from "./Budget";
+import SettingsForm from "./Accounts/settings.js";
+import NotFound from "./404/PageDoesNotExist";
+import { UserProvider } from "./context.js";
 
 function App() {
-  const [isUserLoggedIn, setUserLoggedIn] = useState(
-    !!localStorage.getItem("access_token")
-  );
+  const {isUserLoggedIn} = useContext(UserContext)
+  // const [isUserLoggedIn, setUserLoggedIn] = useState(
+  //   !!localStorage.getItem("access_token")
+  // );
 
-  const [user, setUser] = useState(localStorage.getItem("access_token"));
+  // const [user, setUser] = useState(localStorage.getItem("access_token"));
 
-  const handleLogout = () => {
-    localStorage.removeItem("access_token");
-    setUserLoggedIn(false);
-    window.location.reload();
-  };
+  // const handleLogout = () => {
+  //   localStorage.removeItem("access_token");
+  //   setUserLoggedIn(false);
+  //   window.location.reload();
+  // };
 
-  const handleLogin = () => {
-    setUserLoggedIn(true);
-  };
+  // const handleLogin = () => {
+  //   setUserLoggedIn(true);
+  // };
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    // <UserProvider>
       <BrowserRouter>
-        <Header onLogout={handleLogout} isUserLoggedIn={isUserLoggedIn} />
+        <Header />
         <div className="App-layout">
           {isUserLoggedIn ? (
             <Routes>
@@ -42,6 +45,7 @@ function App() {
               <Route path="/" element={<LandingPage />} />
               <Route path="/home" element={<LandingPage />} />
               <Route path="*" element={<NotFound />} />
+              <Route path="/settings" element={<SettingsForm />} />
             </Routes>
           ) : (
             <Routes>
@@ -50,14 +54,14 @@ function App() {
               <Route path="/login" element={<LoginForm />} />
               <Route
                 path="/register"
-                element={<SignupForm onRegister={handleLogin} />}
+                element={<SignupForm/>}
               />
               <Route path="*" element={<LandingPage />} />
             </Routes>
           )}
         </div>
       </BrowserRouter>
-    </UserContext.Provider>
+    // </UserProvider>
   );
 }
 
