@@ -2,14 +2,14 @@ import React, { useState, useContext } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import "./Header.css";
-import "./Trips.css";
+import "./CSS/Header.css";
+import "./CSS/Trips.css";
 import { UserContext } from "./context";
 
 function Header() {
   const location = useLocation();
   const [refreshNav, setRefreshNav] = useState(false);
-  const {isUserLoggedIn, handleLogout} = useContext(UserContext)
+  const { isUserLoggedIn, handleLogout } = useContext(UserContext);
 
   const handleHomeLinkClick = () => {
     if (location.pathname === "/home") {
