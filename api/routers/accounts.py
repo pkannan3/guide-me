@@ -21,6 +21,7 @@ from queries.accounts import (
     AccountOutWithPassword,
     AccountUpdate,
     Error,
+    AccountUpdate,
 )
 
 
@@ -40,14 +41,14 @@ class HttpError(BaseModel):
 router = APIRouter()
 
 
-@router.get("/protected", response_model=bool)
+@router.get("/protected", tags=["accounts"], response_model=bool)
 async def get_protected(
     account_data: dict = Depends(authenticator.get_current_account_data),
 ):
     return True
 
 
-@router.get("/token", response_model=AccountToken | None)
+@router.get("/token", tags=["accounts"], response_model=AccountToken | None)
 async def get_token(
     request: Request,
     account: AccountOut = Depends(authenticator.try_get_current_account_data),
@@ -60,7 +61,9 @@ async def get_token(
         }
 
 
-@router.post("/register", response_model=AccountToken | HttpError)
+@router.post(
+    "/register", tags=["accounts"], response_model=AccountToken | HttpError
+)
 async def create_account(
     info: AccountIn,
     request: Request,

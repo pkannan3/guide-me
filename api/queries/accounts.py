@@ -21,6 +21,14 @@ class AccountOut(BaseModel):
     email: str
 
 
+class AccountUpdate(BaseModel):
+    name: Optional[str] = None
+    username: Optional[str] = None
+    password: Optional[str] = None
+    email: Optional[str] = None
+    hashed_password: Optional[str] = None
+
+
 class AccountOutWithPassword(AccountOut):
     hashed_password: str
 

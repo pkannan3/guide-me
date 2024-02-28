@@ -1,4 +1,4 @@
-function Construct(props) {
+function UnderConstruction(props) {
   return (
     <div className="App">
       <header className="App-header">
@@ -17,4 +17,4 @@ function Construct(props) {
   );
 }
 
-export default Construct;
+export default UnderConstruction;

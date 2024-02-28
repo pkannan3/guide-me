@@ -1,10 +1,10 @@
 // LandingPage.css
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { UserContext } from "../context.js";
+import { UserContext } from "../../context.js";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import "./LandingPage.css";
+import "../../CSS/LandingPage.css";
 
 function LandingPage() {
   const [isUserLoggedIn, setUserLoggedIn] = useState(
@@ -65,8 +65,8 @@ function LandingPage() {
       </div>
 
       <div id="top"></div>
-      <div className="card-container">
-        <main class="card">
+      <div className="landing-card-container">
+        <main class="landing-page-cards">
           <article>
             <img src="/pnk.jpeg" alt={`Image of Dev1`} />
             <div class="text">

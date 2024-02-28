@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserContext } from "./context.js";
-import SignupForm from "./Accounts/signup.js";
-import LoginForm from "./Accounts/login.js";
+import SignupForm from "./components/Accounts/signup.js";
+import LoginForm from "./components/Accounts/login.js";
 import Header from "./Header.js";
 import LandingPage from "./Home/LandingPage.js";
 import ItineraryList from "./Itinerary/itinerary.js";
