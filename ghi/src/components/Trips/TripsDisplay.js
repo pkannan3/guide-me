@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context";
+import Popup from "reactjs-popup";
 import Card from "react-bootstrap/Card";
 import BudgetForm from "../../components/Budget/Budget.js";
 import ItineraryList from "../../components/Itinerary/itinerary.js";
@@ -291,6 +292,11 @@ function TripsList(props) {
                   </Card.Body>
                 </Card>
               </Link> */}
+              <Card className="add-trip-card">
+                <Card.Body>
+                  <Card.Title className="add-trip-details">+</Card.Title>
+                </Card.Body>
+              </Card>
             </div>
           )}
         </div>
