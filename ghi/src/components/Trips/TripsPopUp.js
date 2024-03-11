@@ -1,4 +1,6 @@
 import React, { useRef, useEffect, useState, useContext } from "react";
+import Popup from "reactjs-popup";
+import Card from "react-bootstrap/Card";
 import { UserContext } from "../../context";
 import { useNavigate } from "react-router-dom";
 import "../../CSS/Trips.css";

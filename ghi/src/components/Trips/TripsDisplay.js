@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context";
-import Popup from "reactjs-popup";
 import Card from "react-bootstrap/Card";
 import BudgetForm from "../../components/Budget/Budget.js";
 import ItineraryList from "../../components/Itinerary/itinerary.js";
@@ -292,59 +291,6 @@ function TripsList(props) {
                   </Card.Body>
                 </Card>
               </Link> */}
-
-              <Popup
-                trigger={
-                  <Card className="add-trip-card">
-                    <Card.Body>
-                      <Card.Title className="add-trip-details">+</Card.Title>
-                    </Card.Body>
-                  </Card>
-                }
-                modal
-                nested
-              >
-                {(close) => (
-                  <div className="modal">
-                    <button className="close" onClick={close}>
-                      &times;
-                    </button>
-                    <div className="header"> Create Trip </div>
-                    <div className="content">
-                      Trip Name:
-                      <br />
-                      Start Date:
-                      <br />
-                      End Date:
-                    </div>
-                    <div className="actions">
-                      <Popup
-                        trigger={
-                          <button className="trips-card-button">
-                            Add Submit Functionality
-                          </button>
-                        }
-                        position="top center"
-                        nested
-                      >
-                        <span>
-                          When successfully submitted replace form modal with
-                          success message text modal.
-                        </span>
-                      </Popup>
-                      <button
-                        className="trips-card-button"
-                        onClick={() => {
-                          console.log("modal closed ");
-                          close();
-                        }}
-                      >
-                        Cancel
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </Popup>
             </div>
           )}
         </div>
